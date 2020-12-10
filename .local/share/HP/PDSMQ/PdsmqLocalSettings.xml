@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PdsmqConfig version="4.0">
+  <UserOptIn>False</UserOptIn>
+  <AppDeployedUuid>7159fe43-955e-46d4-b983-d94fa67d0127</AppDeployedUuid>
+  <OnRamp>/start_app/desktop_shortcut</OnRamp>
+</PdsmqConfig>

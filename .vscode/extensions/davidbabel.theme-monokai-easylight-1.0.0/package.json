@@ -1,0 +1,33 @@
+{
+	"name": "Theme-Monokai-Easylight",
+	"displayName": "Monokai Theme Easylight",
+	"description": "Monokai Theme ported from the Monokai TextMate Theme",
+	"version": "1.0.0",
+	"publisher": "davidbabel",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "icon.png",
+	"homepage": "https://github.com/DavidBabel/Theme-Monokai-EasyLight/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DavidBabel/Theme-Monokai-EasyLight"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Monokai-EasyLight",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Monokai.tmTheme"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "7cefb73a-a4f1-449c-8c1f-0bd8b79bf0a0",
+		"publisherId": "62432f19-b99c-4558-a38d-08cf2e088cac",
+		"publisherDisplayName": "davidbabel"
+	}
+}

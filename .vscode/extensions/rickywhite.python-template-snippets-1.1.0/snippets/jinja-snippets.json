@@ -1,0 +1,21 @@
+{
+    "Jinja - Link Static File": {
+		"scope": "html",
+		"prefix": "ptj-url",
+		"body": [
+			"{{ url_for('static', filename='$1') }}$0"
+		],
+		"description": "Link static file with Jinja"
+	},
+
+	"Jinja - Macros": {
+		"scope": "html",
+		"prefix": "ptj-mac",
+		"body": [
+			"{% macro $1 %}",
+			"\t$0",
+			"{% endmacro %}"
+		],
+		"description": "Adds macro tags"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"name": "Theme-DeerAntlerDark",
+	"displayName": "DeerAntlerDark Theme",
+	"description": "DeerAntlerDark Theme ported from the DeerAntlerDark TextMate Theme",
+	"version": "0.0.5",
+	"publisher": "gerane",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "icon.png",
+	"homepage": "https://github.com/gerane/VSCodeThemes/blob/master/gerane.Theme-DeerAntlerDark/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gerane/VSCodeThemes.git"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "DeerAntlerDark",
+				"path": "./themes/DeerAntlerDark.tmTheme",
+				"uiTheme": "vs-dark"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "fd584ce3-3132-47e6-a1cd-78f92e547111",
+		"publisherId": "a5c25faf-bf60-4941-81b9-9a852b96c5fb",
+		"publisherDisplayName": "gerane"
+	}
+}

@@ -1,0 +1,502 @@
+ssh bryanwi09@172.16.1.34
+ifconfig
+clear
+ifconfig
+clear
+ifconfig
+uptime
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ping 172.16.1.34
+ssh bryanwi09@172.21.1.34
+ping 172.16.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+ssh bryanwi09@172.21.1.34
+sudo fish
+clear
+sudo fish
+sudo fish
+ssh bryanwi09@172.16.1.34
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.51
+ssh pi@172.16.1.51
+ssh pi@172.16.1.51
+ssh pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.50
+brew cask install virtualbox
+brew u0pdate
+brew update
+brew tap caskroom/cask
+brew tap caskroom/cask-cask
+sudo reboot
+locate virtualbox
+clear
+sudo fish
+sudo 
+sudo fish
+sudo fish
+sudo fish
+sudo fish
+sudo fish
+sudo fish
+ssh -p 2222 pi@rpi1
+brew update kitty
+brew upgrade kitty
+brew update
+brew upgrade
+ssh osboxes@10.0.2.15
+ping 10.0.2.15
+ping 172.16.1.17
+ssh osboxes@172.16.1.17
+ssh bryanwi09@172.16.1.17
+ssh osboxes@172.16.1.17
+ssh bryanwi09@172.16.1.17
+uptime
+sudo fish
+cd Docs/scripts/working/
+ls
+tail -f log.txt 
+sudo fish
+pwd
+ls
+cat dot,xls
+cat dot.xls
+cat dots.xls
+clear
+ls
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.50
+ls
+cd /Volumes/
+ls
+cd DEBIAN/
+ls
+cd /Users/bryanwi09/Downloads/
+ls
+hdiutil convert -format UDRW -o debian.img debian-10.2.0-amd64-DVD-1.iso
+mv debian.img.dmg debian.img
+diskutil list
+diskutil unmountDisk /dev/disk4
+sudo dd if=debian.img of=/dev/disk4 bs=1m
+diskutil list
+diskutil list
+diskutil mount /dev/disk4
+ls
+diskutil list
+ssh -p 2222 pi@bryanwills.org
+ssh bryanwi09@172.16.1.34
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@bryanwills.org
+source /opt/anaconda3/bin/activate
+conda activate base
+ls
+cd working
+ls
+python3 amazon.py 
+clear
+uptime
+ls
+python3 quotes.py 
+clear
+python3 quotes.py 
+clear
+python3 imdb.py 
+python3 imdb.py 
+python3 imdb.py 
+python3 imdb.py 
+python3 imdb.py 
+clear
+python3 imdb.py 
+/Users/bryanwi09/Downloads/micro-1.4.1/micro ; exit;
+ssh -p 2222 pi@bryanwills.org
+clear
+git clone https://github.com/tducret/amazon-scraper-python
+cd amazon-scraper-python/
+ls
+pip3 install -U amazonscraper
+amazon2csv.py --keywords="Python programming" --maxproductnb=2
+ls
+ls
+cd ..
+ls
+python3 stocks.py
+python3 stocks.py
+pip3 install pandas
+clear
+python3 stocks.py
+pip3 install pandas-datareader
+clear
+python3 stocks.py
+python3 stocks.py
+python3 stocks.py
+python3 stocks.py
+python3 stocks.py
+python3 stocks.py
+git clone https://github.com/rgkimball/pandas-datareader
+cd pandas-datareader/
+git checkout fix-yahoo
+pip install -e .
+pip install -e
+ls
+pip install -e .
+sudo pip install -e .
+cd ..
+ls
+python3 stocks.py 
+python3 stocks.py 
+uptime
+python3 selector.py https://www.amazon.com/Anker-PowerCore-20100mAh-Portable-Delivery/dp/B071WNWRNC
+pip3 install selectorlib
+python3 selector.py https://www.amazon.com/Anker-PowerCore-20100mAh-Portable-Delivery/dp/B071WNWRNC
+pip install selectorlib
+python3 selector.py https://www.amazon.com/Anker-PowerCore-20100mAh-Portable-Delivery/dp/B071WNWRNC
+python3 selector.py https://www.amazon.com/Anker-PowerCore-20100mAh-Portable-Delivery/dp/B071WNWRNC
+pip3 install argparse
+pip install argparse
+python3 nasdaq.py 
+python3 nasdaq.py stock AAPL
+python3 nasdaq.py -h ticker AAPL
+python3 nasdaq.py ticker AAPL
+python3 nasdaq.py -h AAPL
+python3 nasdaq.py aapl
+ls
+cat aapl-summary.json 
+python3 nasdaq.py aapl
+cd ..
+ls
+ssh -i AWSUbuntu.pem ec2-user@ec2-18-222-159-146.us-east-2.compute.amazonaws.com
+ssh ec2-user@ec2-18-222-159-146.us-east-2.compute.amazonaws.com
+ssh -i AWSUbuntu.pem ubuntu@ec2-18-222-159-146.us-east-2.compute.amazonaws.com
+chmod 400 AWSUbuntu.pem 
+ssh -i AWSUbuntu.pem ubuntu@ec2-18-222-159-146.us-east-2.compute.amazonaws.com
+clear
+ls
+ssh -i AWSUbuntu.pem ubuntu@ec2-18-216-48-157.us-east-2.compute.amazonaws.com
+ls
+ssh -i AWSUbuntu.pem ubuntu@ec2-18-216-48-157.us-east-2.compute.amazonaws.com
+ssh bryanwi09@192.168.2.144
+ssh bryanwi09@192.168.2.144
+ssh bryanwi09@192.168.2.144
+ssh bryanwi09@192.168.2.148
+ssh bryanwi09@192.168.2.148
+ssh bryanwi09@192.168.2.148
+ssh bryanwi09@192.168.2.148
+ssh bryanwi09@192.168.2.149
+ping 172.16.1.16
+pwd
+cd Docs/scripts/working/
+ls
+ls -la
+ls -la
+brew install pkg-config poppler
+pip install pdftotext
+pip3 install pdftotext
+cd ..
+ls
+cd ..
+ls
+git clone https://github.com/jalan/pdftotext
+cd cd pdftotext/
+ls
+cd pdftotext/
+ls
+python3 setup.py 
+pip3 install gtts
+pip install gtts
+ssh bryanwi09@192.168.2.144
+ssh bryanwi09@192.168.2.150
+pwd
+cd Docs
+ls
+cd scripts/working
+ls
+python3 selectors.py -h
+python3 selector.py -h
+brew install clonezilla
+ls
+python3 price.py
+python3 price.py
+clear
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+clear
+clear
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 price.py
+python3 anker.py
+python3 anker.py
+python3 anker.py
+python3 anker.py
+python3 anker.py
+python3 anker.py
+python3 anker.py
+ls
+cd ..
+ls
+mkdir prices && chmod -R a+rwx prices
+cd working/
+ls
+cp amazon.py anker.py price.py /Users/bryanwi09/Docs/scripts/prices/
+cd .
+ls
+cd ..
+ls
+cd prices
+ls
+python3 anker.py
+cd ..
+cd working/
+ls
+python3 anker.py 
+python3 anker.py 
+cd /Users/bryanwi09/Downloads/
+ls
+cp AWSUbuntu.pem /Users/bryanwi09/Docs/scripts/
+locate juypter
+pip3 install jupyterlab
+pip3 install jupyter
+tmux jupyter notebook
+brew install tmux
+tmux
+ls
+cd /Users/bryanwi09/.jupyter/
+ls
+cd /Users/bryanwi09/.jupyter/
+sudo nano /Users/bryanwi09/.jupyter/jupyter_notebook_config.py
+jupyter notebook password
+sudo jupyter notebook password
+ls
+cd ..
+ls
+sudo fish
+ssh bryanwi09@192.168.2.150
+cd ~/Library/Preferences/
+ls
+cp com.apple.ActivityMonitor.plist ActivityMonitor.plist.old
+rm -rf com.apple.ActivityMonitor.plist 
+sudo reboot
+brew install leaps
+leaps
+sudo leaps
+conda install -c anaconda pandas-datareader
+sudo conda install -c anaconda pandas-datareader
+sudo conda install -c https://conda.anaconda.org/anaconda pandas-datareader
+conda list
+sudo conda jupyter
+sudo conda install jupyter
+pwd
+cd Docs/scripts/wor
+cd Docs/scripts/working/
+ls
+more 1655524.csv 
+clear
+cd /Users/bryanwi09/Library/Application\ Support/Firefox/Profiles/
+ls
+cd h0hcnf3h.default/
+ls
+pwd
+brew install ShadowFox
+ssh pi@rpi1
+ssh -p 2222 pi@rpi1
+ssh bryanwi09@192.168.2.150
+ssh bryanwi09@192.168.2.150
+ssh bryanwi09@192.168.2.150
+ssh bryanwi09@192.168.2.150
+ssh bryanwi09@192.168.2.150
+ssh bryanwi09@192.168.2.150
+jupyter notebook
+sudo jupyter notebook
+sudo jupyter notebook --allow-root
+cd ..
+ls
+cd jupyter/
+sudo jupyter notebook --allow-root
+/Applications/Python\ 3.8/Update\ Shell\ Profile.command ; exit;
+sudo fish
+sudo fish
+locate hosts
+sudo fish
+ssh pi@rpi1
+ssh -p 2222 pi@rpi1
+ping ubuntudp
+ping ubuntudo
+clear
+pwd
+cd Docs/scripts/working/
+ls
+python3 anker.py
+pip3 install requests
+python3 anker.py
+pip3 install bs4
+python3 anker.py
+pip3 install lxml
+python3 anker.py
+clear
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.35
+ssh -p 2222 pi@bryanwills.org
+brew install libevent-dev
+brew install python3-setuptools libpython3-de 
+curl -O http://python-distribute.org/distribute_setup.py
+python distribute_setup.py 
+python3 distribute_setup.py 
+python -m pip install --upgrade setuptools
+python3 -m pip install --upgrade setuptools
+python3 -m pip install --upgrade pip
+brew install pkg-config poppler
+conda install -c anaconda libgcc
+sudo chown 501:20 /opt/anaconda3/pkgs/cache/53d7ef51.json 
+conda install -c anaconda libgcc
+sudo chown 501:20 /opt/anaconda3/pkgs/cache/b35683e8.json
+conda install -c anaconda libgcc
+sudo chown 501:20 /opt/anaconda3/pkgs/cache/3eef14e5.json
+conda install -c anaconda libgcc
+sudo chown 501:20 /opt/anaconda3/pkgs/cache/227b7582.json
+conda install -c anaconda libgcc
+pip3 install gcc
+pip3 install gcc-c++
+brew cask install bcc
+brew cask install gcc
+brew cask install gcc-c++
+brew cask install poppler-cpp-devel
+ssh bryanwi09@172.16.1.34
+clear
+pwd
+ssh-keygen
+cat ~/.ssh/id_rsa.pub 
+ls
+cp ~/.ssh/id_rsa.pub /Users/bryanwi09/Docs/scripts/
+cp ~/.ssh/id_rsa /Users/bryanwi09/Docs/scripts/
+pip3 list
+pip3 list --format=freeze
+pip list --format=freeze
+pip list
+pwd
+cd Docs/scripts/working
+la
+ls
+cd ..
+ssh -i id_rsa root@ubuntudo
+ping 172.16.1.35
+ls
+ssh -i id_rsa root@bryanwills.tech
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@bryanwills.org
+uptime
+sudo reboot
+ssh -p 2222 pi@bryanwills.org
+clear
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@172.16.1.50
+pwd
+cd working/
+ls
+python3 array.py 
+python3 array.py 
+python array.py
+ssh -p 2222 pi@172.16.1.50
+pip3 install tkinter
+pip install tkinter
+sudo fish
+brbrew
+clear
+brew install python3-tk
+pip3 install tweepy
+pip install tweepy
+python3 -m pip install --upgrade pip
+pip install tweepy
+cd working
+ls
+python3 twitter.py
+python3 twitter.py
+python3 twitter.py
+python3 twitter.py
+python3 downloadmulti.py 
+ls
+ls
+python3 downloadmulti.py 
+python3 downloadmulti.py 
+python3 downloadmulti.py 
+python3 downloadmulti.py 
+python3 downloadmulti.py 
+python3 downloadmulti.py 
+cd ..
+ls
+rm -rf __pycache__/
+ls
+cd working/
+ls
+python3 models.py 
+python3 models.py 
+python3 models.py 
+pip3 install Pillow
+pip install Pillow
+pip install pexels-api
+pip3 install pexels-api
+python3 models.py
+curl -H "Authorization: 563492ad6f91700001000001de8ec7b23dc3431798ac1d6b9d945791" "https://api.pexels.com/v1/search?query=people"
+python3 models.py
+python3 pexels.py 
+ssh -p 2222 pi@172.16.1.50
+ssh -p 2222 pi@bryanwills.org
+ssh -p 2222 pi@bryanwills.org
+ssh -p 2222 pi@bryanwills.org
+nslookup google.com
+ssh bryanwi09@192.168.4.114
+ssh root@192.168.4.114
+exit
+ssh -p 2222 pi@172,16.1.50
+ssh -p 2222 pi@bryanwills.org
+nano /private/etc/hosts
+sudo fish
+nano /private/etc/hostsbrewbrewbnslook
+ssh bryanwi09@192.168.4.222
+ssh bryanwi09@192.168.4.222
+ssh bryanwi09@192.168.4.233
+ssh bryanwi09@192.168.4.233
+ssh bryanwi09@192.168.4.243
+ssh plex@192.168.4.243
+ping 192.168.4.243
+ssh plex@192.168.4.243
+ssh plex@192.168.4.243
+ssh bryanwi09@192.168.4.206
+ssh bryanwi09@192.168..4.222
+ssh bryanwi09@192.168.4.222

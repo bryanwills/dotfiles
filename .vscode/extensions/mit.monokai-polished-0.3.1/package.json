@@ -1,0 +1,64 @@
+{
+	"name": "Monokai-Polished",
+	"displayName": "Monokai-Polished",
+	"description": "Making Monokai Theme more awesome.",
+	"version": "0.3.1",
+	"publisher": "Mit",
+	"license": "MIT",
+	"homepage": "https://github.com/foxtrot9/monokaiPolishedVSCode/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/foxtrot9/monokaiPolishedVSCode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/foxtrot9/monokaiPolishedVSCode/issues",
+		"email": "mit4dev@gmail.com"
+	},
+	"engines": {
+		"vscode": ">=0.9.0"
+	},
+	"keywords": [
+		"Monokai",
+		"Monokai Polished",
+		"Theme"
+	],
+	"categories": [
+		"Themes"
+	],
+	"badges": [
+		{
+			"url": "https://img.shields.io/badge/License-MIT-brightgreen.svg",
+			"href": "https://opensource.org/licenses/MIT",
+			"description": "License: MIT"
+		},
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/version-short/Mit.Monokai-Polished.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=Mit.Monokai-Polished",
+			"description": "Version"
+		},
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/installs-short/Mit.Monokai-Polished.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=Mit.Monokai-Polished",
+			"description": "Installs"
+		},
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/rating-short/Mit.Monokai-Polished.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=Mit.Monokai-Polished",
+			"description": "Ratings"
+		}
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Monokai Polished",
+				"uiTheme": "vs-dark",
+				"path": "./themes/monokai_polished.tmTheme"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "3f71f994-f80b-4274-bcc2-9f450a8ba139",
+		"publisherId": "db366b8d-1f17-49ac-8942-2f69aad4569b",
+		"publisherDisplayName": "Mit"
+	}
+}

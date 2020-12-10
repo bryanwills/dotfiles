@@ -1,0 +1,33 @@
+{
+	"name": "Theme-Monokai-HighFructose",
+	"displayName": "Monokai-HighFructose Theme",
+	"description": "Monokai-HighFructose Theme ported from the Monokai-HighFructose TextMate Theme",
+	"version": "0.0.5",
+	"publisher": "gerane",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "icon.png",
+	"homepage": "https://github.com/gerane/VSCodeThemes/blob/master/gerane.Theme-Monokai-HighFructose/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gerane/VSCodeThemes.git"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Monokai-HighFructose",
+				"path": "./themes/Monokai-HighFructose.tmTheme",
+				"uiTheme": "vs-dark"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "d9e16289-2737-4edf-ab73-e65008a19ce0",
+		"publisherId": "a5c25faf-bf60-4941-81b9-9a852b96c5fb",
+		"publisherDisplayName": "gerane"
+	}
+}

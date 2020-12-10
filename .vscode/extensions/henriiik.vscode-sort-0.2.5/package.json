@@ -1,0 +1,67 @@
+{
+	"name": "vscode-sort",
+	"displayName": "Sort",
+	"description": "Sort lines or words.",
+	"version": "0.2.5",
+	"publisher": "henriiik",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/henriiik/vscode-sort/issues"
+	},
+	"homepage": "https://github.com/henriiik/vscode-sort",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/henriiik/vscode-sort"
+	},
+	"engines": {
+		"vscode": "^1.4.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.sort"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.sort",
+				"title": "Sort Selection"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "shift+alt+s",
+				"command": "extension.sort",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"title": "Sort configuration",
+			"type": "object",
+			"properties": {
+				"sort.locale": {
+					"type": "string",
+					"default": "",
+					"description": "The locale to use in sorting comparison."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"tslint": "^3.14.0",
+		"typescript": "^1.8.10",
+		"vscode": "^0.11.15"
+	},
+	"__metadata": {
+		"id": "8e355385-0d4d-4908-aca4-c36da7282a6d",
+		"publisherId": "76382e12-7fd7-44e9-ab54-1031af546186",
+		"publisherDisplayName": "Henrik Sjööh"
+	}
+}

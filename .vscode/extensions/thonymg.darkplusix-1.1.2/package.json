@@ -1,0 +1,65 @@
+{
+	"name": "Darkplusix",
+	"displayName": "Darkplusix",
+	"description": "Extension of dark plus default theme for better elixir & javascript(ES6, React) coloring",
+	"version": "1.1.2",
+	"publisher": "thonymg",
+	"license": "MIT",
+	"galleryBanner": {
+		"color": "#282C34",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "*"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"default theme",
+		"theme",
+		"dark",
+		"dark plus",
+		"visual studio"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Darkplusix",
+				"uiTheme": "vs-dark",
+				"path": "./themes/darkplusix.json"
+			}
+		]
+	},
+	"bugs": {
+		"url": "https://github.com/thonymg/vscode-darkplusix/issues",
+		"email": "copycates@gmail.com"
+	},
+	"homepage": "https://github.com/thonymg/vscode-darkplusix",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thonymg/vscode-darkplusix"
+	},
+	"badges": [
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/version/thonymg.Darkplusix.svg",
+			"href": "https://marketplace.visualstudio.com/items/thonymg.Darkplusix",
+			"description": "Extension version"
+		},
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/installs/thonymg.Darkplusix.svg",
+			"href": "https://marketplace.visualstudio.com/items/thonymg.Darkplusix",
+			"description": "Extension installs"
+		},
+		{
+			"url": "http://vsmarketplacebadge.apphb.com/rating/thonymg.Darkplusix.svg",
+			"href": "https://marketplace.visualstudio.com/items/thonymg.Darkplusix",
+			"description": "Extension Rating"
+		}
+	],
+	"__metadata": {
+		"id": "0fd75fc6-93e8-45b4-a107-c9b0081d0973",
+		"publisherId": "f29589a8-475e-4737-ba8e-53531d0847c8",
+		"publisherDisplayName": "thonymg"
+	}
+}
