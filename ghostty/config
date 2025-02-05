@@ -1,0 +1,45 @@
+font-size = 20
+theme = Mathias
+scrollback-limit = 100_000_000
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+command = zsh --login --interactive
+keybind = super+shift+r=reload_config
+cursor-style = block
+cursor-style-blink = true
+macos-option-as-alt = true
+clipboard-read = allow
+clipboard-write = allow
+font-thicken = true
+macos-titlebar-style = tabs
+shell-integration = zsh
+background-opacity = 0.85
+macos-titlebar-style = transparent
+keybind = cmd+r=reload_config
+keybind = cmd+page_down=next_tab
+keybind = cmd+page_up=previous_tab
+keybind = ctrl+t=new_tab
+keybind = global:f1=toggle_quick_terminal
+selection-invert-fg-bg = true
+cursor-invert-fg-bg = true
+
+
+
+# config-file = themes/rosepine
+# background = #000000
+# background-opacity = 0.65
+# background-blur-radius = 20
+# Ghostty theme
+# theme = catppuccin-macchiato
+# Font family
+# font-family = JetBrains Mono
+# font-style = Regular
+# font-style-italic = Regular Italic
+# command = /opt/homebrew/bin/tmux
+# clipboard-read = allow
+# clipboard-write = allow
+# copy-on-select = false
+# window-height = 55
+
