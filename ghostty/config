@@ -1,9 +1,10 @@
-font-size = 20
+font-size = 24
 theme = Mathias
 scrollback-limit = 100_000_000
 copy-on-select = clipboard
 clipboard-read = allow
 clipboard-write = allow
+term = kitty
 
 command = zsh --login --interactive
 keybind = super+shift+r=reload_config
