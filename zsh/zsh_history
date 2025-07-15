@@ -18,3 +18,20 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752614287:0;git status
 : 1752614297:0;git add zsh
 : 1752614314:0;git add .
+: 1752614318:0;gcz
+: 1752614336:0;git push -u origin main
+: 1752614375:0;rm -rf .DS_Store
+: 1752614388:0;rm -rf .git
+: 1752614510:0;git rm --cached -r ~/.config/zsh/oh-my-zsh
+: 1752614543:0;find ~/.config -name ".git" -type d
+: 1752614592:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions
+: 1752614602:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/
+: 1752614626:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions/.git
+: 1752614635:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-completions/.git
+: 1752614643:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/.git
+: 1752614650:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/fzf-tab/.git
+: 1752614664:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/themes/powerlevel10k/.git
+: 1752614673:0;find ~/.config -name ".git" -type d
+: 1752614693:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/
+: 1752614698:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/
+: 1752614711:0;git add .
