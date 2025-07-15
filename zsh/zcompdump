@@ -944,6 +944,7 @@ _comps=(
 'locale' '_locale'
 'localedef' '_localedef'
 'locate' '_locate'
+'log' '_nothing'
 'logger' '_logger'
 'logname' '_nothing'
 'look' '_look'
@@ -2274,5 +2275,5 @@ autoload -Uz +X _call_program
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
 
-#omz revision: 3e7ef0182f59c7990a52cf6ec2981adb56d5b368
-#omz fpath: /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/fzf-tab /Users/bryanwills/.config/zsh/oh-my-zsh/plugins/git /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /Users/bryanwills/.config/zsh/oh-my-zsh/functions /Users/bryanwills/.config/zsh/oh-my-zsh/completions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/functions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/completions /Users/bryanwills/.config/zsh/oh-my-zsh/cache/completions /opt/homebrew/share/zsh/site-functions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-completions/src
+#omz revision: fede28cb27289010dd9fa0ffd12423e434e50c6a
+#omz fpath: /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/fzf-tab /Users/bryanwills/.config/zsh/oh-my-zsh/plugins/git /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /Users/bryanwills/.config/zsh/oh-my-zsh/functions /Users/bryanwills/.config/zsh/oh-my-zsh/completions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/functions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/completions /Users/bryanwills/.config/zsh/oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /opt/homebrew/share/zsh/site-functions /opt/homebrew/Cellar/zsh/5.9/share/zsh/functions /Users/bryanwills/.config/zsh/oh-my-zsh/custom/plugins/zsh-completions/src
