@@ -1,0 +1,20 @@
+: 1752612577:0;mv .oh-my-zsh oh-my-zsh-bak
+: 1752612577:0;echo $ZDOTDIR
+: 1752612577:0;echo $HISTFILE
+: 1752612577:0;echo $ZSH
+: 1752612577:0;ls -la ~/.config/zsh/\
+ls -la ~/.config/zsh/zshrc\
+ls -la ~/.config/zsh/zshenv\
+ls -la ~/.config/zsh/p10k.zsh
+: 1752612577:0;nvim .zshenv
+: 1752612577:0;eza -alh
+: 1752596867:0;nvim zshenv
+: 1752598366:0;df -i
+: 1752612577:0;exec zsh
+: 1752612627:0;sshl
+: 1752613895:0;ssh bryanwi09@172.16.1.226
+: 1752614057:0;ssh bryanwi09@172.16.1.186
+: 1752614281:0;git log
+: 1752614287:0;git status
+: 1752614297:0;git add zsh
+: 1752614314:0;git add .
