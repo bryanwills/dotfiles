@@ -16,7 +16,7 @@ export ZSH_COMPDUMP="$ZDOTDIR/zcompdump"
 # History
 HISTSIZE=500000
 HIST_STAMPS="mm/dd/yyyy"
-HISTFILE=~"/.config/zsh/zsh_history"
+HISTFILE=~"/.zsh_history"
 HISTORY_IGNORE="(ls|ll|clear|cd *|cd ~|..|cd|pwd|exit|sudo reboot|history|cd -| cd..)"
 SAVEHIST=$HISTSIZE
 HISTDUP=erase

@@ -10,22 +10,15 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752612577:0;eza -alh
 : 1752596867:0;nvim zshenv
 : 1752598366:0;df -i
-: 1752612577:0;exec zsh
 : 1752612627:0;sshl
 : 1752613895:0;ssh bryanwi09@172.16.1.226
 : 1752614057:0;ssh bryanwi09@172.16.1.186
 : 1752614281:0;git log
-: 1752614287:0;git status
 : 1752614297:0;git add zsh
-: 1752614314:0;git add .
-: 1752614318:0;gcz
-: 1752614336:0;git push -u origin main
 : 1752614375:0;rm -rf .DS_Store
 : 1752614388:0;rm -rf .git
 : 1752614510:0;git rm --cached -r ~/.config/zsh/oh-my-zsh
-: 1752614543:0;find ~/.config -name ".git" -type d
 : 1752614592:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions
-: 1752614602:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/
 : 1752614626:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions/.git
 : 1752614635:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-completions/.git
 : 1752614643:0;rm -rf ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/.git
@@ -35,3 +28,11 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752614693:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/
 : 1752614698:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/
 : 1752614711:0;git add .
+: 1752614713:0;gcz
+: 1752614735:0;git push -u origin main
+: 1752614800:0;git status
+: 1752614815:0;cat zsh/zsh_history
+: 1752614837:0;ls -alh ~/
+: 1752614857:0;nvim .zshrc
+: 1752614887:0;rm -rf .zsh_history
+: 1752614892:0;exec zsh
