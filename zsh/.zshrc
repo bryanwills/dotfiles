@@ -11,7 +11,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-export ZSH_COMPDUMP="$ZDOTDIR/zcompdump"
+export ZSH_COMPDUMP="~/.zcompdump"
 
 # History
 HISTSIZE=500000
