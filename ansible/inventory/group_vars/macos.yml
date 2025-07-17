@@ -1,0 +1,32 @@
+# macOS-specific variables
+homebrew_packages:
+  - git
+  - zsh
+  - tmux
+  - neovim
+  - node
+  - python3
+  - go
+  - fzf
+  - ripgrep
+  - bat
+  - exa
+
+homebrew_casks:
+  - visual-studio-code
+  - docker
+  - firefox
+  - iterm2
+  - ghostty
+  - google-chrome
+
+# macOS defaults to set
+macos_defaults:
+  - domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+  - domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: true

@@ -1,0 +1,41 @@
+- name: Clone dotfiles repository
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_dir }}"
+    version: "{{ dotfiles_branch }}"
+    force: yes
+  become_user: "{{ target_user }}"
+
+- name: Create symlinks for shared dotfiles
+  file:
+    src: "{{ dotfiles_dir }}/dotfiles/shared/{{ item.src }}"
+    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
+    state: link
+    force: yes
+  loop:
+    - { src: "git/.gitconfig", dest: ".gitconfig" }
+    - { src: "zsh/.zshrc", dest: ".zshrc" }
+    - { src: "tmux/.tmux.conf", dest: ".tmux.conf" }
+  become_user: "{{ target_user }}"
+
+- name: Create platform-specific symlinks (macOS)
+  file:
+    src: "{{ dotfiles_dir }}/dotfiles/macos/{{ item.src }}"
+    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
+    state: link
+    force: yes
+  loop:
+    - { src: "zsh/macos.zsh", dest: ".config/zsh/macos.zsh" }
+  become_user: "{{ target_user }}"
+  when: ansible_os_family == "Darwin"
+
+- name: Create platform-specific symlinks (Linux)
+  file:
+    src: "{{ dotfiles_dir }}/dotfiles/linux/{{ item.src }}"
+    dest: "{{ ansible_user_dir }}/{{ item.dest }}"
+    state: link
+    force: yes
+  loop:
+    - { src: "zsh/linux.zsh", dest: ".config/zsh/linux.zsh" }
+  become_user: "{{ target_user }}"
+  when: ansible_os_family == "Debian"

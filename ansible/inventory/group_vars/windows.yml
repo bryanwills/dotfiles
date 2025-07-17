@@ -1,0 +1,30 @@
+# Windows-specific variables
+chocolatey_packages:
+  - git
+  - curl
+  - wget
+  - nodejs
+  - python3
+  - golang
+  - fzf
+  - ripgrep
+  - bat
+  - vscode
+  - docker-desktop
+
+# PowerShell modules
+powershell_modules:
+  - PowerShellGet
+  - PSReadLine
+  - Posh-Git
+
+# Windows features to enable
+windows_features:
+  - Microsoft-Windows-Subsystem-Linux
+  - VirtualMachinePlatform
+
+# Services to configure
+windows_services:
+  - name: "ssh-agent"
+    state: "started"
+    start_mode: "auto"

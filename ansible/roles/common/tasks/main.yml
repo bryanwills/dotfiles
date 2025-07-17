@@ -1,0 +1,27 @@
+- name: Ensure target user exists
+  user:
+    name: "{{ target_user }}"
+    shell: "{{ target_shell }}"
+    state: present
+  become: yes
+  when: ansible_os_family != "Darwin"
+
+- name: Create necessary directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ target_user }}"
+    mode: "0755"
+  loop:
+    - "{{ dotfiles_dir }}"
+    - "{{ ansible_user_dir }}/.local/bin"
+    - "{{ ansible_user_dir }}/.local/share"
+  become: yes
+
+- name: Set up Git configuration
+  template:
+    src: gitconfig.j2
+    dest: "{{ ansible_user_dir }}/.gitconfig"
+    owner: "{{ target_user }}"
+    mode: "0644"
+  become: yes

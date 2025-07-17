@@ -1,0 +1,34 @@
+# RHEL/Fedora/Rocky/Oracle-specific variables
+dnf_packages:
+  - git
+  - zsh
+  - tmux
+  - neovim
+  - curl
+  - wget
+  - nodejs
+  - npm
+  - python3
+  - python3-pip
+  - golang
+  - fzf
+  - ripgrep
+  - bat
+  - "@Development Tools"
+
+# Fedora-specific packages
+fedora_packages:
+  - dnf-plugins-core
+
+# EPEL packages for RHEL-based
+epel_packages:
+  - epel-release
+
+# Services to enable
+systemd_services:
+  - sshd
+  - docker
+
+# Package manager commands
+update_cache_cmd: "dnf check-update"
+install_cmd: "dnf install -y"

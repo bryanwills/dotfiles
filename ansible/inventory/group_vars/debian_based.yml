@@ -1,0 +1,31 @@
+ Debian/Ubuntu-specific variables
+apt_packages:
+  - git
+  - zsh
+  - tmux
+  - neovim
+  - curl
+  - wget
+  - nodejs
+  - npm
+  - python3
+  - python3-pip
+  - golang
+  - fzf
+  - ripgrep
+  - bat
+  - build-essential
+
+# Snap packages
+snap_packages:
+  - code
+  - docker
+
+# Services to enable
+systemd_services:
+  - ssh
+  - docker
+
+# Package manager commands
+update_cache_cmd: "apt update"
+install_cmd: "apt install -y"

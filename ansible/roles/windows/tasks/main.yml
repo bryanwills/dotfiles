@@ -1,0 +1,43 @@
+---
+- name: Install Chocolatey
+  win_chocolatey:
+    name: chocolatey
+    state: present
+
+- name: Install Chocolatey packages
+  win_chocolatey:
+    name: "{{ chocolatey_packages }}"
+    state: present
+
+- name: Install PowerShell modules
+  win_psmodule:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ powershell_modules }}"
+
+- name: Enable Windows features
+  win_optional_feature:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ windows_features }}"
+  register: win_features
+
+- name: Configure Windows services
+  win_service:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    start_mode: "{{ item.start_mode }}"
+  loop: "{{ windows_services }}"
+
+- name: Create bryanwi09 user if not exists
+  win_user:
+    name: "{{ target_user }}"
+    password: "{{ windows_password }}"
+    groups:
+      - Administrators
+    state: present
+
+- name: Reboot if Windows features were installed
+  win_reboot:
+    reboot_timeout: 600
+  when: win_features is changed

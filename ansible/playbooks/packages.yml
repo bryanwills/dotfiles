@@ -1,0 +1,17 @@
+- name: Install packages across platforms
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Install packages on macOS
+      homebrew:
+        name: "{{ homebrew_packages }}"
+        state: present
+      when: ansible_os_family == "Darwin"
+
+    - name: Install packages on Linux
+      package:
+        name: "{{ apt_packages }}"
+        state: present
+      become: yes
+      when: ansible_os_family == "Debian"

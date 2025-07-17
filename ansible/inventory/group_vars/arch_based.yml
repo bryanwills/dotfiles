@@ -1,0 +1,30 @@
+# Arch Linux-specific variables
+pacman_packages:
+  - git
+  - zsh
+  - tmux
+  - neovim
+  - curl
+  - wget
+  - nodejs
+  - npm
+  - python
+  - python-pip
+  - go
+  - fzf
+  - ripgrep
+  - bat
+  - base-devel
+
+# AUR packages (requires AUR helper like yay)
+aur_packages:
+  - visual-studio-code-bin
+
+# Services to enable
+systemd_services:
+  - sshd
+  - docker
+
+# Package manager commands
+update_cache_cmd: "pacman -Sy"
+install_cmd: "pacman -S --noconfirm"

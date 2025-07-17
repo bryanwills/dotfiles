@@ -1,0 +1,54 @@
+- name: Configure development environment - Linux systems
+  hosts: linux
+  gather_facts: yes
+  vars:
+    ansible_user_id: "{{ target_user }}"
+
+  roles:
+    - common
+    - linux
+    - dotfiles
+
+  post_tasks:
+    - name: Change default shell to zsh
+      user:
+        name: "{{ target_user }}"
+        shell: "{{ target_shell }}"
+      become: yes
+
+- name: Configure development environment - macOS systems
+  hosts: macos
+  gather_facts: yes
+  vars:
+    ansible_user_id: "{{ target_user }}"
+
+  roles:
+    - common
+    - macos
+    - dotfiles
+
+- name: Configure development environment - Windows systems
+  hosts: windows
+  gather_facts: yes
+  vars:
+    ansible_user_id: "{{ target_user }}"
+
+  roles:
+    - common
+    - windows
+    - dotfiles
+
+- name: Configure development environment - All platforms
+  hosts: all
+  gather_facts: yes
+  vars:
+    ansible_user_id: "{{ target_user }}"
+
+  tasks:
+    - name: Display setup completion message
+      debug:
+        msg: |
+          Setup complete for {{ inventory_hostname }}!
+          Platform: {{ ansible_os_family }}
+          User: {{ target_user }}
+          Dotfiles location: {{ dotfiles_dir }}

@@ -1,0 +1,38 @@
+# Common variables for all hosts
+dotfiles_repo: "https://github.com/bryanwills/dotfiles.git"
+dotfiles_branch: "feature/cross-platform-ansible"
+dotfiles_dir: "{{ ansible_user_dir }}/.config"
+
+# User configuration
+target_user: bryanwi09
+target_shell: "/bin/zsh"
+
+# Windows password (store in vault or prompt)
+# windows_password: "{{ vault_windows_password | default(' ') }}"
+#
+#
+# Common packages across all platforms
+common_dev_tools:
+  - git
+  - curl
+  - wget
+  - zsh
+  - tmux
+  - neovim
+  - python3
+  - node
+
+# Common packages (will be overridden per platform)
+common_packages:
+  - git
+  - curl
+  - wget
+  - zsh
+  - tmux
+
+# Development tools
+dev_packages:
+  - neovim
+  - node
+  - python3
+  - go

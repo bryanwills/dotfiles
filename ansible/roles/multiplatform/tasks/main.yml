@@ -1,0 +1,25 @@
+---
+- name: Include platform-specific tasks
+  include_tasks: "{{ ansible_os_family | lower }}.yml"
+
+- name: Create common directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ target_user }}"
+    mode: "0755"
+  loop:
+    - "{{ dotfiles_dir }}"
+    - "{{ ansible_user_dir }}/.local/bin"
+    - "{{ ansible_user_dir }}/.local/share"
+  become: yes
+  when: ansible_os_family != "Windows"
+
+- name: Create common directories (Windows)
+  win_file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "C:\\Users\\{{ target_user }}\\.config"
+    - "C:\\Users\\{{ target_user }}\\AppData\\Local\\bin"
+  when: ansible_os_family == "Windows"

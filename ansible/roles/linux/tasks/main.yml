@@ -1,0 +1,71 @@
+- name: Include distribution-specific variables
+  include_vars: "{{ ansible_os_family | lower }}.yml"
+  when: ansible_os_family != "Darwin"
+
+- name: Update package cache (Debian/Ubuntu)
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install packages (Debian/Ubuntu)
+  apt:
+    name: "{{ apt_packages }}"
+    state: present
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install EPEL repository (RHEL/CentOS/Rocky/Oracle)
+  dnf:
+    name: epel-release
+    state: present
+  become: yes
+  when: ansible_os_family == "RedHat" and ansible_distribution != "Fedora"
+
+- name: Install packages (RHEL/Fedora/Rocky/Oracle)
+  dnf:
+    name: "{{ dnf_packages }}"
+    state: present
+  become: yes
+  when: ansible_os_family == "RedHat"
+
+- name: Update package database (Arch)
+  pacman:
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Archlinux"
+
+- name: Install packages (Arch)
+  pacman:
+    name: "{{ pacman_packages }}"
+    state: present
+  become: yes
+  when: ansible_os_family == "Archlinux"
+
+- name: Install snap packages (Ubuntu/Fedora)
+  snap:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ snap_packages | default([]) }}"
+  become: yes
+  when: ansible_os_family in ["Debian", "RedHat"] and ansible_distribution in ["Ubuntu", "Fedora"]
+
+- name: Enable systemd services
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  loop: "{{ systemd_services }}"
+  become: yes
+  when: ansible_service_mgr == "systemd"
+
+- name: Create bryanwi09 user if not exists
+  user:
+    name: "{{ target_user }}"
+    shell: "{{ target_shell }}"
+    create_home: yes
+    groups: wheel,sudo
+    append: yes
+  become: yes
+  when: ansible_os_family != "Darwin"

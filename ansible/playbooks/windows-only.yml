@@ -1,0 +1,22 @@
+- name: Windows-specific configuration
+  hosts: windows
+  gather_facts: yes
+
+  tasks:
+    - name: Configure Windows Defender exclusions
+      win_shell: |
+        Add-MpPreference -ExclusionPath "C:\Users\{{ target_user }}\.config"
+        Add-MpPreference -ExclusionPath "C:\dev"
+
+    - name: Install WSL2 if needed
+      win_optional_feature:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - Microsoft-Windows-Subsystem-Linux
+        - VirtualMachinePlatform
+      register: wsl_install
+
+    - name: Reboot for WSL2
+      win_reboot:
+      when: wsl_install is changed

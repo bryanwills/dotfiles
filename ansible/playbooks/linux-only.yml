@@ -1,0 +1,18 @@
+- name: Linux-specific configuration
+  hosts: linux
+  gather_facts: yes
+
+  tasks:
+    - name: Install distribution-specific packages
+      include_role:
+        name: linux
+      vars:
+        target_user: bryanwi09
+
+    - name: Configure firewall (if needed)
+      ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
+      become: yes
+      when: ansible_os_family == "Debian"
