@@ -99,3 +99,11 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1753298694:0;nvim gpg.conf
 : 1753298746:0;nvim gpg-agent.conf
 : 1753298814:0;git add .
+: 1753298861:0;git commit -m "adding cargo chrome curl gnupg and updating tmux.conf and git config"
+: 1753298868:0;mkdir htop
+: 1753298876:0;nvim htoprc
+: 1753298882:0;git add .
+: 1753298893:0;git commit -m "adding htop and htoprc"
+: 1753299465:0;mkdir postgres
+: 1753299474:0;nvim psqlrc
+: 1753299497:0;git add .
