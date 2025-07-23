@@ -1,0 +1,31 @@
+# Python Specific
+.venv/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+.hypothesis/
+.ruff_cache/
+.ropeobject/
+
+# Rust Specific
+target/
+
+# Zig Specific
+.zig-cache/
+zig-out/
+
+# NextJS. React
+node_modules/
+build/
+dist/
+
+# Env
+,env
+
+# .DS_Store
+.DS_Store
+
+# bak
+.bak
+*.bak*
+

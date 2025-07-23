@@ -35,4 +35,67 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752614837:0;ls -alh ~/
 : 1752614857:0;nvim .zshrc
 : 1752614887:0;rm -rf .zsh_history
-: 1752614892:0;exec zsh
+: 1752961665:0;df -h
+: 1752961917:0;git pull
+: 1753135558:0;brew remove blender --cask
+: 1753135574:0;brew remove librecad --cask
+: 1753135580:0;brew update && brew upgrade
+: 1753144108:0;gc https://github.com/naolson2025/hono-better-auth
+: 1753144118:0;bun install
+: 1753144125:0;bun run dev
+: 1753144185:0;git checkout better-auth-setup
+: 1753144224:0;brew search docker
+: 1753144269:0;brew install --cask docker-desktop && brew install lazydocker
+: 1753144329:0;docker compose up -d
+: 1753144343:0;exec zsh
+: 1753201344:0;history | grep ssh-key
+: 1753201348:0;history | grep key
+: 1753201351:0;history | grep ssh
+: 1753201354:0;history | grep add
+: 1753285128:0;nvim .clerk_api_bbc
+: 1753293157:0;nvim .n8n_api_key_bbc
+: 1753296118:0;npm i -g @smithery-io/cli
+: 1753296144:0;npm i -g @smithery/cli
+: 1753296266:0;nvim .smitheryai_api_key
+: 1753296359:0;npx @smithery/cli login
+: 1753296383:0;npx @smithery/cli list clients
+: 1753296418:0;npx . list servers
+: 1753296456:0;gc https://github.com/smithery-ai/mcp-servers smithery-mcp-servers
+: 1753296513:0;gc https://github.com/clerk/clerk-nextjs-app-quickstart
+: 1753296521:0;npm i
+: 1753296539:0;npm run dev
+: 1753296610:0;rm -rf clerk-*
+: 1753296622:0;rm -rf .DS_Store
+: 1753296627:0;cp .env.example .env
+: 1753296631:0;nvim .env
+: 1753296649:0;npm i
+: 1753296661:0;nvim .openai_api_key
+: 1753296785:0;git pull
+: 1753296788:0;npm i
+: 1753296817:0;npm i --save-dev prisma@latest ** npm i @primsa/client@latest
+: 1753296832:0;npm i --save-dev prisma@latest
+: 1753296846:0;npm i @prisma/client@latest
+: 1753296862:0;nvim .env
+: 1753296875:0;npm run dev
+: 1753296933:0;gc https://github.com/Nova-Designs-Creative/Master-Next-JS-in-easy-way
+: 1753296939:0;npm i
+: 1753297022:0;npm run dev
+: 1753297074:0;rm -rf .DS_Store
+: 1753297081:0;nvim tmux.conf
+: 1753297092:0;cp tmux.conf tmux.conf.bak
+: 1753297107:0;nvim codingjerktmux.conf
+: 1753297164:0;mkdir cargo
+: 1753297170:0;nvim config.toml
+: 1753297313:0;mkdir chrome
+: 1753297334:0;nvim example_flags_conf
+: 1753297356:0;mkdir curl
+: 1753297363:0;nvim curlrc
+: 1753297513:0;brew search foot
+: 1753297541:0;nvim config
+: 1753298467:0;nvim ignore
+: 1753298622:0;nvim template
+: 1753298632:0;nvim config
+: 1753298682:0;mkdir -p gnupg
+: 1753298694:0;nvim gpg.conf
+: 1753298746:0;nvim gpg-agent.conf
+: 1753298814:0;git add .

@@ -11,6 +11,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
+
+
+# AI ENV Variables
+OPENAI_API_KEY="~/.keys/.openai_api_key"
+ANTHROPIC_API_KEY="~/.keys/.opencode_claude_api_key"
+export EDITOR="cursor"
+
 export ZSH_COMPDUMP="~/.zcompdump"
 
 # History
@@ -64,6 +71,7 @@ alias img="imgcat"
 alias sf="spf"
 alias sshl="ssh -i ~/.ssh/littlecreek bryanwi09@bryanwills.dev"
 alias zsh_backup_dir="~/zsh-backup/"
+alias npm="pnpm"
 
 export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
