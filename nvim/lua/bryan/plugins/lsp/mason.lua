@@ -31,6 +31,7 @@ return {
         --"tsserver", -- TypeScript/JavaScript
         "html",
         "cssls",
+        "css_variables",
         "tailwindcss",
         "svelte",
         "lua_ls",
@@ -38,6 +39,7 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "astro",
       },
     })
 
