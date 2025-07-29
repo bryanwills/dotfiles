@@ -4,3 +4,4 @@ init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
 state-dir=${XDG_STATE_HOME}/pnpm-state
 store-dir=${XDG_DATA_HOME}/pnpm-store
 tmp=${XDG_RUNTIME_DIR}/npm
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}

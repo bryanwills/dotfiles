@@ -15,7 +15,6 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752614057:0;ssh bryanwi09@172.16.1.186
 : 1752614281:0;git log
 : 1752614297:0;git add zsh
-: 1752614375:0;rm -rf .DS_Store
 : 1752614388:0;rm -rf .git
 : 1752614510:0;git rm --cached -r ~/.config/zsh/oh-my-zsh
 : 1752614592:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -27,16 +26,13 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1752614673:0;find ~/.config -name ".git" -type d
 : 1752614693:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/custom/plugins/
 : 1752614698:0;git rm --cached -r ~/.config/zsh/oh-my-zsh/
-: 1752614711:0;git add .
 : 1752614713:0;gcz
 : 1752614735:0;git push -u origin main
 : 1752614800:0;git status
 : 1752614815:0;cat zsh/zsh_history
 : 1752614837:0;ls -alh ~/
-: 1752614857:0;nvim .zshrc
 : 1752614887:0;rm -rf .zsh_history
 : 1752961665:0;df -h
-: 1752961917:0;git pull
 : 1753135558:0;brew remove blender --cask
 : 1753135574:0;brew remove librecad --cask
 : 1753135580:0;brew update && brew upgrade
@@ -47,7 +43,6 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1753144224:0;brew search docker
 : 1753144269:0;brew install --cask docker-desktop && brew install lazydocker
 : 1753144329:0;docker compose up -d
-: 1753144343:0;exec zsh
 : 1753201344:0;history | grep ssh-key
 : 1753201348:0;history | grep key
 : 1753201351:0;history | grep ssh
@@ -62,25 +57,16 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1753296418:0;npx . list servers
 : 1753296456:0;gc https://github.com/smithery-ai/mcp-servers smithery-mcp-servers
 : 1753296513:0;gc https://github.com/clerk/clerk-nextjs-app-quickstart
-: 1753296521:0;npm i
-: 1753296539:0;npm run dev
 : 1753296610:0;rm -rf clerk-*
-: 1753296622:0;rm -rf .DS_Store
 : 1753296627:0;cp .env.example .env
-: 1753296631:0;nvim .env
-: 1753296649:0;npm i
-: 1753296661:0;nvim .openai_api_key
 : 1753296785:0;git pull
-: 1753296788:0;npm i
 : 1753296817:0;npm i --save-dev prisma@latest ** npm i @primsa/client@latest
 : 1753296832:0;npm i --save-dev prisma@latest
 : 1753296846:0;npm i @prisma/client@latest
 : 1753296862:0;nvim .env
-: 1753296875:0;npm run dev
 : 1753296933:0;gc https://github.com/Nova-Designs-Creative/Master-Next-JS-in-easy-way
 : 1753296939:0;npm i
 : 1753297022:0;npm run dev
-: 1753297074:0;rm -rf .DS_Store
 : 1753297081:0;nvim tmux.conf
 : 1753297092:0;cp tmux.conf tmux.conf.bak
 : 1753297107:0;nvim codingjerktmux.conf
@@ -91,19 +77,249 @@ ls -la ~/.config/zsh/p10k.zsh
 : 1753297356:0;mkdir curl
 : 1753297363:0;nvim curlrc
 : 1753297513:0;brew search foot
-: 1753297541:0;nvim config
 : 1753298467:0;nvim ignore
 : 1753298622:0;nvim template
 : 1753298632:0;nvim config
 : 1753298682:0;mkdir -p gnupg
 : 1753298694:0;nvim gpg.conf
 : 1753298746:0;nvim gpg-agent.conf
-: 1753298814:0;git add .
 : 1753298861:0;git commit -m "adding cargo chrome curl gnupg and updating tmux.conf and git config"
 : 1753298868:0;mkdir htop
 : 1753298876:0;nvim htoprc
-: 1753298882:0;git add .
 : 1753298893:0;git commit -m "adding htop and htoprc"
 : 1753299465:0;mkdir postgres
 : 1753299474:0;nvim psqlrc
 : 1753299497:0;git add .
+: 1753299508:0;git commit -m "adding postgres and psqlrc"
+: 1753299539:0;mkdir ssh
+: 1753299551:0;rm -rf ssh
+: 1753299593:0;brew search waybar
+: 1753299602:0;brew search sketchy
+: 1753299609:0;brew search sketch
+: 1753299648:0;echo $XDG
+: 1753299664:0;nvim ~/.config/zsh/.zshrc
+: 1753299697:0;brew search zed
+: 1753299758:0;rm -rf .DS_Store
+: 1753299783:0;echo $EDITOR
+: 1753300261:0;nvim .zprofile
+: 1753300721:0;fzf --style full --border --padding 1,2 --border-label ' Demo ' --input-label ' Input ' --header-label ' File Type ' --preview 'fzf-preview.sh {}' --bind 'result:transform-list-label:\
+        if [[ -z $FZF_QUERY ]]; then\
+          echo " $FZF_MATCH_COUNT items "\
+        else\
+          echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "\
+        fi\
+        ' --bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {}' --bind 'focus:+transform-header:file --brief {} || echo "No file selected"' --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' --color 'border:#aaaaaa,label:#cccccc' --color 'preview-border:#9999cc,preview-label:#ccccff' --color 'list-border:#669966,list-label:#99cc99' --color 'input-border:#996666,input-label:#ffcccc' --color 'header-border:#6699cc,header-label:#99ccff'
+: 1753300771:0;nvim zsh/.zshrc
+: 1753300917:0;fzf --height=40%
+: 1753300923:0;fzf --height=60%
+: 1753300941:0;fzf --height=40% --layout=reverse --info=inline --border --margin=1 --padding=1
+: 1753301015:0;rg --color=always --line-number --no-heading --smart-case "${*:-}"
+: 1753301219:0;builtin cd -- /Users/bryanwills/.config/gh
+: 1753301284:0;nvim .zshrc
+: 1753302251:0;git clone https://github.com/eyaltoledano/claude-task-master
+: 1753302262:0;../cursor
+: 1753302336:0;nvim .anthropic_api_key
+: 1753302377:0;nvim .openai_api_key
+: 1753302489:0;nvim .openrouter_api_key
+: 1753302552:0;nvim .grok_api_key
+: 1753309142:0;which npm
+: 1753309149:0;which pnpm
+: 1753309158:0;nvm ls-remote | grep v2
+: 1753309180:0;nvm install v24.0.0
+: 1753309194:0;nvm use v24.0.0
+: 1753309200:0;exec zsh
+: 1753324496:0;gc https://github.com/modelcontextprotocol/swift-sdk
+: 1753324603:0;gc https://github.com/googleapis/genai-toolbox
+: 1753324693:0;gc https://github.com/cyberagiinc/DevDocs
+: 1753324802:0;gc https://github.com/idosal/git-mcp
+: 1753324933:0;gc https://github.com/mcp-use/mcp-use
+: 1753325577:0;gc https://github.com/disler/just-prompt
+: 1753326196:0;gc https://github.com/getsentry/sentry-mcp
+: 1753326331:0;uv add cursor-rules
+: 1753326351:0;mkdir cursor-rules-unofficial
+: 1753326361:0;uv add cursor-rules
+: 1753326368:0;nvim pyproject.toml
+: 1753326514:0;uv add cursor-rules
+: 1753326525:0;nvim pyproject.toml
+: 1753326541:0;uv add cursor-rules
+: 1753326553:0;rm -rf *
+: 1753326562:0;uv init
+: 1753326570:0;uv add cursor-rules
+: 1753326600:0;cursor-rules --libraries "react,tailwind,typescript"
+: 1753326629:0;source activate
+: 1753326637:0;cursor-rules --libraries "react,tailwind,typescript"
+: 1753326658:0;cursor-rules --dry-run
+: 1753326697:0;cursor-rules
+: 1753326733:0;cursor-rules --show-config
+: 1753326767:0;../
+: 1753326777:0;cursor-rules
+: 1753326786:0;cursor-rules --show-config
+: 1753326801:0;cursor-rules
+: 1753326842:0;nvim rules.json
+: 1753326848:0;cursor-rules
+: 1753326857:0;cursor-rules --show-config
+: 1753327038:0;nvim nextjs.mdc
+: 1753327054:0;nvim nextjs_extended.mdc
+: 1753328838:0;gc https://github.com/onlook-dev/onlook
+: 1753328859:0;bun install
+: 1753328898:0;bun run dev
+: 1753371389:0;gc https://github.com/badlogic/claude-commands
+: 1753371565:0;../mcp
+: 1753371567:0;gc https://github.com/ckreiling/mcp-server-docker
+: 1753371628:0;gc https://github.com/Jpisnice/shadcn-ui-mcp-server
+: 1753372708:0;rm -rf .DS_Store
+: 1753372713:0;mkdir test
+: 1753372729:0;cp todo* ../test
+: 1753372733:0;../test
+: 1753372738:0;claude
+: 1753373079:0;claude mcp
+: 1753373094:0;claude mcp list
+: 1753373109:0;claude mcp add-from-claude-desktop
+: 1753373119:0;claude mcp list
+: 1753375735:0;../cursor
+: 1753375747:0;nvim aiworkflowengineer.md
+: 1753376285:0;gc https://github.com/getAsterisk/claudia
+: 1753376324:0;brew install backlog-md
+: 1753376359:0;gc https://github.com/MrLesk/Backlog.md
+: 1753376406:0;deactivate cursorrulesunofficial
+: 1753376415:0;brew update && brew upgrade
+: 1753377039:0;../..
+: 1753377052:0;rm -rf node_modules --force
+: 1753377059:0;npm i
+: 1753377071:0;npm run dev
+: 1753377128:0;rm -rf orcish-landing-page
+: 1753377136:0;rm -rf orcish-landing-page --force
+: 1753377256:0;mv .copilot.env ~/.keys/
+: 1753377262:0;rm -rf .DS_Store
+: 1753377766:0;rm -rf .DS_Store
+: 1753377768:0;gc https://github.com/coleam00/ottomator-agents
+: 1753377830:0;gc https://github.com/bryanwills/local-ai-packaged
+: 1753377887:0;../mcp
+: 1753377898:0;gc https://github.com/coleam00/remote-mcp-server-with-auth
+: 1753377984:0;nvim ~/.keys/.openai_api_key
+: 1753378003:0;nvim ~/.keys/.anthropic_api_key
+: 1753378026:0;nvim ~/.keys/.openrouter_api_key
+: 1753378489:0;gc https://github.com/jaypyles/Scraperr
+: 1753378506:0;mv Scraperr python
+: 1753378530:0;rm -rf xcode
+: 1753378559:0;mv Master-Next-JS-in-easy-way react
+: 1753378581:0;rm -rf .DS_Store
+: 1753378593:0;rm -rf find.log
+: 1753378601:0;mv url.py python
+: 1753378628:0;mv scripts_old scripts
+: 1753378644:0;npm i
+: 1753378670:0;npm run dev
+: 1753378717:0;mv location-autocomplete react/
+: 1753378726:0;rm -rf .DS_Store
+: 1753378734:0;rm -rf .DS_Store
+: 1753378758:0;mv public_html sparta
+: 1753378778:0;mv medium2dev python
+: 1753378814:0;mv pesticide ../chrome/
+: 1753378821:0;rm -rf google
+: 1753378865:0;mv maizzle ../react
+: 1753378912:0;nvim config
+: 1753378977:0;mv cursor_prompts cursor/
+: 1753379017:0;cp coinbase_info.yaml ~/.keys/
+: 1753379035:0;mv XK0-005 certifications
+: 1753379040:0;rm -rf .DS_Store
+: 1753379060:0;rm -rf .DS_Store
+: 1753379065:0;../
+: 1753379096:0;cat README.md
+: 1753379103:0;../../
+: 1753379118:0;mv crypto-snipe ../../crypto
+: 1753379133:0;rm -rf 2025 --force
+: 1753379175:0;cat README.md
+: 1753379182:0;../..
+: 1753379196:0;mv git_nvim github
+: 1753379210:0;mv nvim2 github
+: 1753379224:0;mv find python
+: 1753379237:0;mv find/ python/
+: 1753379252:0;mv find/ python/find2
+: 1753379317:0;rm -rf dotshareit_site --force
+: 1753379327:0;mv orc* react/
+: 1753379354:0;mv urlscan python
+: 1753379378:0;../..
+: 1753379402:0;mv * ../github
+: 1753379409:0;rm -rf templates
+: 1753379420:0;mv docker-github-backup github
+: 1753379455:0;npm i
+: 1753379471:0;npm audit fix --force
+: 1753379484:0;npm run dev
+: 1753379558:0;cat README.md
+: 1753379577:0;mv reverse-engineering-lab react/
+: 1753379597:0;nvim config.json
+: 1753379610:0;nvim config
+: 1753379624:0;nvim btop.conf
+: 1753379646:0;nvim nanorc
+: 1753379654:0;kk
+: 1753379656:0;,,
+: 1753379669:0;nvim .zshrc
+: 1753379685:0;cat README.md
+: 1753379694:0;rm -rf dotfiles --force
+: 1753379726:0;du -sh .
+: 1753379731:0;du -sh .
+: 1753380082:0;rm -rf wendy --force
+: 1753380094:0;sudo rm -rf wendy
+: 1753380106:0;du -sh .
+: 1753380139:0;nvim .env.gittoken
+: 1753380245:0;mv bitpay_recovery_phrases.txt ~/.keys/
+: 1753380262:0;rm -rf crypto
+: 1753380288:0;rm -rf CodePen
+: 1753380303:0;jzbordots
+: 1753380312:0;../../..
+: 1753380325:0;nvim kitty.conf.bak
+: 1753380370:0;nvim rc.conf.bak
+: 1753380416:0;rm -rf dotfiles --force
+: 1753380436:0;rm -rf custom_files
+: 1753380465:0;mv docs ~/code/
+: 1753380490:0;mv *.pdf ~/code/docs/
+: 1753380549:0;which go
+: 1753380584:0;nvim ubuntu_server_setup.txt
+: 1753380600:0;nvim testdisk.log
+: 1753380612:0;sudo rm -rf testdisk.log
+: 1753380628:0;nvim prompt_gpt.yaml
+: 1753380640:0;rm -rf prompt_gpt.yaml
+: 1753380646:0;nvim notes.md
+: 1753380671:0;mv notes.md ~/code/encore
+: 1753380694:0;mv GE_VPN.txt ~/code/encore
+: 1753380710:0;nvim github_notes.yaml
+: 1753380728:0;mv github_notes.yaml ~/code/github/
+: 1753380755:0;mkdir pc
+: 1753380762:0;mv pc_parts.xlsx pc/
+: 1753380781:0;mv CPU_O11_XL_BUILD_EKWB.yaml pc/
+: 1753380795:0;nvim p10kzsh_from_github.txt
+: 1753380828:0;mv Snazzy.itermcolors ~/code/
+: 1753380850:0;mkdir -p ~/code/notes/
+: 1753380861:0;mv vpn_cert_issue_Giant_Eagle.md ~/code/encore
+: 1753380870:0;mv vision_notes.yml ~/code/encore
+: 1753380884:0;mv ubuntu_* ~/code/notes/
+: 1753380899:0;mv powerlevel_config_options_verbose.zsh ~/code/notes/
+: 1753380918:0;rm -rf .zprofile.pysave
+: 1753380945:0;rm -rf .zcompdump
+: 1753380951:0;nvim .viminfo
+: 1753380975:0;nvim .wakatime.cfg
+: 1753380991:0;mv .wakatime ~/.keys/
+: 1753381015:0;ls ~/.keys/
+: 1753381022:0;ll ~/.keys/
+: 1753381051:0;nvim win_store_removal.yml
+: 1753381064:0;mv win_store_removal.yml ~/code/notes/
+: 1753381075:0;nvim .wakatime.cfg
+: 1753381090:0;nvim ~/.keys/.wakatime_api_key
+: 1753381107:0;nvim .profile
+: 1753381123:0;nvim .lynxrc
+: 1753381150:0;mv .env.openai ~/.keys/
+: 1753381171:0;which dotnet
+: 1753381181:0;which dart
+: 1753381209:0;nvim .dart/dartdev.json
+: 1753381219:0;rm -rf .dart --force
+: 1753381229:0;rm -rf .dart-tool --force
+: 1753381236:0;rm -rf .dartServer --force
+: 1753381259:0;rm -rf .cursor-tutor --force
+: 1753381284:0;rm -rf .degit --force
+: 1753381331:0;which diffusionbee
+: 1753381336:0;brew search diffusion
+: 1753381453:0;rm -rf .diffusionbee --force
+: 1753381475:0;du -sh .
+: 1753384410:0;nvim ~/.bashrc
+: 1753384639:0;mv .cargo .cargo.bak
+: 1753384835:0;nvim ~/.bashrc

@@ -1,0 +1,5 @@
+fund=false
+registry=https://registry.npmjs.org/
+//registry.npmjs.org/:always-auth=true
+
+loglevel=debug
