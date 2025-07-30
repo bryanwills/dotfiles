@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   "goolord/alpha-nvim",
   event = "VimEnter",

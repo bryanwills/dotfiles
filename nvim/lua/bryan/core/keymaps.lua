@@ -1,3 +1,6 @@
+---@diagnostic disable: undefined-global
+local map = vim.keymap.set
+
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness

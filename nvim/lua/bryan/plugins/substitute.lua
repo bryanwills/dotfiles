@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   "gbprod/substitute.nvim",
   event = { "BufReadPre", "BufNewFile" },
