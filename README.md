@@ -18,6 +18,7 @@ All scripts are located in the `scripts/` directory:
 - **`scripts/install.sh`** - Installation script for new users (checks dependencies, customizes usernames, and creates symlinks)
 - **`scripts/uninstall.sh`** - Uninstallation script to remove dotfiles and restore backups
 - **`scripts/dependencies.sh`** - Dependency checker that verifies required applications and tools
+- **`scripts/clean-ds-store.sh`** - Clean up .DS_Store files and prevent their creation
 
 ### Usage
 
@@ -46,6 +47,11 @@ All scripts are located in the `scripts/` directory:
 ./scripts/convert-to-defaults-write.sh
 ```
 
+#### Clean .DS_Store Files
+```bash
+./scripts/clean-ds-store.sh
+```
+
 ### Current Customizations
 
 The following settings are currently applied:
@@ -65,6 +71,11 @@ The following settings are currently applied:
 - **Global Settings:**
   - Show all file extensions
   - Don't save documents to iCloud by default
+
+- **.DS_Store Prevention:**
+  - Prevent .DS_Store creation on network drives
+  - Prevent .DS_Store creation on USB drives
+  - Prevent .DS_Store creation on local drives (aggressive prevention)
 
 ### Installation Process
 
