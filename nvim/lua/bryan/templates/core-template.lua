@@ -1,0 +1,3 @@
+---@diagnostic disable: undefined-global
+-- Core configuration template
+-- Add your configuration here
