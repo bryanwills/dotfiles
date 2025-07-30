@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   {
     "bryanwills/one_monokai.nvim",

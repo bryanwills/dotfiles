@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = "nvim-tree/nvim-web-devicons",
