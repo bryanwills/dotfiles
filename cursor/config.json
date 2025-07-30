@@ -1,0 +1,23 @@
+{
+    "aiSettings": {
+      "enableAutocomplete": true,
+      "maxContextFiles": 100
+    },
+    "fileIgnore": [
+      "node_modules",
+      ".next",
+      ".git",
+      ".DS_Store"
+    ],
+    "files.associations": {
+      "*.md": "markdown",
+      "*.lua": "lua",
+      "*.sh": "shellscript",
+      "*.zsh": "shellscript",
+      "*.bash": "shellscript",
+      "*.toml": "toml",
+      "*.yml": "yaml",
+      "*.yaml": "yaml",
+      "*.json": "json"
+    }
+  }
