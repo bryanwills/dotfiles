@@ -17,11 +17,10 @@ opt.colorcolumn = "130" -- visual indicator at 130 characters
 opt.linebreak = true -- break at word boundaries (not in middle of words)
 opt.breakindent = true -- preserve indentation in wrapped lines
 opt.showbreak = "↪ " -- show wrap indicator
-opt.formatoptions = "tcroql2" -- set format options for proper text wrapping
+opt.formatoptions = "tcroql2a" -- set format options for proper text wrapping with automatic formatting
 
 -- enable automatic formatting for all file types
 opt.formatprg = "fmt -w 130" -- use fmt program for formatting
-opt.formatoptions = opt.formatoptions .. "a" -- automatic formatting of paragraphs
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -39,7 +38,7 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard = opt.clipboard .. "unnamedplus" -- use system clipboard as default register
+opt.clipboard = "unnamedplus" -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
