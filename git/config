@@ -86,7 +86,7 @@
 [fetch]
   fsckObjects = true
 [branch]
-  sort = -commiterdate
+#  sort = -commiterdate
 [tag]
   sort = -taggerdate
 # Colors

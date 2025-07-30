@@ -1,0 +1,654 @@
+
+==============================================================================
+auto-session:                                                             1 ⚠️
+
+Setup ~
+- ✅ OK setup() called
+
+Lazy.nvim settings ~
+- ✅ OK Lazy.nvim support is enabled
+- ✅ OK auto-session is not lazy loaded
+
+Config ~
+- ⚠️ WARNING `vim.o.sessionoptions` should contain 'localoptions' to make sure
+  filetype and highlighting work correctly after a session is restored.
+
+  Recommended setting is:
+
+  vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+Current Config ~
+- You have old config names. You can update your config to:
+  {
+    auto_restore = false,
+    suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" }
+  }
+
+  You can also remove any vim global config settings
+
+General Info ~
+- Session directory: /Users/bryanwills/.local/share/nvim/sessions/
+- Current session: 
+- Current session file: 
+
+==============================================================================
+conform:                                                                    ✅
+
+conform.nvim report ~
+- Log file: /Users/bryanwills/.local/state/nvim/conform.log
+- ✅ OK black ready (python)
+- ✅ OK isort ready (python)
+- ✅ OK prettier ready (graphql, yaml, html, css, svelte, typescriptreact, javascriptreact, typescript, javascript, liquid, json, markdown)
+- ✅ OK stylua ready (lua)
+
+==============================================================================
+dressing:                                                                   ✅
+
+dressing.nvim ~
+- ✅ OK vim.ui.input active
+- ✅ OK vim.ui.select active: telescope
+
+==============================================================================
+lazy:                                                                     2 ⚠️
+
+lazy.nvim ~
+- {lazy.nvim} version `11.17.1`
+- ✅ OK {git} `version 2.50.1`
+- ✅ OK no existing packages found by other package managers
+- ✅ OK packer_compiled.lua not found
+
+luarocks ~
+- checking `luarocks` installation
+- ✅ OK no plugins require `luarocks`, so you can ignore any warnings below
+- ✅ OK {luarocks} `/opt/homebrew/bin/luarocks 3.12.2`
+- ⚠️ WARNING `lua` version `5.1` needed, but found `Lua 5.4.8  Copyright (C) 1994-2025 Lua.org, PUC-Rio`
+- ⚠️ WARNING {lua5.1} or {lua} or {lua-5.1} version `5.1` not installed
+
+==============================================================================
+lspconfig:                                                                  ✅
+
+- Skipped. This healthcheck is redundant with `:checkhealth vim.lsp`.
+
+==============================================================================
+mason:                                                                    3 ⚠️
+
+mason.nvim ~
+- ⚠️ WARNING mason.nvim version v2.0.0
+  - ADVICE:
+    - The latest version of mason.nvim is: v2.0.1
+- ✅ OK PATH: prepend
+- ✅ OK Providers: 
+    mason.providers.registry-api
+    mason.providers.client
+- ✅ OK neovim version >= 0.10.0
+
+mason.nvim [Registries] ~
+- ✅ OK Registry `github.com/mason-org/mason-registry version: 2025-07-28-nimble-flood` is installed.
+
+mason.nvim [Core utils] ~
+- ✅ OK unzip: `UnZip 6.00 of 20 April 2009, by Info-ZIP, with modifications by Apple Inc.`
+- ✅ OK wget: `GNU Wget 1.25.0, a non-interactive network retriever.`
+- ✅ OK curl: `curl 8.13.0 (aarch64-apple-darwin24.3.0) libcurl/8.13.0 OpenSSL/3.5.1 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.5 nghttp2/1.66.0`
+- ✅ OK gzip: `Apple gzip 457.140.3`
+- ✅ OK tar: `bsdtar 3.5.3 - libarchive 3.7.4 zlib/1.2.12 liblzma/5.4.3 bz2lib/1.0.8 `
+- ✅ OK bash: `GNU bash, version 3.2.57(1)-release (arm64-apple-darwin24)`
+- ✅ OK sh: `Ok`
+
+mason.nvim [Languages] ~
+- ✅ OK Ruby: `ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin24]`
+- ⚠️ WARNING Composer: not available
+  - ADVICE:
+    - spawn: composer failed with exit code - and signal -. Could not find executable "composer" in PATH.
+
+- ✅ OK Go: `go version go1.24.5 darwin/arm64`
+- ✅ OK cargo: `cargo 1.88.0 (Homebrew)`
+- ✅ OK node: `v24.0.0`
+- ✅ OK luarocks: `/opt/homebrew/bin/luarocks 3.12.2`
+- ✅ OK PHP: `PHP 8.1.33 (cli) (built: Jul  1 2025 21:17:52) (NTS)`
+- ⚠️ WARNING julia: not available
+  - ADVICE:
+    - spawn: julia failed with exit code - and signal -. Could not find executable "julia" in PATH.
+
+- ✅ OK RubyGem: `3.0.3.1`
+- ✅ OK python: `Python 3.13.5`
+- ✅ OK npm: `11.4.2`
+- ✅ OK java: `openjdk version "11.0.16.1" 2022-08-12 LTS`
+- ✅ OK javac: `javac 11.0.16.1`
+- ✅ OK pip: `pip 25.1.1 from /opt/homebrew/lib/python3.13/site-packages/pip (python 3.13)`
+- ✅ OK python venv: `Ok`
+
+==============================================================================
+mason-lspconfig:                                                            ✅
+
+mason-lspconfig.nvim ~
+- ✅ OK Neovim v0.11
+- ✅ OK mason.nvim v2
+
+==============================================================================
+nvim-treesitter:                                                            ✅
+
+Installation ~
+- ✅ OK `tree-sitter` found 0.25.6 (bf655c0beaf4943573543fa77c58e8006ff34971) (parser generator, only needed for :TSInstallFromGrammar)
+- ✅ OK `node` found v24.0.0 (only needed for :TSInstallFromGrammar)
+- ✅ OK `git` executable found.
+- ✅ OK `cc` executable found. Selected from { vim.NIL, "cc", "gcc", "clang", "cl", "zig" }
+  Version: Apple clang version 17.0.0 (clang-1700.0.13.5)
+- ✅ OK Neovim was compiled with tree-sitter runtime ABI version 15 (required >=13). Parsers must be compatible with runtime ABI.
+
+OS Info:
+{
+  machine = "arm64",
+  release = "24.6.0",
+  sysname = "Darwin",
+  version = "Darwin Kernel Version 24.6.0: Wed Jun 11 21:23:02 PDT 2025; root:xnu-11417.140.62.501.1~2/RELEASE_ARM64_T6020"
+} ~
+
+Parser/Features         H L F I J
+  - bash                ✓ ✓ ✓ . ✓
+  - c                   ✓ ✓ ✓ ✓ ✓
+  - css                 ✓ . ✓ ✓ ✓
+  - dockerfile          ✓ . . . ✓
+  - gitignore           ✓ . . . ✓
+  - graphql             ✓ . . ✓ ✓
+  - html                ✓ ✓ ✓ ✓ ✓
+  - javascript          ✓ ✓ ✓ ✓ ✓
+  - json                ✓ ✓ ✓ ✓ .
+  - lua                 ✓ ✓ ✓ ✓ ✓
+  - markdown            ✓ . ✓ ✓ ✓
+  - markdown_inline     ✓ . . . ✓
+  - prisma              ✓ . ✓ . ✓
+  - query               ✓ ✓ ✓ ✓ ✓
+  - svelte              ✓ ✓ ✓ ✓ ✓
+  - tsx                 ✓ ✓ ✓ ✓ ✓
+  - typescript          ✓ ✓ ✓ ✓ ✓
+  - vim                 ✓ ✓ ✓ . ✓
+  - vimdoc              ✓ . . . ✓
+  - yaml                ✓ ✓ ✓ ✓ ✓
+
+  Legend: H[ighlight], L[ocals], F[olds], I[ndents], In[j]ections
+         +) multiple parsers found, only one will be used
+         x) errors found in the query, try to run :TSUpdate {lang} ~
+
+==============================================================================
+telescope:                                                                  ✅
+
+Checking for required plugins ~
+- ✅ OK plenary installed.
+- ✅ OK nvim-treesitter installed.
+
+Checking external dependencies ~
+- ✅ OK rg: found ripgrep 14.1.1
+- ✅ OK fd: found fd 10.2.0
+
+===== Installed extensions ===== ~
+
+Telescope Extension: `fzf` ~
+- ✅ OK lib working as expected
+- ✅ OK file_sorter correctly configured
+- ✅ OK generic_sorter correctly configured
+
+Telescope Extension: `session-lens` ~
+- No healthcheck provided
+
+==============================================================================
+vim.deprecated:                                                           1 ⚠️
+
+ ~
+- ⚠️ WARNING vim.validate is deprecated. Feature will be removed in Nvim 1.0
+  - ADVICE:
+    - use vim.validate(name, value, validator, optional_or_msg) instead.
+    - stack traceback:
+        /Users/bryanwills/.local/share/nvim/lazy/alpha-nvim/lua/alpha.lua:730
+        /Users/bryanwills/.config/nvim/lua/bryan/plugins/alpha.lua:31
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/loader.lua:380
+        [C]:-1
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/util.lua:135
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/loader.lua:395
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/loader.lua:362
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/loader.lua:197
+        /Users/bryanwills/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/event.lua:85
+
+==============================================================================
+vim.health:                                                                 ✅
+
+Configuration ~
+- ✅ OK no issues found
+
+Runtime ~
+- ✅ OK $VIMRUNTIME: /opt/homebrew/Cellar/neovim/0.11.3/share/nvim/runtime
+
+Performance ~
+- ✅ OK Build type: Release
+
+Remote Plugins ~
+- ✅ OK Up to date
+
+terminal ~
+- key_backspace (kbs) terminfo entry: `key_backspace=^H`
+- key_dc (kdch1) terminfo entry: `key_dc=\E[3~`
+- $TERM_PROGRAM="ghostty"
+- $COLORTERM="truecolor"
+
+External Tools ~
+- ✅ OK ripgrep 14.1.1 (/opt/homebrew/bin/rg)
+
+==============================================================================
+vim.lsp:                                                                  5 ⚠️
+
+- LSP log level : WARN
+- Log path: /Users/bryanwills/.local/state/nvim/lsp.log
+- Log size: 18746 KB
+
+vim.lsp: Active Clients ~
+- No active clients
+
+vim.lsp: Enabled Configurations ~
+- arduino_language_server:
+  - capabilities: {
+      textDocument = {
+        semanticTokens = vim.NIL
+      },
+      workspace = {
+        semanticTokens = vim.NIL
+      }
+    }
+  - cmd: { "arduino-language-server" }
+  - filetypes: arduino
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/arduino_language_server.lua:75>
+
+- ⚠️ WARNING 'astro-ls' is not executable. Configuration will not be used.
+- astro:
+  - before_init: <function @/Users/bryanwills/.local/share/nvim/lazy/mason-lspconfig.nvim/lua/mason-lspconfig/lsp/astro.lua:2>
+  - cmd: { "astro-ls", "--stdio" }
+  - filetypes: astro
+  - init_options: {
+      typescript = {}
+    }
+  - root_markers: package.json, tsconfig.json, jsconfig.json, .git
+
+- ⚠️ WARNING 'css-variables-language-server' is not executable. Configuration will not be used.
+- css_variables:
+  - cmd: { "css-variables-language-server", "--stdio" }
+  - filetypes: css, scss, less
+  - root_markers: package.json, .git
+  - settings: {
+      cssVariables = {
+        blacklistFolders = { "**/.cache", "**/.DS_Store", "**/.git", "**/.hg", "**/.next", "**/.svn", "**/bower_components", "**/CVS", "**/dist", "**/node_modules", "**/tests", "**/tmp" },
+        lookupFiles = { "**/*.less", "**/*.scss", "**/*.sass", "**/*.css" }
+      }
+    }
+
+- ⚠️ WARNING 'vscode-css-language-server' is not executable. Configuration will not be used.
+- cssls:
+  - cmd: { "vscode-css-language-server", "--stdio" }
+  - filetypes: css, scss, less
+  - init_options: {
+      provideFormatter = true
+    }
+  - root_markers: package.json, .git
+  - settings: {
+      css = {
+        validate = true
+      },
+      less = {
+        validate = true
+      },
+      scss = {
+        validate = true
+      }
+    }
+
+- docker_compose_language_service:
+  - cmd: { "docker-compose-langserver", "--stdio" }
+  - filetypes: yaml.docker-compose
+  - root_markers: docker-compose.yaml, docker-compose.yml, compose.yaml, compose.yml
+
+- dockerls:
+  - cmd: { "docker-langserver", "--stdio" }
+  - filetypes: dockerfile
+  - root_markers: Dockerfile
+
+- emmet_ls:
+  - cmd: { "emmet-ls", "--stdio" }
+  - filetypes: astro, css, eruby, html, htmlangular, htmldjango, javascriptreact, less, pug, sass, scss, svelte, templ, typescriptreact, vue
+  - root_markers: .git
+
+- gh_actions_ls:
+  - capabilities: {
+      workspace = {
+        didChangeWorkspaceFolders = {
+          dynamicRegistration = true
+        }
+      }
+    }
+  - cmd: { "gh-actions-language-server", "--stdio" }
+  - filetypes: yaml
+  - init_options: {}
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/gh_actions_ls.lua:21>
+
+- gitlab_ci_ls:
+  - cmd: { "gitlab-ci-ls" }
+  - filetypes: yaml.gitlab
+  - init_options: {
+      cache_path = "/Users/bryanwills/.cache/gitlab-ci-ls/",
+      log_path = "/Users/bryanwills/.cache/gitlab-ci-ls//log/gitlab-ci-ls.log"
+    }
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/gitlab_ci_ls.lua:17>
+
+- ⚠️ WARNING 'graphql-lsp' is not executable. Configuration will not be used.
+- graphql:
+  - cmd: { "graphql-lsp", "server", "-m", "stream" }
+  - filetypes: graphql, typescriptreact, javascriptreact
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/graphql.lua:18>
+
+- ⚠️ WARNING 'vscode-html-language-server' is not executable. Configuration will not be used.
+- html:
+  - cmd: { "vscode-html-language-server", "--stdio" }
+  - filetypes: html, templ
+  - init_options: {
+      configurationSection = { "html", "css", "javascript" },
+      embeddedLanguages = {
+        css = true,
+        javascript = true
+      },
+      provideFormatter = true
+    }
+  - root_markers: package.json, .git
+  - settings: {}
+
+- htmx:
+  - cmd: { "htmx-lsp" }
+  - filetypes: aspnetcorerazor, astro, astro-markdown, blade, clojure, django-html, htmldjango, edge, eelixir, elixir, ejs, erb, eruby, gohtml, gohtmltmpl, haml, handlebars, hbs, html, htmlangular, html-eex, heex, jade, leaf, liquid, markdown, mdx, mustache, njk, nunjucks, php, razor, slim, twig, javascript, javascriptreact, reason, rescript, typescript, typescriptreact, vue, svelte, templ
+  - root_markers: .git
+
+- jqls:
+  - cmd: { "jq-lsp" }
+  - filetypes: jq
+  - root_markers: .git
+
+- jsonls:
+  - cmd: { "vscode-json-language-server", "--stdio" }
+  - filetypes: json, jsonc
+  - init_options: {
+      provideFormatter = true
+    }
+  - root_markers: .git
+
+- lua_ls:
+  - cmd: { "lua-language-server" }
+  - filetypes: lua
+  - root_markers: .luarc.json, .luarc.jsonc, .luacheckrc, .stylua.toml, stylua.toml, selene.toml, selene.yml, .git
+
+- markdown_oxide:
+  - cmd: { "markdown-oxide" }
+  - filetypes: markdown
+  - on_attach: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/markdown_oxide.lua:15>
+  - root_markers: .git, .obsidian, .moxide.toml
+
+- prismals:
+  - cmd: { "prisma-language-server", "--stdio" }
+  - filetypes: prisma
+  - root_markers: .git, package.json
+  - settings: {
+      prisma = {
+        prismaFmtBinPath = ""
+      }
+    }
+
+- puppet:
+  - cmd: { "puppet-languageserver", "--stdio" }
+  - filetypes: puppet
+  - root_markers: manifests, .puppet-lint.rc, hiera.yaml, .git
+
+- pylsp:
+  - before_init: <function @/Users/bryanwills/.local/share/nvim/lazy/mason-lspconfig.nvim/lua/mason-lspconfig/lsp/pylsp.lua:5>
+  - cmd: { "pylsp" }
+  - filetypes: python
+  - root_markers: pyproject.toml, setup.py, setup.cfg, requirements.txt, Pipfile, .git
+
+- pyright:
+  - cmd: { "pyright-langserver", "--stdio" }
+  - filetypes: python
+  - on_attach: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/pyright.lua:43>
+  - root_markers: pyproject.toml, setup.py, setup.cfg, requirements.txt, Pipfile, pyrightconfig.json, .git
+  - settings: {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "openFilesOnly",
+          useLibraryCodeForTypes = true
+        }
+      }
+    }
+
+- svelte:
+  - cmd: { "svelteserver", "--stdio" }
+  - filetypes: svelte
+  - on_attach: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/svelte.lua:23>
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/svelte.lua:15>
+
+- tailwindcss:
+  - before_init: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/tailwindcss.lua:97>
+  - cmd: { "tailwindcss-language-server", "--stdio" }
+  - filetypes: aspnetcorerazor, astro, astro-markdown, blade, clojure, django-html, htmldjango, edge, eelixir, elixir, ejs, erb, eruby, gohtml, gohtmltmpl, haml, handlebars, hbs, html, htmlangular, html-eex, heex, jade, leaf, liquid, markdown, mdx, mustache, njk, nunjucks, php, razor, slim, twig, css, less, postcss, sass, scss, stylus, sugarss, javascript, javascriptreact, reason, rescript, typescript, typescriptreact, vue, svelte, templ
+  - root_dir: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/tailwindcss.lua:109>
+  - settings: {
+      tailwindCSS = {
+        classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+        includeLanguages = {
+          eelixir = "html-eex",
+          elixir = "phoenix-heex",
+          eruby = "erb",
+          heex = "phoenix-heex",
+          htmlangular = "html",
+          templ = "html"
+        },
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidConfigPath = "error",
+          invalidScreen = "error",
+          invalidTailwindDirective = "error",
+          invalidVariant = "error",
+          recommendedVariantOrder = "warning"
+        },
+        validate = true
+      }
+    }
+  - workspace_required: true
+
+- terraformls:
+  - cmd: { "terraform-ls", "serve" }
+  - filetypes: terraform, terraform-vars
+  - root_markers: .terraform, .git
+
+- ts_ls:
+  - cmd: { "typescript-language-server", "--stdio" }
+  - commands: {
+      ["editor.action.showReferences"] = <function 1>
+    }
+  - filetypes: javascript, javascriptreact, javascript.jsx, typescript, typescriptreact, typescript.tsx
+  - handlers: {
+      ["_typescript.rename"] = <function 1>
+    }
+  - init_options: {
+      hostInfo = "neovim"
+    }
+  - on_attach: <function @/Users/bryanwills/.local/share/nvim/lazy/nvim-lspconfig/lsp/ts_ls.lua:126>
+  - root_markers: tsconfig.json, jsconfig.json, package.json, .git
+
+- vimls:
+  - cmd: { "vim-language-server", "--stdio" }
+  - filetypes: vim
+  - init_options: {
+      diagnostic = {
+        enable = true
+      },
+      indexes = {
+        count = 3,
+        gap = 100,
+        projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
+        runtimepath = true
+      },
+      isNeovim = true,
+      iskeyword = "@,48-57,_,192-255,-#",
+      runtimepath = "",
+      suggest = {
+        fromRuntimepath = true,
+        fromVimruntime = true
+      },
+      vimruntime = ""
+    }
+  - root_markers: .git
+
+- yamlls:
+  - cmd: { "yaml-language-server", "--stdio" }
+  - filetypes: yaml, yaml.docker-compose, yaml.gitlab, yaml.helm-values
+  - root_markers: .git
+  - settings: {
+      redhat = {
+        telemetry = {
+          enabled = false
+        }
+      }
+    }
+
+
+vim.lsp: File Watcher ~
+- file watching "(workspace/didChangeWatchedFiles)" disabled on all clients
+
+vim.lsp: Position Encodings ~
+- No active clients
+
+==============================================================================
+vim.provider:                                                             7 ⚠️
+
+Clipboard (optional) ~
+- ✅ OK Clipboard tool found: pbcopy
+
+Node.js provider (optional) ~
+- Node.js: v24.0.0
+
+- ⚠️ WARNING Missing "neovim" npm (or yarn, pnpm) package.
+  - ADVICE:
+    - Run in shell: npm install -g neovim
+    - Run in shell (if you use yarn): yarn global add neovim
+    - Run in shell (if you use pnpm): pnpm install -g neovim
+    - You may disable this provider (and warning) by adding `let g:loaded_node_provider = 0` to your init.vim
+
+Perl provider (optional) ~
+- ⚠️ WARNING "Neovim::Ext" cpan module is not installed
+  - ADVICE:
+    - See :help |provider-perl| for more information.
+    - You can disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
+- ⚠️ WARNING No usable perl executable found
+
+Python 3 provider (optional) ~
+- pyenv: Path: /opt/homebrew/Cellar/pyenv/2.6.5/libexec/pyenv
+- pyenv: $PYENV_ROOT is not set. Infer from `pyenv root`.
+- ⚠️ WARNING pyenv: Root does not exist: /Users/bryanwills/.pyenv. Ignoring pyenv for all following checks.
+- ⚠️ WARNING No Python executable found that can `import neovim`. Using the first available executable for diagnostics.
+- ⚠️ WARNING Could not load Python :
+  /opt/homebrew/bin/python3 does not have the "neovim" module.
+  /opt/homebrew/bin/python3.13 does not have the "neovim" module.
+  /opt/homebrew/bin/python3.12 does not have the "neovim" module.
+  /opt/local/bin/python3.11 does not have the "neovim" module.
+  /opt/local/bin/python3.10 does not have the "neovim" module.
+  python3.9 not found in search path or not executable.
+  python not found in search path or not executable.
+  - ADVICE:
+    - See :help |provider-python| for more information.
+    - You can disable this provider (and warning) by adding `let g:loaded_python3_provider = 0` to your init.vim
+- Executable: Not found
+
+Python virtualenv ~
+- ✅ OK no $VIRTUAL_ENV
+
+Ruby provider (optional) ~
+- Ruby: ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin24]
+- ⚠️ WARNING `neovim-ruby-host` not found.
+  - ADVICE:
+    - Run `gem install neovim` to ensure the neovim RubyGem is installed.
+    - Run `gem environment` to ensure the gem bin directory is in $PATH.
+    - If you are using rvm/rbenv/chruby, try "rehashing".
+    - See :help |g:ruby_host_prog| for non-standard gem installations.
+    - You can disable this provider (and warning) by adding `let g:loaded_ruby_provider = 0` to your init.vim
+
+==============================================================================
+vim.treesitter:                                                             ✅
+
+Treesitter features ~
+- Treesitter ABI support: min 13, max 15
+- WASM parser support: false
+
+Treesitter parsers ~
+- ✅ OK Parser: bash                 ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/bash.so
+- ✅ OK Parser: c                    ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/c.so
+- ✅ OK Parser: c                    ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/c.so
+- ✅ OK Parser: css                  ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/css.so
+- ✅ OK Parser: dockerfile           ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/dockerfile.so
+- ✅ OK Parser: gitignore            ABI: 13, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/gitignore.so
+- ✅ OK Parser: graphql              ABI: 13, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/graphql.so
+- ✅ OK Parser: html                 ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/html.so
+- ✅ OK Parser: javascript           ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/javascript.so
+- ✅ OK Parser: json                 ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/json.so
+- ✅ OK Parser: lua                  ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/lua.so
+- ✅ OK Parser: lua                  ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/lua.so
+- ✅ OK Parser: markdown             ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/markdown.so
+- ✅ OK Parser: markdown             ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/markdown.so
+- ✅ OK Parser: markdown_inline      ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/markdown_inline.so
+- ✅ OK Parser: markdown_inline      ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/markdown_inline.so
+- ✅ OK Parser: prisma               ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/prisma.so
+- ✅ OK Parser: query                ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/query.so
+- ✅ OK Parser: query                ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/query.so
+- ✅ OK Parser: svelte               ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/svelte.so
+- ✅ OK Parser: tsx                  ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/tsx.so
+- ✅ OK Parser: typescript           ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/typescript.so
+- ✅ OK Parser: vim                  ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/vim.so
+- ✅ OK Parser: vim                  ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/vim.so
+- ✅ OK Parser: vimdoc               ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/vimdoc.so
+- ✅ OK Parser: vimdoc               ABI: 14, path: /opt/homebrew/Cellar/neovim/0.11.3/lib/nvim/parser/vimdoc.so
+- ✅ OK Parser: yaml                 ABI: 14, path: /Users/bryanwills/.local/share/nvim/lazy/nvim-treesitter/parser/yaml.so
+
+==============================================================================
+which-key:                                                                7 ⚠️
+
+- ✅ OK Most of these checks are for informational purposes only.
+  WARNINGS should be treated as a warning, and don't necessarily indicate a problem with your config.
+  Please |DON'T| report these warnings as an issue.
+
+Checking your config ~
+- ⚠️ WARNING |mini.icons| is not installed
+- ✅ OK |nvim-web-devicons| is installed
+
+Checking for issues with your mappings ~
+- ✅ OK No issues reported
+
+checking for overlapping keymaps ~
+- ⚠️ WARNING In mode `n`, <s> overlaps with <ss>:
+  - <s>: Substitute with motion
+  - <ss>: Substitute line
+- ⚠️ WARNING In mode `n`, <<Space>l> overlaps with <<Space>lg>:
+  - <<Space>l>: Trigger linting for current file
+  - <<Space>lg>: Open lazy git
+- ⚠️ WARNING In mode `n`, <yS> overlaps with <ySS>:
+  - <yS>: Add a surrounding pair around a motion, on new lines (normal mode)
+  - <ySS>: Add a surrounding pair around the current line, on new lines (normal mode)
+- ⚠️ WARNING In mode `n`, <ys> overlaps with <yss>:
+  - <ys>: Add a surrounding pair around a motion (normal mode)
+  - <yss>: Add a surrounding pair around the current line (normal mode)
+- ⚠️ WARNING In mode `n`, <gc> overlaps with <gco>, <gcO>, <gcc>, <gcA>:
+  - <gc>: Comment toggle linewise
+  - <gco>: Comment insert below
+  - <gcO>: Comment insert above
+  - <gcc>: Comment toggle current line
+  - <gcA>: Comment insert end of line
+- ⚠️ WARNING In mode `n`, <gb> overlaps with <gbc>:
+  - <gb>: Comment toggle blockwise
+  - <gbc>: Comment toggle current block
+- ✅ OK Overlapping keymaps are only reported for informational purposes.
+  This doesn't necessarily mean there is a problem with your config.
+
+Checking for duplicate mappings ~
+- ✅ OK No duplicate mappings found
+
