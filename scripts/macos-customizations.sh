@@ -37,5 +37,11 @@ echo "Configuring security settings..."
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# .DS_Store Prevention
+echo "Configuring .DS_Store prevention..."
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+defaults write com.apple.desktopservices DSDontWriteUSBStores true
+defaults write com.apple.desktopservices DSDontWriteLocalStores true
+
 echo "Customizations applied! Some changes may require a restart to take effect."
 echo "To restart: sudo shutdown -r now"

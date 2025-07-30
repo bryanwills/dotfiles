@@ -19,6 +19,11 @@ defaults write com.apple.dock magnification -bool 1
 defaults write NSGlobalDomain AppleShowAllExtensions -bool 1
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool 0
 
+# .DS_Store Prevention
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+defaults write com.apple.desktopservices DSDontWriteUSBStores true
+defaults write com.apple.desktopservices DSDontWriteLocalStores true
+
 echo "Settings applied! Some changes may require a restart."
 echo "To restart Dock: killall Dock"
 echo "To restart Finder: killall Finder"
