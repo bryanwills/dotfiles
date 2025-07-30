@@ -111,6 +111,7 @@ alias nv="nvim"
 alias ta='tmux attach'
 alias tl='tmux list-sessions'
 alias tn='tmux new-session -s'
+alias td='tmux kill-session -t'
 
 # Aliases: safety
 alias cp='cp --interactive'
