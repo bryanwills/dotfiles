@@ -7,7 +7,7 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        -- Web Technologies
+        -- Web Technologies (ACTIVE - You're using these)
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -28,131 +28,136 @@ return {
         graphql = { "prettier" },
         liquid = { "prettier" },
 
-        -- Python
+        -- Python (ACTIVE - You're using these)
         python = { "isort", "black" },
 
-        -- Lua
+        -- Lua (ACTIVE - You're using this)
         lua = { "stylua" },
 
-        -- Go
-        go = { "gofmt", "goimports" },
+        -- Go (ACTIVE - You're using this)
+        go = { "gofmt" }, -- Removed goimports as it's not installed
 
-        -- Rust
+        -- Rust (ACTIVE - You're using this)
         rust = { "rustfmt" },
 
-        -- C/C++
-        c = { "clang_format" },
-        cpp = { "clang_format" },
-        cxx = { "clang_format" },
-        h = { "clang_format" },
-        hpp = { "clang_format" },
+        -- Microsoft Office (HANDLED BY VIM-OFFICE PLUGIN)
+        -- These file types are handled by the separate vim-office plugin
+        -- docx = { "vim_office" },
+        -- doc = { "vim_office" },
+        -- xlsx = { "vim_office" },
+        -- xls = { "vim_office" },
+        -- pptx = { "vim_office" },
+        -- ppt = { "vim_office" },
+        -- odt = { "vim_office" },
+        -- ods = { "vim_office" },
+        -- odp = { "vim_office" },
+        -- epub = { "vim_office" },
 
-        -- Java
-        java = { "google_java_format" },
+        -- PDF Documents (HANDLED BY VIM-OFFICE PLUGIN)
+        -- pdf = { "vim_office" },
 
-        -- PHP
-        php = { "php_cs_fixer" },
+        -- ========================================
+        -- COMMENTED OUT - Not currently installed/used
+        -- ========================================
 
-        -- Ruby
-        ruby = { "rubocop" },
+        -- C/C++ (COMMENTED - Not installed)
+        -- c = { "clang_format" },
+        -- cpp = { "clang_format" },
+        -- cxx = { "clang_format" },
+        -- h = { "clang_format" },
+        -- hpp = { "clang_format" },
 
-        -- Shell
+        -- Java (COMMENTED - Not installed)
+        -- java = { "google_java_format" },
+
+        -- PHP (COMMENTED - Not installed)
+        -- php = { "php_cs_fixer" },
+
+        -- Ruby (COMMENTED - Not installed)
+        -- ruby = { "rubocop" },
+
+        -- Shell (COMMENTED - Not installed)
         sh = { "shfmt" },
         bash = { "shfmt" },
         zsh = { "shfmt" },
 
-        -- SQL
-        sql = { "sqlformat" },
+        -- SQL (ACTIVE - You installed sqlformat)
+        -- sql = { "sqlformat" },
 
-        -- Kotlin
-        kt = { "ktlint" },
-        kts = { "ktlint" },
+        -- Kotlin (COMMENTED - Not installed)
+        -- kt = { "ktlint" },
+        -- kts = { "ktlint" },
 
-        -- Scala
-        scala = { "scalafmt" },
+        -- Scala (COMMENTED - Not installed)
+        -- scala = { "scalafmt" },
 
-        -- Dart
-        dart = { "dart_format" },
+        -- Dart (COMMENTED - Not installed)
+        -- dart = { "dart_format" },
 
-        -- Swift
+        -- Swift (COMMENTED - Not installed)
         swift = { "swiftformat" },
 
-        -- R
-        r = { "styler" },
+        -- R (COMMENTED - Not installed)
+        -- r = { "styler" },
 
-        -- Julia
-        jl = { "julia_format" },
+        -- Julia (COMMENTED - Not installed)
+        -- jl = { "julia_format" },
 
-        -- Zig
-        zig = { "zig_fmt" },
+        -- Zig (COMMENTED - Not installed)
+        -- zig = { "zig_fmt" },
 
-        -- Nim
-        nim = { "nimpretty" },
+        -- Nim (COMMENTED - Not installed)
+        -- nim = { "nimpretty" },
 
-        -- Crystal
-        cr = { "crystal_format" },
+        -- Crystal (COMMENTED - Not installed)
+        -- cr = { "crystal_format" },
 
-        -- Elixir
-        ex = { "mix_format" },
-        exs = { "mix_format" },
+        -- Elixir (COMMENTED - Not installed)
+        -- ex = { "mix_format" },
+        -- exs = { "mix_format" },
 
-        -- Haskell
-        hs = { "fourmolu" },
-        lhs = { "fourmolu" },
+        -- Haskell (COMMENTED - Not installed)
+        -- hs = { "fourmolu" },
+        -- lhs = { "fourmolu" },
 
-        -- OCaml
-        ml = { "ocamlformat" },
-        mli = { "ocamlformat" },
+        -- OCaml (COMMENTED - Not installed)
+        -- ml = { "ocamlformat" },
+        -- mli = { "ocamlformat" },
 
-        -- F#
-        fs = { "fantomas" },
-        fsi = { "fantomas" },
-        fsx = { "fantomas" },
+        -- F# (COMMENTED - Not installed)
+        -- fs = { "fantomas" },
+        -- fsi = { "fantomas" },
+        -- fsx = { "fantomas" },
 
-        -- Clojure
-        clj = { "cljstyle" },
-        cljs = { "cljstyle" },
-        edn = { "cljstyle" },
+        -- Clojure (COMMENTED - Not installed)
+        -- clj = { "cljstyle" },
+        -- cljs = { "cljstyle" },
+        -- edn = { "cljstyle" },
 
-        -- Erlang
-        erl = { "erlfmt" },
-        hrl = { "erlfmt" },
+        -- Erlang (COMMENTED - Not installed)
+        -- erl = { "erlfmt" },
+        -- hrl = { "erlfmt" },
 
-        -- Prolog
-        pl = { "swipl_format" },
-        pro = { "swipl_format" },
+        -- Prolog (COMMENTED - Not installed)
+        -- pl = { "swipl_format" },
+        -- pro = { "swipl_format" },
 
-        -- V
-        v = { "v_fmt" },
+        -- V (COMMENTED - Not installed)
+        -- v = { "v_fmt" },
 
-        -- Nix
-        nix = { "nixpkgs_fmt" },
+        -- Nix (COMMENTED - Not installed)
+        -- nix = { "nixpkgs_fmt" },
 
-        -- Terraform
-        tf = { "terraform_fmt" },
-        hcl = { "terraform_fmt" },
+        -- Terraform (COMMENTED - Not installed)
+        -- tf = { "terraform_fmt" },
+        -- hcl = { "terraform_fmt" },
 
-        -- Docker
-        dockerfile = { "hadolint" },
+        -- Docker (COMMENTED - Not installed)
+        -- dockerfile = { "hadolint" },
 
-        -- Make
-        make = { "make_format" },
-        makefile = { "make_format" },
-
-        -- Microsoft Office
-        docx = { "vim_office" },
-        doc = { "vim_office" },
-        xlsx = { "vim_office" },
-        xls = { "vim_office" },
-        pptx = { "vim_office" },
-        ppt = { "vim_office" },
-        odt = { "vim_office" },
-        ods = { "vim_office" },
-        odp = { "vim_office" },
-        epub = { "vim_office" },
-
-        -- PDF Documents
-        pdf = { "vim_office" },
+        -- Make (COMMENTED - Not installed)
+        -- make = { "make_format" },
+        -- makefile = { "make_format" },
       },
       -- Configure formatters with word wrap limits
       formatters = {
@@ -190,56 +195,10 @@ return {
             "--max-width=130",
           },
         },
-        goimports = {
-          prepend_args = {
-            "--max-width=130",
-          },
-        },
 
         -- Rust
         rustfmt = {
           prepend_args = {
-            "--max-width=130",
-          },
-        },
-
-        -- C/C++
-        clang_format = {
-          prepend_args = {
-            "--style={BasedOnStyle: Google, ColumnLimit: 130}",
-          },
-        },
-
-        -- Java
-        google_java_format = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
-
-        -- PHP
-        php_cs_fixer = {
-          prepend_args = {
-            "--rules=@PSR2",
-            "--line-length=130",
-          },
-        },
-
-        -- Ruby
-        rubocop = {
-          prepend_args = {
-            "--autocorrect",
-            "--max-line-length=130",
-          },
-        },
-
-        -- Shell
-        shfmt = {
-          prepend_args = {
-            "--indent=2",
-            "--binary-next-line",
-            "--case-indent",
-            "--space-redirects",
             "--max-width=130",
           },
         },
@@ -251,160 +210,208 @@ return {
           },
         },
 
-        -- Kotlin
-        ktlint = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Microsoft Office (HANDLED BY VIM-OFFICE PLUGIN)
+        -- vim_office is a separate plugin, not a conform.nvim formatter
 
-        -- Scala
-        scalafmt = {
-          prepend_args = {
-            "--maxColumn=130",
-          },
-        },
+        -- ========================================
+        -- COMMENTED OUT - Not currently installed/used
+        -- ========================================
 
-        -- Dart
-        dart_format = {
-          prepend_args = {
-            "--line-length=130",
-          },
-        },
+        -- C/C++ (COMMENTED - Not installed)
+        -- clang_format = {
+        --   prepend_args = {
+        --     "--style={BasedOnStyle: Google, ColumnLimit: 130}",
+        --   },
+        -- },
 
-        -- Swift
-        swiftformat = {
-          prepend_args = {
-            "--maxwidth=130",
-          },
-        },
+        -- Java (COMMENTED - Not installed)
+        -- google_java_format = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
 
-        -- R
-        styler = {
-          prepend_args = {
-            "--style=strict",
-            "--line-width=130",
-          },
-        },
+        -- PHP (COMMENTED - Not installed)
+        -- php_cs_fixer = {
+        --   prepend_args = {
+        --     "--rules=@PSR2",
+        --     "--line-length=130",
+        --   },
+        -- },
 
-        -- Julia
-        julia_format = {
-          prepend_args = {
-            "--margin=130",
-          },
-        },
+        -- Ruby (COMMENTED - Not installed)
+        -- rubocop = {
+        --   prepend_args = {
+        --     "--autocorrect",
+        --     "--max-line-length=130",
+        --   },
+        -- },
 
-        -- Zig
-        zig_fmt = {
-          prepend_args = {
-            "--max-width=130",
-          },
-        },
+        -- Shell (COMMENTED - Not installed)
+        -- shfmt = {
+        --   prepend_args = {
+        --     "--indent=2",
+        --     "--binary-next-line",
+        --     "--case-indent",
+        --     "--space-redirects",
+        --     "--max-width=130",
+        --   },
+        -- },
 
-        -- Nim
-        nimpretty = {
-          prepend_args = {
-            "--maxLineLen=130",
-          },
-        },
+        -- SQL (COMMENTED - Not installed)
+        -- sqlformat = {
+        --   prepend_args = {
+        --     "--max_line_length=130",
+        --   },
+        -- },
 
-        -- Crystal
-        crystal_format = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Kotlin (COMMENTED - Not installed)
+        -- ktlint = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
 
-        -- Elixir
-        mix_format = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Scala (COMMENTED - Not installed)
+        -- scalafmt = {
+        --   prepend_args = {
+        --     "--maxColumn=130",
+        --   },
+        -- },
 
-        -- Haskell
-        fourmolu = {
-          prepend_args = {
-            "--column-limit=130",
-          },
-        },
+        -- Dart (COMMENTED - Not installed)
+        -- dart_format = {
+        --   prepend_args = {
+        --     "--line-length=130",
+        --   },
+        -- },
 
-        -- OCaml
-        ocamlformat = {
-          prepend_args = {
-            "--margin=130",
-          },
-        },
+        -- Swift (COMMENTED - Not installed)
+        -- swiftformat = {
+        --   prepend_args = {
+        --     "--maxwidth=130",
+        --   },
+        -- },
 
-        -- F#
-        fantomas = {
-          prepend_args = {
-            "--maxLineLength=130",
-          },
-        },
+        -- R (COMMENTED - Not installed)
+        -- styler = {
+        --   prepend_args = {
+        --     "--style=strict",
+        --     "--line-width=130",
+        --   },
+        -- },
 
-        -- Clojure
-        cljstyle = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Julia (COMMENTED - Not installed)
+        -- julia_format = {
+        --   prepend_args = {
+        --     "--margin=130",
+        --   },
+        -- },
 
-        -- Erlang
-        erlfmt = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Zig (COMMENTED - Not installed)
+        -- zig_fmt = {
+        --   prepend_args = {
+        --     "--max-width=130",
+        --   },
+        -- },
 
-        -- Prolog
-        swipl_format = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Nim (COMMENTED - Not installed)
+        -- nimpretty = {
+        --   prepend_args = {
+        --     "--maxLineLen=130",
+        --   },
+        -- },
 
-        -- V
-        v_fmt = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Crystal (COMMENTED - Not installed)
+        -- crystal_format = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
 
-        -- Nix
-        nixpkgs_fmt = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Elixir (COMMENTED - Not installed)
+        -- mix_format = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
 
-        -- Terraform
-        terraform_fmt = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Haskell (COMMENTED - Not installed)
+        -- fourmolu = {
+        --   prepend_args = {
+        --     "--column-limit=130",
+        --   },
+        -- },
 
-        -- Docker
-        hadolint = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- OCaml (COMMENTED - Not installed)
+        -- ocamlformat = {
+        --   prepend_args = {
+        --     "--margin=130",
+        --   },
+        -- },
 
-        -- Make
-        make_format = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- F# (COMMENTED - Not installed)
+        -- fantomas = {
+        --   prepend_args = {
+        --     "--maxLineLength=130",
+        --   },
+        -- },
 
-        -- Microsoft Office
-        vim_office = {
-          prepend_args = {
-            "--max-line-length=130",
-          },
-        },
+        -- Clojure (COMMENTED - Not installed)
+        -- cljstyle = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Erlang (COMMENTED - Not installed)
+        -- erlfmt = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Prolog (COMMENTED - Not installed)
+        -- swipl_format = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- V (COMMENTED - Not installed)
+        -- v_fmt = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Nix (COMMENTED - Not installed)
+        -- nixpkgs_fmt = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Terraform (COMMENTED - Not installed)
+        -- terraform_fmt = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Docker (COMMENTED - Not installed)
+        -- hadolint = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
+
+        -- Make (COMMENTED - Not installed)
+        -- make_format = {
+        --   prepend_args = {
+        --     "--max-line-length=130",
+        --   },
+        -- },
       },
       format_on_save = {
         lsp_fallback = true,

@@ -151,16 +151,19 @@ return {
 
       -- Python
       pylint = {
+        cmd = "pylint",
         args = {
           "--max-line-length=130",
         },
       },
       flake8 = {
+        cmd = "flake8",
         args = {
           "--max-line-length=130",
         },
       },
       mypy = {
+        cmd = "mypy",
         args = {
           "--line-length=130",
         },
@@ -240,6 +243,7 @@ return {
 
       -- Shell
       shellcheck = {
+        cmd = "shellcheck",
         args = {
           "--max-line-length=130",
         },
@@ -421,6 +425,7 @@ return {
 
       -- Lua
       luacheck = {
+        cmd = "luacheck",
         args = {
           "--max-line-length=130",
         },
@@ -457,7 +462,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>l", function()
+    vim.keymap.set("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
   end,
