@@ -1,7 +1,6 @@
 return {
   "nvim-lua/plenary.nvim", -- lua functions that many plugins use
   "christoomey/vim-tmux-navigator", -- tmux & split window navigation
-  require("bryan.plugins.theme"),
 
   -- Add nvim-web-devicons
   {
@@ -16,7 +15,3 @@ return {
     end,
   },
 }
-
---require("bryan.plugins.theme
-
--- Add nvim-web-devicons

@@ -17,7 +17,7 @@ opt.colorcolumn = "130" -- visual indicator at 130 characters
 opt.linebreak = true -- break at word boundaries (not in middle of words)
 opt.breakindent = true -- preserve indentation in wrapped lines
 opt.showbreak = "↪ " -- show wrap indicator
-opt.formatoptions = "tcroql2" -- set format options for manual text wrapping (removed 'a' for automatic)
+opt.formatoptions = "tcroql2c" -- set format options for manual text wrapping with comment support
 
 -- enable automatic formatting for all file types
 opt.formatprg = "fmt -w 130" -- use fmt program for formatting
@@ -55,5 +55,22 @@ vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     vim.opt_local.textwidth = 130
     vim.opt_local.colorcolumn = "130"
+  end,
+})
+
+-- Set comment formats for different file types
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "zsh", "sh", "bash" },
+  callback = function()
+    vim.opt_local.comments = ":#"
+    -- Don't modify formatoptions, it's already set globally
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua" },
+  callback = function()
+    vim.opt_local.comments = ":--"
+    -- Don't modify formatoptions, it's already set globally
   end,
 })

@@ -1,11 +1,10 @@
 ---@diagnostic disable: undefined-global
--- Temporarily disabled vim-office plugin to test autocmd issue
--- This will be re-enabled once we confirm the autocmd issue is resolved
 return {
   "Konfekt/vim-office",
-  enabled = false, -- Temporarily disabled
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    -- Plugin temporarily disabled
+    -- Configure vim-office for editing .docx, .pdf, and other office files
+    -- This plugin allows direct editing of Microsoft Office and PDF files
+    vim.g.vim_office_enabled = 1
   end,
 }
