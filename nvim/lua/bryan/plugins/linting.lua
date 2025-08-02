@@ -447,6 +447,7 @@ return {
 
       -- JSON
       jsonlint = {
+        cmd = "jsonlint",
         args = {
           "--max-line-length=130",
         },
