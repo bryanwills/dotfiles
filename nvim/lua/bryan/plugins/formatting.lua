@@ -22,9 +22,10 @@ return {
         jsonc = { "prettier" },
         yaml = { "prettier" },
         yml = { "prettier" },
-        markdown = { "prettier" },
-        md = { "prettier" },
-        mdx = { "prettier" },
+        -- Disable Prettier for Markdown-like filetypes to preserve ASCII diagrams
+        -- markdown = { "prettier" },
+        -- md = { "prettier" },
+        -- mdx = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
 
