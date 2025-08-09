@@ -139,7 +139,7 @@ return {
       jsonc = { "jsonlint" },
     }
 
-    -- Configure linters with word wrap limits
+    -- Configure linters with word wrap limits (restored with a safe markdownlint definition)
     lint.linters = {
       -- Web Technologies
       eslint_d = {
@@ -431,10 +431,11 @@ return {
         },
       },
 
-      -- Markdown
+      -- Markdown (set a proper cmd and safe args)
       markdownlint = {
+        cmd = "markdownlint",
         args = {
-          "--max-line-length=130",
+          "--stdin",
         },
       },
 
