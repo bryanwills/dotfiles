@@ -2,3 +2,7 @@
 *.env*
 *.bak*
 node_modules/
+
+# Tmux plugins (managed by TPM)
+tmux/plugins/
+xnviewmp/
