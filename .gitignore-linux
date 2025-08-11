@@ -1,0 +1,124 @@
+# Linux-specific .gitignore
+# This file excludes macOS-specific dotfiles that are not needed on Linux
+
+# macOS-specific applications and configurations
+ghostty/                    # macOS terminal emulator
+iterm2/                     # macOS terminal emulator
+kitty/                      # macOS terminal emulator
+obsidian/                   # macOS note-taking app
+.obsidian/                  # Obsidian configuration
+raycast/                    # macOS launcher
+sketchybar/                 # macOS status bar
+xbuild/                     # Xcode build tools
+yazi/                       # Modern file manager (macOS-specific config)
+xnviewmp/                   # Image viewer (macOS-specific)
+
+# macOS-specific system configurations
+flipperdevices.com/         # Flipper device manager
+filezilla/                  # FTP client
+joplin-desktop/            # Note-taking app
+powershell/                 # PowerShell (macOS-specific)
+wireshark/                 # Network analyzer (macOS-specific)
+
+# macOS-specific development tools
+flutter/                    # Flutter SDK (macOS-specific config)
+cursor/                     # Cursor editor (macOS-specific)
+zed/                        # Zed editor (macOS-specific)
+claude/                     # Claude AI (macOS-specific)
+
+# macOS-specific package managers
+npm/                        # Node package manager (macOS-specific config)
+pnpm/                       # pnpm (macOS-specific config)
+postgres/                   # PostgreSQL (macOS-specific config)
+
+# macOS-specific browser configurations
+chrome/                     # Chrome flags (macOS-specific)
+browseruse/                 # Browser usage (macOS-specific)
+
+# macOS-specific system configurations
+configstore/                # Config storage (macOS-specific)
+simple-update-notifier/     # Update notifications (macOS-specific)
+
+# macOS-specific shell configurations
+fish/                       # Fish shell (macOS-specific config)
+
+# macOS-specific development configurations
+crossnote/                  # Note-taking (macOS-specific)
+spf/                        # Shell prompt framework (macOS-specific)
+contour/                    # Terminal emulator (macOS-specific)
+
+# macOS-specific system files
+.DS_Store                   # macOS system files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# macOS-specific temporary files
+*.swp
+*.swo
+*~
+
+# macOS-specific log files
+*.log
+*.tmp
+
+# macOS-specific cache files
+.cache/
+*.cache
+
+# macOS-specific backup files
+*.bak
+*.backup
+*.old
+
+# macOS-specific lock files
+*.lock
+*.pid
+
+# macOS-specific socket files
+*.sock
+*.socket
+
+# macOS-specific device files
+/dev/
+/proc/
+/sys/
+
+# Linux-specific exclusions (keep these)
+!tmux/
+!nvim/
+!zsh/
+!git/
+!btop/
+!htop/
+!bpytop/
+!ranger/
+!nnn/
+!bat/
+!eza/
+!nano/
+!neofetch/
+!curl/
+!gnupg/
+!cargo/
+!mise/
+!rclone/
+!ueberzugpp/
+!superfile/
+!yazi/
+!lazygit/
+!envman/
+!humanlog/
+!naabu/
+!posting/
+!opencode/
+!uv/
+!gh/
+!gcloud/
+!scripts/
+!README.md
+!.gitignore
+!.gitignore-linux
