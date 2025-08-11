@@ -1,128 +1,238 @@
 # dotfiles
 
-My Personal dotfiles on my Macbook Pro M2 Max machine.
+My Personal dotfiles for macOS, featuring a highly customized development environment with Neovim, Tmux, and Zsh.
 
-## macOS Customization Scripts
+## 🚀 Features
 
-This repository includes several scripts for managing macOS system preferences and customizations:
+### **Terminal & Shell**
+- **Zsh** with **Oh My Zsh** and **powerlevel10k** theme
+- **Tmux** with clean Dracula theme and enhanced keybindings
+- **Kitty** terminal emulator configuration
+- **Btop** system monitoring with custom themes
 
-### Scripts Overview
+### **Neovim (NVIM)**
+- **Lazy.nvim** plugin manager for fast startup
+- **LSP** support with auto-completion and diagnostics
+- **Tree-sitter** for syntax highlighting
+- **Telescope** for fuzzy finding
+- **Linting** with nvim-lint
+- **Formatting** with conform.nvim
+- **Git integration** with gitsigns and lazygit
+- **Markdown support** with preserved ASCII diagrams
 
-All scripts are located in the `scripts/` directory:
+### **Tmux Configuration**
+- **Clean status bar** with essential info only (hostname, path, date)
+- **Dracula color theme** with subtle separators
+- **Enhanced keybindings** for pane/window/session management
+- **Multiple cheat sheet options**:
+  - Quick reference (`prefix + ?`)
+  - Popup style (`prefix + C-?`) - disappears on Escape
+  - Floating window (`prefix + C-h`) - persistent reference
+- **TPM plugins**: tmux-yank, tmux-open, tmux-copycat, tmux-resurrect, tmux-continuum
+- **Shell integration** for proper powerlevel10k prompt
 
-- **`scripts/macos-customizations.sh`** - Template script with common macOS customizations
-- **`scripts/macos-defaults.conf`** - Documentation of available macOS defaults settings
-- **`scripts/extract-current-defaults.sh`** - Extracts current macOS settings to a readable format
-- **`scripts/convert-to-defaults-write.sh`** - Converts current settings to `defaults write` commands
-- **`scripts/my-current-defaults.sh`** - Your current macOS customizations as `defaults write` commands
-- **`scripts/install.sh`** - Installation script for new users (checks dependencies, customizes usernames, and creates symlinks)
-- **`scripts/uninstall.sh`** - Uninstallation script to remove dotfiles and restore backups
-- **`scripts/dependencies.sh`** - Dependency checker that verifies required applications and tools
-- **`scripts/clean-ds-store.sh`** - Clean up .DS_Store files and prevent their creation
+### **Development Tools**
+- **Git** configuration with aliases and hooks
+- **LazyGit** for Git operations
+- **Rust** toolchain setup
+- **Node.js** and **pnpm** configuration
+- **Python** environment management
 
-### Usage
+## 📁 Repository Structure
 
-#### Install Dotfiles (for new users)
+```
+.config/
+├── nvim/                    # Neovim configuration
+│   ├── lua/bryan/          # Custom Neovim modules
+│   │   ├── core/           # Core settings and options
+│   │   ├── plugins/        # Plugin configurations
+│   │   └── templates/      # File templates
+│   ├── after/              # Filetype-specific settings
+│   └── init.lua            # Neovim entry point
+├── tmux/                   # Tmux configuration
+│   ├── tmux.conf          # Main tmux config
+│   └── plugins/           # TPM plugins (managed by TPM)
+├── zsh/                    # Zsh configuration
+│   ├── .zshrc             # Main zsh config
+│   └── oh-my-zsh/         # Oh My Zsh installation
+├── kitty/                  # Kitty terminal config
+├── btop/                   # Btop system monitor config
+├── scripts/                # macOS customization scripts
+└── README.md               # This file
+```
+
+## 🛠️ Installation
+
+### **Prerequisites**
+- macOS (tested on M2 Max)
+- Homebrew installed
+- Git installed
+
+### **Quick Install**
 ```bash
+# Clone the repository
+git clone https://github.com/bryanwills/dotfiles.git ~/.config
+
+# Run the installation script
+cd ~/.config
 ./scripts/install.sh
 ```
 
-#### Uninstall Dotfiles
+### **Manual Installation**
 ```bash
-./scripts/uninstall.sh
+# Clone to your preferred location
+git clone https://github.com/bryanwills/dotfiles.git
+
+# Create symlinks (adjust paths as needed)
+ln -s ~/path/to/dotfiles/nvim ~/.config/nvim
+ln -s ~/path/to/dotfiles/tmux ~/.config/tmux
+ln -s ~/path/to/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/path/to/dotfiles/kitty ~/.config/kitty
+ln -s ~/path/to/dotfiles/btop ~/.config/btop
 ```
 
-#### Apply Current Settings
-```bash
-./scripts/my-current-defaults.sh
-```
+## 🎯 Key Bindings
 
-#### Extract Current Settings
-```bash
-./scripts/extract-current-defaults.sh
-```
+### **Tmux Keybindings**
+- **`prefix + r`** - Reload tmux configuration
+- **`prefix + ?`** - Show quick cheat sheet
+- **`prefix + C-?`** - Show popup cheat sheet (Escape to close)
+- **`prefix + C-h`** - Toggle floating cheat sheet window
+- **`prefix + v`** - Vertical split
+- **`prefix + s`** - Horizontal split
+- **`prefix + h/j/k/l`** - Navigate panes
+- **`prefix + c`** - New window
+- **`prefix + n/p`** - Next/previous window
+- **`prefix + d`** - Detach session
 
-#### Convert Settings to Commands
-```bash
-./scripts/convert-to-defaults-write.sh
-```
+### **Neovim Keybindings**
+- **`<leader>e`** - Toggle file explorer
+- **`<leader>ff`** - Find files
+- **`<leader>fg`** - Live grep
+- **`<leader>fb`** - Find buffers
+- **`<leader>gd`** - Go to definition
+- **`<leader>gr`** - Go to references
+- **`<leader>ca`** - Code actions
+- **`<leader>rn`** - Rename symbol
 
-#### Clean .DS_Store Files
-```bash
-./scripts/clean-ds-store.sh
-```
+## 🔧 Configuration
 
-### Current Customizations
+### **Tmux Setup**
+1. **Install TPM** (if not already installed):
+   ```bash
+   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+   ```
 
-The following settings are currently applied:
+2. **Install plugins**:
+   - Start tmux
+   - Press `prefix + I` (Ctrl+a, then Shift+i)
 
-- **Screenshot Settings:**
-  - Screenshots save to `/Users/bryanwills/screenshots`
-  - PNG format
-  - Thumbnail preview duration: 1 second
+3. **Reload configuration**:
+   - Press `prefix + r` (Ctrl+a, then r)
 
-- **Dock Settings:**
-  - Auto-hide enabled
-  - No delay when hiding
-  - Fast animation
-  - Tile size: 49 pixels
-  - Magnification enabled
+### **Neovim Setup**
+1. **Install dependencies**:
+   ```bash
+   # Install language servers
+   npm install -g typescript typescript-language-server
+   npm install -g @tailwindcss/language-server
+   npm install -g prettier
+   ```
 
-- **Global Settings:**
-  - Show all file extensions
-  - Don't save documents to iCloud by default
+2. **First launch**:
+   - Neovim will automatically install plugins on first run
+   - Wait for installation to complete
 
-- **.DS_Store Prevention:**
-  - Prevent .DS_Store creation on network drives
-  - Prevent .DS_Store creation on USB drives
-  - Prevent .DS_Store creation on local drives (aggressive prevention)
+### **Zsh Setup**
+1. **Install Oh My Zsh**:
+   ```bash
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
 
-### Installation Process
+2. **Install powerlevel10k**:
+   ```bash
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+   ```
 
-The install script will:
+## 📚 macOS Customization Scripts
 
-1. **Check dependencies** - Verify Homebrew and required applications are installed
-2. **Install missing applications** - Automatically install missing tools via Homebrew
-3. **Prompt for username customization** - Replace 'bryanwills' with your username
-4. **Create backups** - All original files are backed up before modification
-5. **Update file paths** - Replace hardcoded paths with your home directory
-6. **Create symlinks** - Link dotfiles to their proper locations
-7. **Apply macOS customizations** - Run the macOS settings script
-8. **Install plugins** - Set up Neovim, Tmux, and Zsh plugins
-9. **Install additional tools** - Install Rust tools, Node.js packages, and configure Git
-10. **Generate summary files** - Create detailed logs and guides for user reference
+### **Available Scripts**
+- **`scripts/install.sh`** - Complete installation script
+- **`scripts/uninstall.sh`** - Uninstallation and cleanup
+- **`scripts/macos-customizations.sh`** - macOS system preferences
+- **`scripts/dependencies.sh`** - Dependency checker
+- **`scripts/clean-ds-store.sh`** - Clean up .DS_Store files
 
-### Adding New Customizations
+### **macOS Customizations Applied**
+- Screenshot settings (PNG format, custom save location)
+- Dock preferences (auto-hide, fast animations)
+- File system settings (show extensions, iCloud preferences)
+- .DS_Store prevention on network and USB drives
 
-1. Edit `scripts/macos-customizations.sh` to add new settings
-2. Run the script to apply changes
-3. Use `scripts/extract-current-defaults.sh` to capture the new settings
-4. Update `scripts/my-current-defaults.sh` with the new commands
+## 🔄 Maintenance
 
-### Logging and Summary Files
+### **Updating Plugins**
+- **Tmux**: `prefix + I` to install/update plugins
+- **Neovim**: Plugins update automatically via Lazy.nvim
+- **Zsh**: `omz update` to update Oh My Zsh
 
-Both install and uninstall scripts create comprehensive logs and summary files:
+### **Reloading Configurations**
+- **Tmux**: `prefix + r`
+- **Neovim**: Restart or `:Lazy sync`
+- **Zsh**: `source ~/.zshrc`
 
-**Install Script Output:**
-- `install_YYYYMMDD_HHMMSS.log` - Complete installation log with all terminal output
-- `installation_summary.txt` - Summary of what was installed and next steps
-- `missing_apps_summary.txt` - List of applications that were automatically installed
-- `manual_install_guide.txt` - Guide for applications that need manual installation
+### **Backup and Restore**
+- **Install script** creates backups automatically
+- **Uninstall script** restores original configurations
+- **Git history** tracks all configuration changes
 
-**Uninstall Script Output:**
-- `uninstall_YYYYMMDD_HHMMSS.log` - Complete uninstallation log with all terminal output
-- `uninstall_summary.txt` - Summary of what was removed and what needs manual cleanup
+## 🎨 Themes and Appearance
 
-**Benefits:**
-- **Troubleshooting** - Full logs help diagnose any issues
-- **Transparency** - Users know exactly what was installed/removed
-- **Manual guidance** - Clear instructions for applications that need manual setup
-- **Audit trail** - Complete record of all changes made
+### **Color Schemes**
+- **Dracula** theme for tmux
+- **Custom** Neovim color scheme
+- **powerlevel10k** for Zsh prompt
+- **Dark mode** optimized for development
 
-### Notes
+### **Fonts**
+- **JetBrains Mono** recommended for Neovim
+- **SF Mono** for macOS terminal
+- **Nerd Fonts** for icons and symbols
 
-- Some changes require restarting applications (Dock, Finder, etc.)
-- Use `killall Dock` to restart the Dock
-- Use `killall Finder` to restart Finder
-- Some settings may require a system restart to take full effect
-- Check the generated summary files for detailed information about the installation/uninstallation process
+## 🐛 Troubleshooting
+
+### **Common Issues**
+1. **Tmux plugins not working**: Run `prefix + I` to install
+2. **Neovim slow startup**: Check plugin installation with `:Lazy`
+3. **Zsh prompt issues**: Verify powerlevel10k installation
+4. **Permission errors**: Check file ownership and symlinks
+
+### **Getting Help**
+- Check the generated log files from install scripts
+- Review the cheat sheets (`prefix + ?` in tmux)
+- Check Neovim health with `:checkhealth`
+
+## 🤝 Contributing
+
+This is a personal dotfiles repository, but suggestions and improvements are welcome:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- **Neovim** community for the excellent editor
+- **Tmux** developers and plugin authors
+- **Oh My Zsh** and **powerlevel10k** teams
+- **Homebrew** maintainers for package management
+
+---
+
+**Note**: These dotfiles are configured for macOS and may need adjustments for other operating systems.
