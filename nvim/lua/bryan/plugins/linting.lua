@@ -99,11 +99,9 @@ return {
 
       -- Erlang
       erl = { "erlfmt" },
-      hrl = { "erlfmt" },
 
       -- Prolog
-      pl = { "swipl" },
-      pro = { "swipl" },
+      prolog = { "swipl" },
 
       -- V
       v = { "v_lint" },
@@ -113,14 +111,13 @@ return {
 
       -- Terraform
       tf = { "tflint" },
-      hcl = { "tflint" },
+      terraform = { "tflint" },
 
       -- Docker
       dockerfile = { "hadolint" },
 
       -- Make
       make = { "checkmake" },
-      makefile = { "checkmake" },
 
       -- Lua
       lua = { "luacheck" },
@@ -128,7 +125,6 @@ return {
       -- Markdown
       markdown = { "markdownlint" },
       md = { "markdownlint" },
-      mdx = { "markdownlint" },
 
       -- YAML
       yaml = { "yamllint" },
@@ -136,7 +132,6 @@ return {
 
       -- JSON
       json = { "jsonlint" },
-      jsonc = { "jsonlint" },
     }
 
     -- Configure linters with word wrap limits (restored with a safe markdownlint definition)

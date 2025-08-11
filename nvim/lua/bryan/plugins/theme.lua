@@ -35,14 +35,32 @@ return {
           return true
         end
 
-        -- Try to load the theme plugin
+        -- Try to load the theme plugin using the correct plugin names
         local success = pcall(require, "lazy")
         if success then
-          -- Use Lazy to load the theme
           local lazy = require("lazy")
-          success = pcall(function()
-            lazy.load({ plugins = { theme_name } })
-          end)
+
+          -- Map theme names to actual plugin names
+          local plugin_map = {
+            ["tokyonight"] = "tokyonight.nvim",
+            ["dracula"] = "dracula/vim",
+            ["gruvbox"] = "gruvbox.nvim",
+            ["nord"] = "nord.nvim",
+            ["onedark"] = "onedark.vim",
+            ["nightfox"] = "nightfox.nvim",
+            ["kanagawa"] = "kanagawa.nvim",
+            ["oxocarbon"] = "oxocarbon.nvim",
+            ["rose-pine"] = "rose-pine",
+            ["moonfly"] = "vim-moonfly-colors",
+            ["vscode"] = "vscode.nvim",
+          }
+
+          local plugin_name = plugin_map[theme_name]
+          if plugin_name then
+            success = pcall(function()
+              lazy.load({ plugins = { plugin_name } })
+            end)
+          end
         end
 
         return success
@@ -159,12 +177,32 @@ return {
         print("Installing missing themes...")
         local lazy = require("lazy")
 
+        -- Map theme names to actual plugin names
+        local plugin_map = {
+          ["tokyonight"] = "tokyonight.nvim",
+          ["dracula"] = "dracula/vim",
+          ["gruvbox"] = "gruvbox.nvim",
+          ["nord"] = "nord.nvim",
+          ["onedark"] = "onedark.vim",
+          ["nightfox"] = "nightfox.nvim",
+          ["kanagawa"] = "kanagawa.nvim",
+          ["oxocarbon"] = "oxocarbon.nvim",
+          ["rose-pine"] = "rose-pine",
+          ["moonfly"] = "vim-moonfly-colors",
+          ["vscode"] = "vscode.nvim",
+        }
+
         for _, theme_name in ipairs(themes) do
           if theme_name ~= "catppuccin-frappe" then
-            print("Installing " .. theme_name .. "...")
-            pcall(function()
-              lazy.install({ plugins = { theme_name } })
-            end)
+            local plugin_name = plugin_map[theme_name]
+            if plugin_name then
+              print("Installing " .. theme_name .. " (" .. plugin_name .. ")...")
+              pcall(function()
+                lazy.install({ plugins = { plugin_name } })
+              end)
+            else
+              print("Warning: No plugin mapping found for " .. theme_name)
+            end
           end
         end
 
