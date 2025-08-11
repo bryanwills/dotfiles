@@ -124,6 +124,7 @@ export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/Users/bryanwills/.local/bin:$PATH"
+export PATH="/Users/bryanwills/.cargo/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
 # Original config
