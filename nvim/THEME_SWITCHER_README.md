@@ -1,21 +1,22 @@
 # Neovim Theme Switcher
 
-This configuration provides a comprehensive theme switcher with 12 pre-configured dark themes and easy management tools.
+This configuration provides a comprehensive theme switcher with 11 pre-configured dark themes and easy management tools.
 
 ## 🎨 Pre-loaded Dark Themes
 
 1. **catppuccin-frappe** - Warm, cozy dark theme (default)
-2. **tokyonight** - Beautiful blue/purple dark theme
-3. **dracula** - Classic dark theme with vibrant colors
-4. **gruvbox** - Earthy, warm dark theme
-5. **nord** - Cool blue-gray dark theme
-6. **onedark** - Atom editor style dark theme
-7. **nightfox** - Fox-inspired dark themes
-8. **kanagawa** - Japanese-inspired dark theme
-9. **oxocarbon** - Modern, clean dark theme
-10. **rose-pine** - Rose-pine dark variant
-11. **moonfly** - Dark blue theme
-12. **vscode** - VS Code dark theme
+2. **dracula** - Classic dark theme with vibrant colors
+3. **gruvbox** - Earthy, warm dark theme
+4. **nord** - Cool blue-gray dark theme
+5. **onedark** - Atom editor style dark theme
+6. **nightfox** - Fox-inspired dark themes
+7. **kanagawa** - Japanese-inspired dark theme
+8. **oxocarbon** - Modern, clean dark theme
+9. **moonfly** - Dark blue theme
+10. **vscode** - VS Code dark theme
+11. **one_monokai** - One Monokai dark theme
+
+**Note**: tokyonight theme has been temporarily disabled due to loading issues.
 
 ## ⌨️ Keybindings
 
@@ -237,3 +238,130 @@ local themes = {
 - [ ] Restart Neovim or run `:Lazy sync`
 - [ ] Try `<leader>tt` to switch themes
 - [ ] Use `<leader>tl` to see all themes
+
+## 🚨 Known Issues & Error Documentation
+
+### ⚠️ Current Known Issues (Pinned for Later Fix)
+
+The theme switcher is functional but has some error messages that need to be addressed in future updates.
+
+#### Issue 1: "Plugin [theme_name] not found" Error
+**Error Message:**
+```
+Plugin dracula/vim not found
+Theme: dracula (2/11)
+Press ENTER or type command to continue
+```
+
+**What Happens:**
+- Theme switching works but shows error messages
+- User must press ENTER to continue
+- Theme actually loads successfully despite the error
+
+**Root Cause:**
+- Plugin loading detection has timing issues
+- Some themes are loaded as `lazy = true` and not immediately available
+- Error handling shows messages before themes are fully loaded
+
+**Workaround:**
+- Press ENTER when you see the error message
+- Theme will work correctly after the error
+- Not critical for daily use
+
+#### Issue 2: "Press ENTER or type command to continue" Messages
+**Error Message:**
+```
+Press ENTER or type command to continue
+```
+
+**What Happens:**
+- Appears during theme switching
+- Interrupts the user experience
+- Requires manual intervention to continue
+
+**Root Cause:**
+- Error handling in theme availability checks
+- Some themes trigger error messages that pause execution
+- Silent command handling not fully implemented
+
+**Workaround:**
+- Press ENTER to continue
+- Theme switching will complete successfully
+
+#### Issue 3: Theme Loading Race Conditions
+**Error Message:**
+```
+Theme [theme_name] not available, falling back to catppuccin-frappe
+```
+
+**What Happens:**
+- Theme switcher tries to load themes before they're ready
+- Falls back to default theme
+- Can cause theme switching to appear broken
+
+**Root Cause:**
+- Lazy-loaded themes need time to initialize
+- Plugin loading and theme application timing mismatch
+- Error handling falls back too quickly
+
+**Workaround:**
+- Wait a moment between theme switches
+- Restart Neovim if themes seem stuck
+- Use `:ThemeDebug` to check theme status
+
+### 🔧 Technical Details for Future Fixes
+
+#### Files Involved:
+- `nvim/lua/bryan/plugins/theme.lua` - Main theme switcher logic
+- `nvim/lazy-lock.json` - Plugin dependency definitions
+
+#### Key Functions to Investigate:
+1. **`ensure_theme_loaded()`** - Plugin loading logic
+2. **`is_theme_available()`** - Theme availability checking
+3. **`switch_theme()`** - Main theme switching function
+
+#### Areas for Improvement:
+1. **Better plugin loading detection** - Check if plugins are truly ready
+2. **Improved error handling** - Prevent "Press ENTER" messages
+3. **Theme availability validation** - More reliable theme detection
+4. **Silent operation** - Eliminate user interruptions
+
+#### Debugging Commands:
+- **`:ThemeDebug`** - Shows plugin loading status
+- **`:ThemeTestTokyo`** - Tests specific theme loading (if tokyonight is re-enabled)
+- **`:Lazy`** - Shows plugin manager status
+
+### 🎯 Future Fix Priorities
+
+#### High Priority:
+1. **Eliminate "Press ENTER" messages** - Critical for user experience
+2. **Fix plugin detection** - Prevent "Plugin not found" errors
+3. **Improve error handling** - Graceful fallbacks without interruptions
+
+#### Medium Priority:
+1. **Re-enable tokyonight theme** - Once loading issues are resolved
+2. **Optimize theme loading** - Reduce race conditions
+3. **Better user feedback** - Clear status messages without errors
+
+#### Low Priority:
+1. **Add more themes** - Expand the collection
+2. **Theme customization** - User-configurable options
+3. **Performance optimization** - Faster theme switching
+
+### 📝 Error Log for Developers
+
+When investigating these issues, look for:
+- **Plugin loading timing** in `ensure_theme_loaded()`
+- **Error message generation** in theme switching functions
+- **Silent command handling** in `vim.cmd()` calls
+- **Plugin availability checks** in `lazy.get_plugin()`
+
+#### Common Error Patterns:
+1. **"Plugin [name] not found"** → Plugin loading issue
+2. **"Press ENTER" messages** → Error handling problem
+3. **Theme fallbacks** → Availability detection issue
+4. **Race conditions** → Timing problems in plugin loading
+
+---
+
+**Status**: Theme switcher is functional but needs error handling improvements. All themes work correctly despite error messages. Consider this a "working prototype" that needs polish.
