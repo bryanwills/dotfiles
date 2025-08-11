@@ -31,8 +31,15 @@ This configuration provides a comprehensive theme switcher with 12 pre-configure
 - **`:ThemeSet <theme_name>`** - Set specific theme
 - **`:ThemeAdd <theme_name>`** - Add new theme to the list
 - **`:ThemeRemove <theme_name>`** - Remove theme from the list
+- **`:ThemeInstall`** - Install all missing themes automatically
 
 ## 🚀 How to Use
+
+### First Time Setup
+1. **Restart Neovim** to load the theme switcher
+2. **Run `:ThemeInstall`** to install all missing themes
+3. **Wait for installation** to complete
+4. **Restart Neovim** or run `:Lazy sync` to finalize
 
 ### Quick Theme Switching
 1. Press `<leader>tt` to cycle through themes
@@ -76,6 +83,13 @@ This configuration provides a comprehensive theme switcher with 12 pre-configure
 
 ## 📦 Installing Missing Themes
 
+### Automatic Installation (Recommended)
+```vim
+:ThemeInstall
+```
+This will install all themes in your list automatically.
+
+### Manual Installation
 If you get "theme not available" messages, install the missing theme:
 
 ```vim
@@ -88,6 +102,26 @@ For example:
 :Lazy install dracula/vim
 :Lazy install gruvbox.nvim
 ```
+
+## 🚨 Troubleshooting "Theme Not Available"
+
+### Common Issue
+If you see "Theme tokyonight not available, falling back to catppuccin-frappe":
+
+1. **Run `:ThemeInstall`** to install all themes
+2. **Wait for installation** to complete
+3. **Restart Neovim** or run `:Lazy sync`
+4. **Try switching themes again** with `<leader>tt`
+
+### Why This Happens
+- Themes are installed as `lazy = true` (only load when needed)
+- The theme switcher runs before themes are loaded
+- Some themes need to be installed first
+
+### Alternative Solutions
+- **Manual sync**: `:Lazy sync`
+- **Check status**: `:Lazy` to see installed plugins
+- **Force reload**: Restart Neovim completely
 
 ## 🎯 Theme Configuration
 
@@ -126,7 +160,7 @@ Edit the `config` function for any theme in `theme.lua`:
 
 ### Theme Not Loading
 1. Check if the plugin is installed: `:Lazy`
-2. Install missing plugins: `:Lazy install <plugin_name>`
+2. Install missing plugins: `:ThemeInstall` (recommended) or `:Lazy install <plugin_name>`
 3. Check for errors: `:checkhealth`
 
 ### Theme Looks Wrong
@@ -138,6 +172,12 @@ Edit the `config` function for any theme in `theme.lua`:
 1. Ensure the theme switcher loaded (check startup messages)
 2. Verify your leader key is set correctly
 3. Check for conflicting keybindings
+
+### "Theme Not Available" Error
+1. **First**: Run `:ThemeInstall`
+2. **Wait**: For installation to complete
+3. **Restart**: Neovim or run `:Lazy sync`
+4. **Try again**: Use `<leader>tt` to switch themes
 
 ## 🌟 Popular Theme Sources
 
@@ -188,3 +228,12 @@ local themes = {
 ---
 
 **Note**: All themes are configured for dark mode only. Light themes are not included by default.
+
+## 🚀 Quick Start Checklist
+
+- [ ] Restart Neovim
+- [ ] Run `:ThemeInstall`
+- [ ] Wait for installation
+- [ ] Restart Neovim or run `:Lazy sync`
+- [ ] Try `<leader>tt` to switch themes
+- [ ] Use `<leader>tl` to see all themes
