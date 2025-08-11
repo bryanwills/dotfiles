@@ -28,10 +28,33 @@ return {
 
       local current_theme = 1
 
+      -- Function to ensure theme is loaded
+      local function ensure_theme_loaded(theme_name)
+        -- Check if theme is already loaded
+        if theme_name == "catppuccin-frappe" then
+          return true
+        end
+
+        -- Try to load the theme plugin
+        local success = pcall(require, "lazy")
+        if success then
+          -- Use Lazy to load the theme
+          local lazy = require("lazy")
+          success = pcall(function()
+            lazy.load({ plugins = { theme_name } })
+          end)
+        end
+
+        return success
+      end
+
       -- Function to switch to next theme
       local function switch_theme()
         current_theme = current_theme % #themes + 1
         local theme_name = themes[current_theme]
+
+        -- Try to load the theme first
+        ensure_theme_loaded(theme_name)
 
         -- Check if theme is available, fallback to catppuccin if not
         local success = pcall(vim.cmd, "colorscheme " .. theme_name)
@@ -52,6 +75,10 @@ return {
         end
 
         local theme_name = themes[current_theme]
+
+        -- Try to load the theme first
+        ensure_theme_loaded(theme_name)
+
         local success = pcall(vim.cmd, "colorscheme " .. theme_name)
         if success then
           print("Theme: " .. theme_name .. " (" .. current_theme .. "/" .. #themes .. ")")
@@ -67,6 +94,10 @@ return {
         for i, theme in ipairs(themes) do
           if theme == theme_name then
             current_theme = i
+
+            -- Try to load the theme first
+            ensure_theme_loaded(theme_name)
+
             local success = pcall(vim.cmd, "colorscheme " .. theme_name)
             if success then
               print("Theme set to: " .. theme_name)
@@ -123,6 +154,23 @@ return {
         print("Theme " .. theme_name .. " not found in the list")
       end
 
+      -- Function to install missing themes
+      local function install_missing_themes()
+        print("Installing missing themes...")
+        local lazy = require("lazy")
+
+        for _, theme_name in ipairs(themes) do
+          if theme_name ~= "catppuccin-frappe" then
+            print("Installing " .. theme_name .. "...")
+            pcall(function()
+              lazy.install({ plugins = { theme_name } })
+            end)
+          end
+        end
+
+        print("Theme installation complete! Restart Neovim or run :Lazy sync")
+      end
+
       -- Set up keybindings for theme switching
       vim.keymap.set("n", "<leader>tt", switch_theme, { desc = "Next theme" })
       vim.keymap.set("n", "<leader>tT", switch_theme_prev, { desc = "Previous theme" })
@@ -145,8 +193,10 @@ return {
       end, { nargs = 1, complete = function()
         return themes
       end })
+      vim.api.nvim_create_user_command("ThemeInstall", install_missing_themes, {})
 
       print("Theme switcher loaded! Use <leader>tt to switch themes")
+      print("Run :ThemeInstall to install all missing themes")
     end,
   },
 
