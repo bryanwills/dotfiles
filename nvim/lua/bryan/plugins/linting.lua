@@ -143,6 +143,7 @@ return {
     lint.linters = {
       -- Web Technologies
       eslint_d = {
+        cmd = "eslint_d",
         args = {
           "--max-len=130",
           "--print-width=130",
@@ -171,11 +172,13 @@ return {
 
       -- Go
       golangci_lint = {
+        cmd = "golangci-lint",
         args = {
           "--max-line-length=130",
         },
       },
       staticcheck = {
+        cmd = "staticcheck",
         args = {
           "--max-line-length=130",
         },
@@ -183,23 +186,29 @@ return {
 
       -- Rust
       cargo_check = {
+        cmd = "cargo",
         args = {
+          "check",
           "--max-line-length=130",
         },
       },
       clippy = {
+        cmd = "cargo",
         args = {
+          "clippy",
           "--max-line-length=130",
         },
       },
 
       -- C/C++
       cppcheck = {
+        cmd = "cppcheck",
         args = {
           "--max-line-length=130",
         },
       },
       clang_tidy = {
+        cmd = "clang-tidy",
         args = {
           "--max-line-length=130",
         },
@@ -207,11 +216,13 @@ return {
 
       -- Java
       checkstyle = {
+        cmd = "checkstyle",
         args = {
           "--max-line-length=130",
         },
       },
       pmd = {
+        cmd = "pmd",
         args = {
           "--max-line-length=130",
         },
@@ -219,11 +230,13 @@ return {
 
       -- PHP
       phpstan = {
+        cmd = "phpstan",
         args = {
           "--max-line-length=130",
         },
       },
       phpcs = {
+        cmd = "phpcs",
         args = {
           "--max-line-length=130",
         },
@@ -231,11 +244,13 @@ return {
 
       -- Ruby
       rubocop = {
+        cmd = "rubocop",
         args = {
           "--max-line-length=130",
         },
       },
       reek = {
+        cmd = "reek",
         args = {
           "--max-line-length=130",
         },
@@ -251,6 +266,7 @@ return {
 
       -- SQL
       sqlfluff = {
+        cmd = "sqlfluff",
         args = {
           "--max-line-length=130",
         },
@@ -258,11 +274,13 @@ return {
 
       -- Kotlin
       ktlint = {
+        cmd = "ktlint",
         args = {
           "--max-line-length=130",
         },
       },
       detekt = {
+        cmd = "detekt",
         args = {
           "--max-line-length=130",
         },
@@ -270,11 +288,13 @@ return {
 
       -- Scala
       scalastyle = {
+        cmd = "scalastyle",
         args = {
           "--max-line-length=130",
         },
       },
       scalafix = {
+        cmd = "scalafix",
         args = {
           "--max-line-length=130",
         },
@@ -282,13 +302,16 @@ return {
 
       -- Dart
       dart_analyzer = {
+        cmd = "dart",
         args = {
+          "analyze",
           "--max-line-length=130",
         },
       },
 
       -- Swift
       swiftlint = {
+        cmd = "swiftlint",
         args = {
           "--max-line-length=130",
         },
@@ -296,6 +319,7 @@ return {
 
       -- R
       lintr = {
+        cmd = "lintr",
         args = {
           "--max-line-length=130",
         },
@@ -303,6 +327,7 @@ return {
 
       -- Julia
       julia_lint = {
+        cmd = "julia",
         args = {
           "--max-line-length=130",
         },
@@ -310,6 +335,7 @@ return {
 
       -- Zig
       zls = {
+        cmd = "zls",
         args = {
           "--max-line-length=130",
         },
@@ -317,37 +343,48 @@ return {
 
       -- Nim
       nimcheck = {
+        cmd = "nim",
         args = {
+          "check",
           "--max-line-length=130",
         },
       },
 
       -- Crystal
       crystal_lint = {
+        cmd = "crystal",
         args = {
+          "tool",
+          "format",
           "--max-line-length=130",
         },
       },
 
       -- Elixir
       credo = {
+        cmd = "mix",
         args = {
+          "credo",
           "--max-line-length=130",
         },
       },
       dialyxir = {
+        cmd = "mix",
         args = {
+          "dialyzer",
           "--max-line-length=130",
         },
       },
 
       -- Haskell
       hlint = {
+        cmd = "hlint",
         args = {
           "--max-line-length=130",
         },
       },
       stan = {
+        cmd = "stan",
         args = {
           "--max-line-length=130",
         },
@@ -355,6 +392,7 @@ return {
 
       -- OCaml
       merlin = {
+        cmd = "ocamlmerlin",
         args = {
           "--max-line-length=130",
         },
@@ -362,13 +400,15 @@ return {
 
       -- F#
       fantomas = {
+        cmd = "fantomas",
         args = {
-          "--maxLineLength=130",
+          "--max-line-length=130",
         },
       },
 
       -- Clojure
       clj_kondo = {
+        cmd = "clj-kondo",
         args = {
           "--max-line-length=130",
         },
@@ -376,6 +416,7 @@ return {
 
       -- Erlang
       erlfmt = {
+        cmd = "erlfmt",
         args = {
           "--max-line-length=130",
         },
@@ -383,6 +424,7 @@ return {
 
       -- Prolog
       swipl = {
+        cmd = "swipl",
         args = {
           "--max-line-length=130",
         },
@@ -390,13 +432,16 @@ return {
 
       -- V
       v_lint = {
+        cmd = "v",
         args = {
+          "fmt",
           "--max-line-length=130",
         },
       },
 
       -- Nix
       statix = {
+        cmd = "statix",
         args = {
           "--max-line-length=130",
         },
@@ -404,6 +449,7 @@ return {
 
       -- Terraform
       tflint = {
+        cmd = "tflint",
         args = {
           "--max-line-length=130",
         },
@@ -411,6 +457,7 @@ return {
 
       -- Docker
       hadolint = {
+        cmd = "hadolint",
         args = {
           "--max-line-length=130",
         },
@@ -418,6 +465,7 @@ return {
 
       -- Make
       checkmake = {
+        cmd = "checkmake",
         args = {
           "--max-line-length=130",
         },
@@ -441,6 +489,7 @@ return {
 
       -- YAML
       yamllint = {
+        cmd = "yamllint",
         args = {
           "--max-line-length=130",
         },
