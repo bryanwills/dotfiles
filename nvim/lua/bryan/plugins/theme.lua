@@ -13,7 +13,7 @@ return {
       -- Theme switcher configuration
       local themes = {
         "catppuccin-frappe",    -- Current default (warm dark)
-        "tokyonight",           -- Beautiful blue/purple dark
+        -- "tokyonight",           -- Beautiful blue/purple dark (temporarily disabled)
         "dracula",              -- Classic dark theme
         "gruvbox",              -- Earthy, warm dark
         "nord",                 -- Cool blue-gray dark
@@ -21,12 +21,26 @@ return {
         "nightfox",             -- Fox-inspired dark themes
         "kanagawa",             -- Japanese-inspired dark
         "oxocarbon",            -- Modern dark theme
-        "rose-pine",            -- Rose-pine dark variant
         "moonfly",              -- Dark blue theme
         "vscode",               -- VS Code dark theme
+        "one_monokai",          -- One Monokai dark theme
       }
 
       local current_theme = 1
+
+      -- Function to check if a theme is truly available
+      local function is_theme_available(theme_name)
+        if theme_name == "catppuccin-frappe" then
+          return true
+        end
+
+        -- Simple check: try to apply the theme and see if it works
+        local success = pcall(function()
+          vim.cmd("silent! colorscheme " .. theme_name)
+        end)
+
+        return success
+      end
 
       -- Function to ensure theme is loaded
       local function ensure_theme_loaded(theme_name)
@@ -42,7 +56,7 @@ return {
 
           -- Map theme names to actual plugin names
           local plugin_map = {
-            ["tokyonight"] = "tokyonight.nvim",
+            -- ["tokyonight"] = "tokyonight.nvim",  -- Temporarily disabled
             ["dracula"] = "dracula/vim",
             ["gruvbox"] = "gruvbox.nvim",
             ["nord"] = "nord.nvim",
@@ -50,16 +64,31 @@ return {
             ["nightfox"] = "nightfox.nvim",
             ["kanagawa"] = "kanagawa.nvim",
             ["oxocarbon"] = "oxocarbon.nvim",
-            ["rose-pine"] = "rose-pine",
             ["moonfly"] = "vim-moonfly-colors",
             ["vscode"] = "vscode.nvim",
+            ["one_monokai"] = "one_monokai.nvim",
           }
 
           local plugin_name = plugin_map[theme_name]
           if plugin_name then
-            success = pcall(function()
-              lazy.load({ plugins = { plugin_name } })
+            -- Check if plugin is already loaded first
+            local plugin_loaded = pcall(function()
+              return lazy.get_plugin(plugin_name)
             end)
+
+            if not plugin_loaded then
+              -- Try to load the plugin silently
+              success = pcall(function()
+                lazy.load({ plugins = { plugin_name } })
+              end)
+
+              -- Wait a bit for the plugin to load
+              if success then
+                vim.wait(200, function() return false end, 20)
+              end
+            else
+              success = true
+            end
           end
         end
 
@@ -71,16 +100,21 @@ return {
         current_theme = current_theme % #themes + 1
         local theme_name = themes[current_theme]
 
-        -- Try to load the theme first
-        ensure_theme_loaded(theme_name)
+        print("Switching to theme: " .. theme_name)
 
-        -- Check if theme is available, fallback to catppuccin if not
-        local success = pcall(vim.cmd, "colorscheme " .. theme_name)
+        -- Try to load the theme first
+        local load_success = ensure_theme_loaded(theme_name)
+
+        -- Try to apply the theme directly
+        local success = pcall(function()
+          vim.cmd("silent! colorscheme " .. theme_name)
+        end)
+
         if success then
           print("Theme: " .. theme_name .. " (" .. current_theme .. "/" .. #themes .. ")")
         else
           print("Theme " .. theme_name .. " not available, falling back to catppuccin-frappe")
-          vim.cmd([[colorscheme catppuccin-frappe]])
+          vim.cmd("silent! colorscheme catppuccin-frappe")
           current_theme = 1
         end
       end
@@ -95,14 +129,18 @@ return {
         local theme_name = themes[current_theme]
 
         -- Try to load the theme first
-        ensure_theme_loaded(theme_name)
+        local load_success = ensure_theme_loaded(theme_name)
 
-        local success = pcall(vim.cmd, "colorscheme " .. theme_name)
+        -- Try to apply the theme directly
+        local success = pcall(function()
+          vim.cmd("silent! colorscheme " .. theme_name)
+        end)
+
         if success then
           print("Theme: " .. theme_name .. " (" .. current_theme .. "/" .. #themes .. ")")
         else
           print("Theme " .. theme_name .. " not available, falling back to catppuccin-frappe")
-          vim.cmd([[colorscheme catppuccin-frappe]])
+          vim.cmd("silent! colorscheme catppuccin-frappe")
           current_theme = 1
         end
       end
@@ -114,9 +152,13 @@ return {
             current_theme = i
 
             -- Try to load the theme first
-            ensure_theme_loaded(theme_name)
+            local load_success = ensure_theme_loaded(theme_name)
 
-            local success = pcall(vim.cmd, "colorscheme " .. theme_name)
+            -- Try to apply the theme directly
+            local success = pcall(function()
+              vim.cmd("silent! colorscheme " .. theme_name)
+            end)
+
             if success then
               print("Theme set to: " .. theme_name)
             else
@@ -133,7 +175,8 @@ return {
         print("Available themes:")
         for i, theme in ipairs(themes) do
           local marker = (i == current_theme) and " → " or "   "
-          print(marker .. i .. ". " .. theme)
+          local status = is_theme_available(theme) and "✓" or "✗"
+          print(marker .. i .. ". " .. theme .. " " .. status)
         end
       end
 
@@ -179,7 +222,7 @@ return {
 
         -- Map theme names to actual plugin names
         local plugin_map = {
-          ["tokyonight"] = "tokyonight.nvim",
+          -- ["tokyonight"] = "tokyonight.nvim",  -- Temporarily disabled
           ["dracula"] = "dracula/vim",
           ["gruvbox"] = "gruvbox.nvim",
           ["nord"] = "nord.nvim",
@@ -187,9 +230,9 @@ return {
           ["nightfox"] = "nightfox.nvim",
           ["kanagawa"] = "kanagawa.nvim",
           ["oxocarbon"] = "oxocarbon.nvim",
-          ["rose-pine"] = "rose-pine",
           ["moonfly"] = "vim-moonfly-colors",
           ["vscode"] = "vscode.nvim",
+          ["one_monokai"] = "one_monokai.nvim",
         }
 
         for _, theme_name in ipairs(themes) do
@@ -233,68 +276,141 @@ return {
       end })
       vim.api.nvim_create_user_command("ThemeInstall", install_missing_themes, {})
 
-      print("Theme switcher loaded! Use <leader>tt to switch themes")
-      print("Run :ThemeInstall to install all missing themes")
+      -- Debug command to check theme availability
+      vim.api.nvim_create_user_command("ThemeDebug", function()
+        print("=== THEME DEBUG INFO ===")
+        print("Available themes in list:")
+        for i, theme in ipairs(themes) do
+          local marker = (i == current_theme) and " → " or "   "
+          local status = is_theme_available(theme) and "✓" or "✗"
+          print(marker .. i .. ". " .. theme .. " " .. status)
+        end
+
+        print("\nCurrent theme: " .. themes[current_theme])
+        print("Total themes: " .. #themes)
+
+        print("\nLazy plugin status:")
+        local lazy_success = pcall(require, "lazy")
+        if lazy_success then
+          local lazy = require("lazy")
+          print("  ✓ Lazy loaded successfully")
+
+          -- Check plugin status for each theme
+          print("\nPlugin status:")
+          local plugin_map = {
+            ["dracula"] = "dracula/vim",
+            ["gruvbox"] = "gruvbox.nvim",
+            ["nord"] = "nord.nvim",
+            ["onedark"] = "onedark.vim",
+            ["nightfox"] = "nightfox.nvim",
+            ["kanagawa"] = "kanagawa.nvim",
+            ["oxocarbon"] = "oxocarbon.nvim",
+            ["moonfly"] = "vim-moonfly-colors",
+            ["vscode"] = "vscode.nvim",
+            ["one_monokai"] = "one_monokai.nvim",
+          }
+
+          for theme_name, plugin_name in pairs(plugin_map) do
+            local plugin_loaded = pcall(function()
+              return lazy.get_plugin(plugin_name)
+            end)
+            local status = plugin_loaded and "✓" or "✗"
+            print("  " .. status .. " " .. theme_name .. " → " .. plugin_name)
+          end
+        else
+          print("  ✗ Failed to load Lazy")
+        end
+      end, {})
+
+      -- Test command to manually load tokyonight
+      vim.api.nvim_create_user_command("ThemeTestTokyo", function()
+        print("=== TESTING TOKYONIGHT LOADING ===")
+
+        -- Try to load the plugin first
+        local lazy_success = pcall(require, "lazy")
+        if lazy_success then
+          local lazy = require("lazy")
+          print("1. Lazy loaded successfully")
+
+          -- Try to load tokyonight plugin
+          local load_success = pcall(function()
+            lazy.load({ plugins = { "tokyonight.nvim" } })
+          end)
+          print("2. Plugin load attempt: " .. tostring(load_success))
+
+          -- Wait a bit
+          vim.wait(200, function() return false end, 20)
+          print("3. Waited for plugin to load")
+
+          -- Try to apply the theme
+          local theme_success = pcall(vim.cmd, "colorscheme tokyonight")
+          print("4. Theme application: " .. tostring(theme_success))
+
+          if not theme_success then
+            print("5. Error: " .. tostring(vim.api.nvim_get_vvar("errmsg")))
+          end
+        else
+          print("Failed to load Lazy")
+        end
+      end, {})
+
+      -- Silent startup - no messages unless there's an error
+      -- print("Theme switcher loaded! Use <leader>tt to switch themes")
+      -- print("Run :ThemeInstall to install all missing themes")
     end,
   },
 
   -- Additional popular dark themes
-  {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    config = function()
-      require("tokyonight").setup({
-        style = "night", -- night, storm, day, moon
-        transparent = false,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = true },
-          functions = {},
-          variables = {},
-          sidebars = "dark",
-          floats = "dark",
-        },
-        sidebars = { "qf", "help", "terminal", "NvimTree", "toggleterm", "lazy" },
-        day_brightness = 0.3,
-        hide_inactive_statusline = false,
-        dim_inactive = false,
-        lualine_bold = false,
-        on_colors = function(colors)
-          colors.hint = colors.orange1
-          colors.error = colors.red1
-        end,
-        on_highlights = function(hl, c)
-          local prompt = "#2d3149"
-          hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            ctermbg = c.bg_dark,
-          }
-          hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            ctermbg = c.bg_dark,
-          }
-          hl.TelescopeSelectionCaret = {
-            bg = c.bg_dark,
-            ctermbg = c.bg_dark,
-          }
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = true,
+  --   config = function()
+  --     require("tokyonight").setup({
+  --       style = "night", -- night, storm, day, moon
+  --       transparent = false,
+  --       terminal_colors = true,
+  --       styles = {
+  --         comments = { italic = true },
+  --         keywords = { italic = true },
+  --         functions = {},
+  --         variables = {},
+  --         sidebars = "dark",
+  --         floats = "dark",
+  --       },
+  --       sidebars = { "qf", "help", "terminal", "NvimTree", "toggleterm", "lazy" },
+  --       day_brightness = 0.3,
+  --       hide_inactive_statusline = false,
+  --       dim_inactive = false,
+  --       lualine_bold = false,
+  --       on_colors = function(colors)
+  --         colors.hint = colors.orange1
+  --         colors.error = colors.red1
+  --       end,
+  --       on_highlights = function(hl, c)
+  --         local prompt = "#2d3149"
+  --         hl.TelescopeNormal = {
+  --           bg = c.bg_dark,
+  --           ctermbg = c.bg_dark,
+  --         }
+  --         hl.TelescopeBorder = {
+  --           bg = c.bg_dark,
+  --           ctermbg = c.bg_dark,
+  --         }
+  --         hl.TelescopeSelectionCaret = {
+  --           bg = c.bg_dark,
+  --           ctermbg = c.bg_dark,
+  --         }
+  --       end,
+  --     })
+  --   end,
+  -- },
 
   {
     "dracula/vim",
     lazy = true,
     config = function()
-      vim.g.dracula_italic = 1
-      vim.g.dracula_bold = 1
-      vim.g.dracula_underline = 1
-      vim.g.dracula_undercurl = 1
-      vim.g.dracula_inverse = 1
-      vim.g.dracula_colorterm = 1
-      vim.g.dracula_show_end_of_buffer = 1
-      vim.g.dracula_transparent_bg = 0
+      -- Dracula theme is loaded automatically when the plugin is loaded
+      -- No additional configuration needed
     end,
   },
 
@@ -397,14 +513,9 @@ return {
           palette = {},
           theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
         },
+        -- Simplified overrides to prevent the "invalid key: text" error
         overrides = function(colors)
-          local theme = colors.theme
-          for _, name in ipairs({ "FloatBorder", "FloatTitle", "RedSign", "TSConstBuiltin", "TSField", "TSProperty", "TSVariable", "TSVariableBuiltin" }) do
-            if not theme[name] then
-              theme[name] = theme.syn
-            end
-          end
-          return theme
+          return colors
         end,
         theme = "wave",
         background = {
@@ -422,78 +533,6 @@ return {
       vim.opt.background = "dark"
     end,
   },
-
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = true,
-    config = function()
-      require("rose-pine").setup({
-        variant = "moon", -- auto, main, moon, or dawn
-        dark_variant = "main",
-        dim_inactive_windows = false,
-        extend_background_behind_borders = true,
-        enable = {
-          terminal = true,
-          migrations = true,
-          bufferline = true,
-          gitgutter = false,
-          neogit = false,
-          hop = false,
-          ibl = false,
-          indent_blankline = false,
-          nvim_tree = false,
-          neotree = false,
-          symbols_outline = false,
-          which_key = false,
-          illuminate = false,
-          notify = false,
-          lsp_trouble = false,
-          lspsaga = false,
-          cmp = false,
-          dap = false,
-          dap_ui = false,
-          overseer = false,
-          gitsigns = false,
-          neotest = false,
-        },
-        styles = {
-          bold = true,
-          italic = true,
-          transparency = false,
-        },
-        groups = {
-          border = "muted",
-          link = "iris",
-          panel = "surface",
-          error = "love",
-          hint = "iris",
-          info = "foam",
-          note = "pine",
-          todo = "rose",
-          warn = "gold",
-          git_add = "foam",
-          git_change = "rose",
-          git_delete = "love",
-          git_dirty = "rose",
-          git_ignore = "muted",
-          git_merge = "iris",
-          git_rename = "pine",
-          git_stage = "iris",
-          git_stash = "rose",
-          git_text = "rose",
-          git_untracked = "subtle",
-          h1 = "iris",
-          h2 = "foam",
-          h3 = "rose",
-          h4 = "gold",
-          h5 = "pine",
-          h6 = "foam",
-        },
-      })
-    end,
-  },
-
   {
     "bluz71/vim-moonfly-colors",
     lazy = true,
@@ -516,6 +555,16 @@ return {
         color_overrides = {},
         group_overrides = {},
       })
+    end,
+  },
+
+  -- One Monokai theme
+  {
+    "bryanwills/one_monokai.nvim",
+    lazy = true,
+    config = function()
+      -- One Monokai is a dark theme, no additional configuration needed
+      vim.opt.background = "dark"
     end,
   },
 }
