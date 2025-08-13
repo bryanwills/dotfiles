@@ -1,0 +1,8 @@
+# Rclone sensitive files
+.env
+rclone.conf
+
+# Keep the template and scripts
+!rclone.conf.template
+!*.sh
+!.gitignore
