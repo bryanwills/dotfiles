@@ -6,3 +6,21 @@ node_modules/
 # Tmux plugins (managed by TPM)
 tmux/plugins/
 xnviewmp/
+
+gcloud/
+gcloud/*
+gcloud/**
+*.log
+**/*.log
+gcloud/logs/**/*
+gcloud/logs/
+gcloud/logs/**
+*.db
+**/*.db
+
+
+gcloud/.last_survey_prompt.yaml
+gcloud/.last_update_check.json
+gcloud/configurations/config_default
+gcloud/default_configs.db
+gcloud/hidden_gcloud_config_universe_descriptor_data_cache_configs.db

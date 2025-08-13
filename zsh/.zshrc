@@ -199,6 +199,13 @@ export API_KEY="~/.keys/.env.openai:$API_KEY"
 export OPENAI_API_KEY={{OPEN_API_KEY}}
 source ~/.zsh-copilot/zsh-copilot.plugin.zsh
 
+export VAULT_ADDR="https://keys.bryanwills.dev"
+
+if [ -f ~/.keys/.vault_gh_token ]; then
+  export VAULT_TOKEN=$(cat ~/.keys/.vault_gh_token)
+fi
+
+
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
