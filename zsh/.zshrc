@@ -104,16 +104,16 @@ git() {
     if [[ "$1" == "init" ]]; then
         echo "🚀 Initializing repository with automatic setup..."
         command git "$@"
-        git config --local commit.template ~/.config/commitizen/.czrc
+        command git config --local commit.template ~/.config/commitizen/.czrc
 
         # Copy commitizen configs if they don't exist
         if [ ! -f ".czrc" ]; then
-            cp ~/.config/commitizen/.czrc ./.czrc
+            /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
             echo "📝 Created .czrc"
         fi
 
         if [ ! -f "pyproject.toml" ]; then
-            cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null || echo "📋 pyproject.toml not found in global config"
+            /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
         fi
 
         echo "✅ Repository initialized with commitizen template"
@@ -129,16 +129,16 @@ git() {
         cd "$repo_name"
 
         # Set up commitizen template
-        git config --local commit.template ~/.config/commitizen/.czrc
+        command git config --local commit.template ~/.config/commitizen/.czrc
 
         # Copy commitizen configs if they don't exist
         if [ ! -f ".czrc" ]; then
-            cp ~/.config/commitizen/.czrc ./.czrc
+            /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
             echo "📝 Created .czrc"
         fi
 
         if [ ! -f "pyproject.toml" ]; then
-            cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null || echo "📋 pyproject.toml not found in global config"
+            /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
         fi
 
         echo "✅ Repository cloned with commitizen template"

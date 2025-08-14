@@ -29,7 +29,6 @@
 [commit]
   gpgsign = false
   # Template directory for backup Git hooks (used when pre-commit framework is disabled)
-  template = ~/.config/git-templates
   verbose = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -54,9 +53,7 @@
   sc = clone --depth=1
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-  # Override standard git commands with automatic setup
-  init = !git init \"$@\" && git config --local commit.template ~/.config/commitizen/.czrc && echo \"✅ Repository initialized with commitizen template\" && echo \"💡 Use 'cz commit' for conventional commits\" && echo \"💡 Use 'git commit' for regular commits\"
-  clone = !git clone \"$@\" && cd \"$(basename \"$1\" .git)\" && git config --local commit.template ~/.config/commitizen/.czrc && echo \"✅ Repository cloned with commitizen template\" && echo \"💡 Use 'cz commit' for conventional commits\" && echo \"💡 Use 'git commit' for regular commits\"
+  # Repository setup helper
   setup = !bash ~/.config/scripts/setup-new-repo.sh
 [blame]
   coloring = highlightRecent
