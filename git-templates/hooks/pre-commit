@@ -1,0 +1,106 @@
+#!/bin/bash
+# Global pre-commit hook template for backup secret scanning
+# This hook runs when the pre-commit framework is not available
+
+set -e
+
+echo "🔒 GitGuardian Backup Pre-commit Hook Running..."
+
+# Check if GitGuardian CLI is available
+if ! command -v ggshield &> /dev/null; then
+    echo "⚠️  GitGuardian CLI (ggshield) not found!"
+    echo "   This is a backup hook - the pre-commit framework should handle this normally."
+    echo "   To install ggshield: brew install gitguardian/tap/ggshield"
+    echo "   Proceeding with basic checks only..."
+else
+    echo "🔍 Scanning staged files for secrets..."
+    if ggshield secret scan pre-commit; then
+        echo "✅ No secrets found. Proceeding with commit..."
+    else
+        echo "❌ Secrets detected! Please remove them before committing."
+        echo ""
+        echo "To see details: ggshield secret scan pre-commit --verbose"
+        echo "To skip this check: git commit --no-verify"
+        echo ""
+        echo "Common places to check:"
+        echo "- API keys and tokens"
+        echo "- Database credentials"
+        echo "- OAuth secrets"
+        echo "- Private keys"
+        echo "- Environment files (.env)"
+        exit 1
+    fi
+fi
+
+# Basic file size check (prevent large files)
+echo "📏 Checking file sizes..."
+MAX_SIZE=10485760  # 10MB
+LARGE_FILES=()
+
+while IFS= read -r -d '' file; do
+    if [ -f "$file" ]; then
+        size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
+        if [ "$size" -gt "$MAX_SIZE" ]; then
+            LARGE_FILES+=("$file ($(numfmt --to=iec-i --suffix=B $size))")
+        fi
+    fi
+done < <(git diff --cached --name-only -z)
+
+if [ ${#LARGE_FILES[@]} -gt 0 ]; then
+    echo "⚠️  Large files detected (>10MB):"
+    printf '  %s\n' "${LARGE_FILES[@]}"
+    echo ""
+    echo "Consider using Git LFS for large files or adding them to .gitignore"
+    echo "To proceed anyway: git commit --no-verify"
+    read -p "Continue with commit? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
+# Check for common sensitive file patterns
+echo "🔍 Checking for sensitive file patterns..."
+SENSITIVE_PATTERNS=(
+    "*.key"
+    "*.pem"
+    "*.p12"
+    "*.pfx"
+    "*.crt"
+    "*.pem"
+    "id_rsa"
+    "id_dsa"
+    "id_ecdsa"
+    "id_ed25519"
+    ".env"
+    ".env.*"
+    "config.json"
+    "secrets.json"
+    "credentials.json"
+)
+
+SENSITIVE_FILES=()
+while IFS= read -r -d '' file; do
+    for pattern in "${SENSITIVE_PATTERNS[@]}"; do
+        if [[ "$file" == $pattern ]]; then
+            SENSITIVE_FILES+=("$file")
+            break
+        fi
+    done
+done < <(git diff --cached --name-only -z)
+
+if [ ${#SENSITIVE_FILES[@]} -gt 0 ]; then
+    echo "⚠️  Potentially sensitive files detected:"
+    printf '  %s\n' "${SENSITIVE_FILES[@]}"
+    echo ""
+    echo "Please verify these files don't contain secrets before committing."
+    echo "To proceed anyway: git commit --no-verify"
+    read -p "Continue with commit? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
+echo "✅ Backup pre-commit hook completed successfully!"
+exit 0
