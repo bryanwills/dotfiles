@@ -102,5 +102,11 @@ if [ ${#SENSITIVE_FILES[@]} -gt 0 ]; then
     fi
 fi
 
+# Check if commitizen is available and suggest using it
+if command -v cz &> /dev/null; then
+    echo "💡 Tip: Use 'cz commit' for conventional commit format"
+    echo "   This ensures your commits follow the project standards"
+fi
+
 echo "✅ Backup pre-commit hook completed successfully!"
 exit 0

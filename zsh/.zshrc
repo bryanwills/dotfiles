@@ -98,6 +98,64 @@ alias dl="docker logs --tail=100"
 alias dc="docker compose"
 alias sz="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
+
+# Override standard git commands with automatic setup
+git() {
+    if [[ "$1" == "init" ]]; then
+        echo "🚀 Initializing repository with automatic setup..."
+        command git "$@"
+        git config --local commit.template ~/.config/commitizen/.czrc
+
+        # Copy commitizen configs if they don't exist
+        if [ ! -f ".czrc" ]; then
+            cp ~/.config/commitizen/.czrc ./.czrc
+            echo "📝 Created .czrc"
+        fi
+
+        if [ ! -f "pyproject.toml" ]; then
+            cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null || echo "📋 pyproject.toml not found in global config"
+        fi
+
+        echo "✅ Repository initialized with commitizen template"
+        echo "💡 Use 'cz commit' for conventional commits"
+        echo "💡 Use 'git commit' for regular commits"
+
+    elif [[ "$1" == "clone" ]]; then
+        echo "🚀 Cloning repository with automatic setup..."
+        command git "$@"
+
+        # Get the repository name from the URL (second argument)
+        repo_name=$(basename "$2" .git)
+        cd "$repo_name"
+
+        # Set up commitizen template
+        git config --local commit.template ~/.config/commitizen/.czrc
+
+        # Copy commitizen configs if they don't exist
+        if [ ! -f ".czrc" ]; then
+            cp ~/.config/commitizen/.czrc ./.czrc
+            echo "📝 Created .czrc"
+        fi
+
+        if [ ! -f "pyproject.toml" ]; then
+            cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null || echo "📋 pyproject.toml not found in global config"
+        fi
+
+        echo "✅ Repository cloned with commitizen template"
+        echo "💡 Use 'cz commit' for conventional commits"
+        echo "💡 Use 'git commit' for regular commits"
+
+    else
+        # For all other git commands, just run them normally
+        command git "$@"
+    fi
+}
+
+# Auto-setup function for existing repositories
+git-setup-auto() {
+    echo "🔧 Setting up existing repository with development tools..."
+    bash ~/.config/scripts/setup-new-repo.sh
+}
 alias nv="nvim"
 
 # Safe copy alias using rsync (like cp -R)
@@ -197,7 +255,7 @@ export PATH="$HUMANLOG_INSTALL/bin:$PATH"
 source ~/.keys/.env.openai
 export API_KEY="~/.keys/.env.openai:$API_KEY"
 export OPENAI_API_KEY={{OPEN_API_KEY}}
-source ~/.zsh-copilot/zsh-copilot.plugin.zsh
+source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh
 
 
 export NVM_DIR="$HOME/.nvm"
