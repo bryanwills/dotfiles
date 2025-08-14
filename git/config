@@ -11,6 +11,7 @@
   gpgSign = false
 [init]
   defaultBranch = main
+	templateDir = /Users/bryanwills/.config/git-templates
 [rerere]
   enabled = true
 [submodule]
@@ -27,7 +28,8 @@
   prune = true
 [commit]
   gpgsign = false
-  template = ~/.config/git/template
+  # Template directory for backup Git hooks (used when pre-commit framework is disabled)
+  template = ~/.config/git-templates
   verbose = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
