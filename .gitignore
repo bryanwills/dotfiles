@@ -6,3 +6,75 @@ node_modules/
 # Tmux plugins (managed by TPM)
 tmux/plugins/
 xnviewmp/
+
+gcloud/
+gcloud/*
+gcloud/**
+*.log
+**/*.log
+gcloud/logs/**/*
+gcloud/logs/
+gcloud/logs/**
+*.db
+**/*.db
+
+filezilla/**
+
+# Large files that shouldn't be in version control
+*.sqlite
+**/*.sqlite
+joplin-desktop/database.sqlite
+joplin-desktop/cache/
+joplin-desktop/tmp/
+joplin-desktop/log.txt
+joplin-desktop/window-state-prod.json
+
+# Windows thumbnail databases
+Thumb.db
+**/Thumb.db
+
+gcloud/.last_survey_prompt.yaml
+gcloud/.last_update_check.json
+gcloud/configurations/config_default
+gcloud/default_configs.db
+gcloud/hidden_gcloud_config_universe_descriptor_data_cache_configs.db
+
+# iTerm2 files that shouldn't be tracked
+iterm2/*.plist
+iterm2/*.itermexport
+iterm2/*.json
+iterm2/imgcat
+iterm2/imgls
+iterm2/it2*
+iterm2/integration.sh
+
+# Large media files that shouldn't be tracked
+*.gif
+**/*.gif
+zsh/oh-my-zsh/plugins/*/demo.gif
+zsh/oh-my-zsh/plugins/*/img/demo.gif
+
+# Large application files and databases
+xnviewmp/*.db
+xnviewmp/Thumb.db
+
+# GCloud virtual environment
+gcloud/virtenv/
+
+# Raycast extension source maps and large files
+raycast/extensions/*/*.map
+raycast/extensions/*/*.js
+raycast/extensions/*/assets/*.wasm
+
+# Git LFS objects
+.git/lfs/
+
+# Additional gcloud patterns
+gcloud/active_config
+gcloud/config_sentinel
+gcloud/gce
+gcloud/metricsUUID
+
+# GitHub Copilot config
+gh-copilot/
+
