@@ -5,6 +5,7 @@ This plugin searches the defined aliases and outputs any that match the command 
 ## Setup
 
 To use it, add `alias-finder` to the `plugins` array of your zshrc file:
+
 ```
 plugins=(... alias-finder)
 ```
@@ -27,6 +28,7 @@ As you can see, options are also available with zstyle.
 When you execute a command alias finder will look at your defined aliases and suggest shorter aliases you could have used, for example:
 
 Running the un-aliased `git status` command:
+
 ```sh
 ╭─tim@fox ~/repo/gitopolis ‹main›
 ╰─$ git status
@@ -39,6 +41,7 @@ nothing to commit, working tree clean
 ```
 
 Running a shorter `git st` alias from `.gitconfig` that it suggested :
+
 ```sh
 ╭─tim@fox ~/repo/gitopolis ‹main›
 ╰─$ git st
@@ -47,6 +50,7 @@ gs='git st'         # <=== shorter suggestion from alias-finder
 ```
 
 Running the shortest `gs` shell alias that it found:
+
 ```sh
 ╭─tim@fox ~/repo/gitopolis ‹main›
 ╰─$ gs
@@ -55,7 +59,6 @@ Running the shortest `gs` shell alias that it found:
 ```
 
 ![image](https://github.com/ohmyzsh/ohmyzsh/assets/19378/39642750-fb10-4f1a-b7f9-f36789eeb01b)
-
 
 ### Options
 

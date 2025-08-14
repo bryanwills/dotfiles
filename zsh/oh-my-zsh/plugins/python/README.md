@@ -51,7 +51,6 @@ plugins=(... python)
 source "$ZSH/oh-my-zsh.sh"
 ```
 
-
 ## `$PYTHON_VENV_NAME`
 
 **Default**: `venv`.

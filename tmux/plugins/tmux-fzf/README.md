@@ -160,7 +160,6 @@ Similarly, `TMUX_FZF_WINDOW_FORMAT` and `TMUX_FZF_SESSION_FORMAT` can also be ha
 
 For more information, check "FORMATS" section in tmux manual.
 
-
 ## Filter
 
 By default, the current session, window, and pane, are not listed among the switch possibilities. To include it, set:
