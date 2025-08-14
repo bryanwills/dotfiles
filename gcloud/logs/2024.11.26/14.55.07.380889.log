@@ -6,145 +6,145 @@
 
 2024-11-26 14:55:07,573 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
 2024-11-26 14:55:07,847 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 227816
-2024-11-26 14:55:08,067 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,067 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,068 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,068 INFO     ___FILE_ONLY___
 Your current Google Cloud CLI version is: 502.0.0
 
 2024-11-26 14:55:08,068 INFO     ___FILE_ONLY___ Installing components from version: 502.0.0
 
-2024-11-26 14:55:08,068 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,068 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,068 DEBUG    root            Chosen display Format:table[box,title="These components will be removed."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
 2024-11-26 14:55:08,068 DEBUG    root            Chosen display Format:table[box,title="These components will be updated."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
 2024-11-26 14:55:08,068 DEBUG    root            Chosen display Format:table[box,title="These components will be installed."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ ┌─────────────────────────────────────────────────────────────────────────────┐
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │                     These components will be installed.                     │
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ ├─────────────────────────────────────────────────────┬────────────┬──────────┤
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │                         Name                        │  Version   │   Size   │
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ ├─────────────────────────────────────────────────────┼────────────┼──────────┤
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ Google Cloud CLI Core Libraries (Platform Specific)
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 2024.08.30
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  < 1 MiB
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  
 2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ Google Cloud CLI Core Libraries (Platform Specific)
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ 2024.08.30
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  < 1 MiB
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ Minikube (Platform Specific)                       
-2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___     1.34.0
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ 37.2 MiB
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___ Minikube (Platform Specific)
+2024-11-26 14:55:08,100 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___     1.34.0
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ 37.2 MiB
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ Skaffold (Platform Specific)                       
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ Skaffold (Platform Specific)
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___     2.13.1
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___ 22.9 MiB
-2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,101 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ gcloud Alpha Commands                              
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ gcloud Alpha Commands
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ 2024.11.15
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___  < 1 MiB
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ gcloud Beta Commands                               
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ gcloud Beta Commands
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,102 INFO     ___FILE_ONLY___ 2024.11.15
-2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___  < 1 MiB
-2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___  < 1 MiB
+2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,103 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ gcloud cli dependencies (Platform Specific)        
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ 2021.04.16
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  < 1 MiB
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  
 2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ gcloud cli dependencies (Platform Specific)
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ 2021.04.16
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  < 1 MiB
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ gke-gcloud-auth-plugin (Platform Specific)         
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ gke-gcloud-auth-plugin (Platform Specific)
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___      0.5.9
-2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,104 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  4.0 MiB
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ kubectl                                            
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ kubectl
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___     1.30.5
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  < 1 MiB
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  < 1 MiB
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ kubectl (Platform Specific)                        
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │ 
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ kubectl (Platform Specific)
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___ │
 2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___     1.30.6
-2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___  
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ │ 
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ 86.1 MiB
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___  
+2024-11-26 14:55:08,105 INFO     ___FILE_ONLY___
 2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ │
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ 86.1 MiB
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ │
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ └─────────────────────────────────────────────────────┴────────────┴──────────┘
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___
 
-2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:08,106 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:08,117 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
 2024-11-26 14:55:08,363 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/RELEASE_NOTES HTTP/1.1" 200 1314602
@@ -610,13 +610,13 @@ Your current Google Cloud CLI version is: 502.0.0
 2024-11-26 14:55:23,783 INFO     ___FILE_ONLY___ ╝
 
 2024-11-26 14:55:23,803 DEBUG    root            Updating notification cache...
-2024-11-26 14:55:23,807 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:23,807 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:23,843 INFO     ___FILE_ONLY___ Performing post processing steps...
 2024-11-26 14:55:23,846 DEBUG    root            Executing command: ['/Users/bryanwills/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin/gcloud', 'components', 'post-process', '--no-compile-python']
-2024-11-26 14:55:24,766 DEBUG    ___FILE_ONLY___ 
-2024-11-26 14:55:24,766 DEBUG    ___FILE_ONLY___ 
-2024-11-26 14:55:24,880 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:24,766 DEBUG    ___FILE_ONLY___
+2024-11-26 14:55:24,766 DEBUG    ___FILE_ONLY___
+2024-11-26 14:55:24,880 INFO     ___FILE_ONLY___
 Update done!
 
 
@@ -627,7 +627,7 @@ Update done!
 /opt/homebrew/Cellar/minikube/1.34.0/bin/minikube
 /opt/homebrew/Cellar/kubernetes-cli/1.31.3/bin/kubectl
 
-  
+
 2024-11-26 14:55:24,913 DEBUG    root            Chosen display Format:none
 2024-11-26 14:55:24,914 INFO     root            Display format: "none"
 2024-11-26 14:55:24,921 DEBUG    root            Executing command: ['curl', '--silent', '-O', 'https://dl.google.com/dl/cloudsdk/channels/rapid/python-3.11.6-macos11.tar.gz']

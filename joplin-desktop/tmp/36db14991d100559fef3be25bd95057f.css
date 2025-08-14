@@ -4,7 +4,7 @@
 			background-color: #ffffff;
 		}
 
-		
+
 	.not-loaded-resource img {
 		width: 1.15em;
 		height: 1.15em;
@@ -46,4 +46,3 @@
 		table[style*="border-width: 0px"] th {
 			border: none !important;
 		}
-	

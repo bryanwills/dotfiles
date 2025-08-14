@@ -38,4 +38,3 @@ default!
 The command used to display the directory listing
 (`@sidebar-tree-pager`, if set) must support color codes. If it does not,
 unusual characters - the color control codes - will be visible in the sidebar.
-

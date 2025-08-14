@@ -23,4 +23,3 @@ div[data-path$='.jpeg'] {
 div[data-path$='.webp'] {
 	display: none;
 }
-

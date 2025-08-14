@@ -106,5 +106,3 @@ function display_emoji() {
     fi
   done
 }
-
-

@@ -10,10 +10,10 @@ plugins=(... rsync)
 
 | Alias               | Command                                          | Description |
 | ------------------- | ------------------------------------------------ | ------------|
-| `rsync-copy`        | `rsync -avz --progress -h`                       | Recursively copy files and directories, preserving permissions, timestamps, and symbolic links. Compression is enabled for faster transfers. Progress is displayed in a human-readable format. | 
-| `rsync-move`        | `rsync -avz --progress -h --remove-source-files` | Same as rsync-copy, but removes the source files after a successful transfer (effectively performing a move). | 
-| `rsync-update`      | `rsync -avzu --progress -h`                      | Like rsync-copy, but only updates files if the source is newer than the destination (or if the destination file is missing). | 
-| `rsync-synchronize` | `rsync -avzu --delete --progress -h`             | Performs bidirectional-style sync: updates files as in rsync-update and deletes files in the destination that no longer exist in the source. Useful for directory synchronization. | 
+| `rsync-copy`        | `rsync -avz --progress -h`                       | Recursively copy files and directories, preserving permissions, timestamps, and symbolic links. Compression is enabled for faster transfers. Progress is displayed in a human-readable format. |
+| `rsync-move`        | `rsync -avz --progress -h --remove-source-files` | Same as rsync-copy, but removes the source files after a successful transfer (effectively performing a move). |
+| `rsync-update`      | `rsync -avzu --progress -h`                      | Like rsync-copy, but only updates files if the source is newer than the destination (or if the destination file is missing). |
+| `rsync-synchronize` | `rsync -avzu --delete --progress -h`             | Performs bidirectional-style sync: updates files as in rsync-update and deletes files in the destination that no longer exist in the source. Useful for directory synchronization. |
 
 Explanation of Flags:
  - -a: Archive mode; preserves symbolic links, permissions, timestamps, etc.

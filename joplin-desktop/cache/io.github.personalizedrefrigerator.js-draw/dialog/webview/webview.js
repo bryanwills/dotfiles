@@ -2596,7 +2596,7 @@ eval("var __defProp = Object.defineProperty;\nvar __getOwnPropDesc = Object.getO
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -2610,21 +2610,21 @@ eval("var __defProp = Object.defineProperty;\nvar __getOwnPropDesc = Object.getO
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/dialog/webview/webview.ts");
 /******/ 	exports["default"] = __webpack_exports__["default"];
-/******/ 	
+/******/
 /******/ })()
 ;

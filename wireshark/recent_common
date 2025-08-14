@@ -74,7 +74,7 @@ gui.search_type: DISPLAY_FILTER
 
 # Custom colors.
 # List of custom colors selected in Qt color picker.
-gui.custom_colors: 
+gui.custom_colors:
 	"ffffffff", "ffffffff",
 	"ffffffff", "ffffffff",
 	"ffffffff", "ffffffff",

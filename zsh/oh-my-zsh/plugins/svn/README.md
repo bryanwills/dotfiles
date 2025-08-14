@@ -64,4 +64,3 @@ To use this in the `agnoster` theme follow these instructions:
         prompt_end
     }
     ```
-

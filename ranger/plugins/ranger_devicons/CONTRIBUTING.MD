@@ -19,7 +19,7 @@ requests](#pull-requests), but please respect the following restrictions:
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
-  
+
 * Please **adhere** to the issue template provided for bugs / feature requests and provide an answer to all posed questions.
 
 <a name="bugs"></a>

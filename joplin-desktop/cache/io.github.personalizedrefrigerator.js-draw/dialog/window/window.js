@@ -22,13 +22,13 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\ncons
 
 /******/ 	});
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
 /******/ 	__webpack_modules__["./src/dialog/window/window.ts"](0, __webpack_exports__);
 /******/ 	exports["default"] = __webpack_exports__["default"];
-/******/ 	
+/******/
 /******/ })()
 ;

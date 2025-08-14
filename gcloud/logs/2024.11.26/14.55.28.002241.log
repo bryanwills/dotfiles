@@ -12,6 +12,6 @@
   "minikube": "1.34.0",
   "skaffold": "2.13.1"
 }
-2024-11-26 14:55:28,057 INFO     ___FILE_ONLY___ 
+2024-11-26 14:55:28,057 INFO     ___FILE_ONLY___
 
 2024-11-26 14:55:28,066 DEBUG    root            Metrics reporting process started...

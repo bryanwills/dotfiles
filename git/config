@@ -3,7 +3,7 @@
   email = bryanwi09@gmail.com
 [pull]
   rebase = true
-  default = current 
+  default = current
 [push]
   default = current # push only current branch by default
   autoSetupRemote = true # Easier to push new branches
@@ -27,7 +27,7 @@
   prune = true
 [commit]
   gpgsign = false
-  template = ~/.config/git/template 
+  template = ~/.config/git/template
   verbose = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -152,5 +152,3 @@
   # delta detects terminal colors automatically; set one of these to disable auto-detection
   dark = true
   # light = true
-
-

@@ -16,4 +16,3 @@ tldr-command-line() {
 zle -N tldr-command-line
 # Defined shortcut keys: [Esc]tldr
 bindkey "\e"tldr tldr-command-line
-

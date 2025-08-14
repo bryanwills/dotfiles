@@ -17,4 +17,3 @@ if process_list contains "Rdio" then
       end if
   end tell
 end if
-

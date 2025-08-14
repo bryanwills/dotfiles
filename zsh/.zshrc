@@ -215,7 +215,7 @@ export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
 
 # Init zoxide
 #eval "$(zoxide init zsh)"
-source ~/.config/zoxide/init.zsh 
+source ~/.config/zoxide/init.zsh
 
 # Unalias first to avoid conflict
 unalias cp 2>/dev/null
@@ -251,4 +251,3 @@ mv() {
     rm -f "$src"
   fi
 }
-

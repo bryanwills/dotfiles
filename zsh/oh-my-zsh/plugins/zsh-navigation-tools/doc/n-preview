@@ -28,7 +28,7 @@ autoload n-list-draw n-list-input
 # Cleanup before any exit
 _vpreview_exit() {
     zcurses 2>/dev/null delwin files
-    zcurses 2>/dev/null delwin body 
+    zcurses 2>/dev/null delwin body
     zcurses 2>/dev/null delwin status
     zcurses 2>/dev/null refresh
     zcurses end
@@ -49,7 +49,7 @@ _nlist_cursor_visibility() {
     elif [ "$has_termcap" = "1" ]; then
         [ "$1" = "1" ] && [ -n $terminfo[cvvis] ] && echo -n $terminfo[cvvis]
         [ "$1" = "0" ] && [ -n $terminfo[civis] ] && echo -n $terminfo[civis]
-    fi 
+    fi
 }
 
 #
@@ -159,19 +159,19 @@ while (( 1 )); do
 
     [[ "$active_window" -eq 0 ]] && zcurses border files
     zcurses border status
-    zcurses refresh files body status 
+    zcurses refresh files body status
 
     # Wait for input
     zcurses input status key keypad
 
     # Get the special (i.e. "keypad") key or regular key
     if [ -n "$key" ]; then
-        final_key="$key" 
+        final_key="$key"
     elif [ -n "$keypad" ]; then
         final_key="$keypad"
     else
         _vpreview_status_msg "Improper input detected"
-        zcurses refresh status 
+        zcurses refresh status
     fi
 
     if [ "$active_window" -eq 0 ]; then

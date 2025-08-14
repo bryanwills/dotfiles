@@ -18,4 +18,3 @@ plugins=(... spring)
 * Spring Boot CLI: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#cli
 
 Maintainer : linux_china ([@linux_china](https://twitter.com/linux_china))
-
