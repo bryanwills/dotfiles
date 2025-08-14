@@ -28,6 +28,9 @@ joplin-desktop/cache/
 joplin-desktop/tmp/
 joplin-desktop/log.txt
 joplin-desktop/window-state-prod.json
+joplin-desktop/resources/
+joplin-desktop/*.log
+joplin-desktop/**/*.log
 
 # Windows thumbnail databases
 Thumb.db
@@ -65,6 +68,9 @@ gcloud/virtenv/
 raycast/extensions/*/*.map
 raycast/extensions/*/*.js
 raycast/extensions/*/assets/*.wasm
+raycast/extensions/*/package.json
+raycast/extensions/*/tools/
+raycast/extensions/*/node_modules/
 
 # Git LFS objects
 .git/lfs/
@@ -77,4 +83,3 @@ gcloud/metricsUUID
 
 # GitHub Copilot config
 gh-copilot/
-

@@ -136,5 +136,3 @@ function hg_prompt_info() {
 
 setopt PROMPT_SUBST
 PROMPT='$custom_prompt'
-
-

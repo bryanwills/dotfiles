@@ -51,7 +51,6 @@ plugins=(... python)
 source "$ZSH/oh-my-zsh.sh"
 ```
 
-
 ## `$PYTHON_VENV_NAME`
 
 **Default**: `venv`.
@@ -65,4 +64,3 @@ Preferred name for virtual environments, for example when creating via `mkv`.
 Array of virtual environment names to be checked, in order, by `vrun` and `auto_vrun`.
 This means these functions will load the first existing virtual environment in this list.
 Duplicate names are ignored.
-

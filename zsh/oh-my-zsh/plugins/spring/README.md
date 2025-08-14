@@ -14,8 +14,7 @@ plugins=(... spring)
 
 ## Reference
 
-* Spring Boot: https://spring.io/projects/spring-boot
-* Spring Boot CLI: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#cli
+* Spring Boot: <https://spring.io/projects/spring-boot>
+* Spring Boot CLI: <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#cli>
 
 Maintainer : linux_china ([@linux_china](https://twitter.com/linux_china))
-

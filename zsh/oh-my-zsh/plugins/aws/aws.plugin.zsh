@@ -335,4 +335,3 @@ else
   [[ -r $_aws_zsh_completer_path ]] && source $_aws_zsh_completer_path
   unset _aws_zsh_completer_path _brew_prefix
 fi
-

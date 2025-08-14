@@ -17,4 +17,3 @@
 # Global Settings
     AppleShowAllExtensions = 1;
     NSDocumentSaveNewDocumentsToCloud = 0;
-

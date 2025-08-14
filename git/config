@@ -3,7 +3,7 @@
   email = bryanwi09@gmail.com
 [pull]
   rebase = true
-  default = current 
+  default = current
 [push]
   default = current # push only current branch by default
   autoSetupRemote = true # Easier to push new branches
@@ -11,6 +11,7 @@
   gpgSign = false
 [init]
   defaultBranch = main
+	templateDir = /Users/bryanwills/.config/git-templates
 [rerere]
   enabled = true
 [submodule]
@@ -27,7 +28,7 @@
   prune = true
 [commit]
   gpgsign = false
-  template = ~/.config/git/template 
+  # Template directory for backup Git hooks (used when pre-commit framework is disabled)
   verbose = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -51,6 +52,9 @@
   rbi = rebase --interactive
   sc = clone --depth=1
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+  # Repository setup helper
+  setup = !bash ~/.config/scripts/setup-new-repo.sh
 [blame]
   coloring = highlightRecent
   date = relative
@@ -152,5 +156,3 @@
   # delta detects terminal colors automatically; set one of these to disable auto-detection
   dark = true
   # light = true
-
-

@@ -19,10 +19,11 @@ requests](#pull-requests), but please respect the following restrictions:
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
-  
+
 * Please **adhere** to the issue template provided for bugs / feature requests and provide an answer to all posed questions.
 
 <a name="bugs"></a>
+
 ## Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
@@ -45,10 +46,11 @@ A good bug report shouldn't leave others needing to chase you up for more
 information. Please try to be as detailed as possible in your report.
 
 <a name="features"></a>
+
 ## Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
+fits with the scope and aims of the project. It's up to _you_ to make a strong
 case to convince the Ranger Devicons developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
@@ -57,6 +59,7 @@ Guidelines for feature requests:
 1. **Adhere to the issue template** &mdash; Ensure your issue meets the [issue template](https://github.com/alexanderjeurissen/ranger_devicons/blob/main/.github/ISSUE_TEMPLATE/feature_request.md). Issues that do not match the template will be closed automatically.
 
 <a name="pull-requests"></a>
+
 ## Pull requests
 
 Good pull requests - patches, improvements, new features - are a fantastic

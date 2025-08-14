@@ -32,4 +32,3 @@ pipe-command-output=[sh -c "f=$(mktemp); cat - > $f; footclient emacsclient -nw 
 When pressing ctrl+shift+g, the last command's output is written to a
 temporary file, then an emacsclient is started in a new footclient instance.
 The temporary file is removed after the footclient instance has closed.
-

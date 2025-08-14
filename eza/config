@@ -7,4 +7,3 @@ eza -l --icons --grid --header --hyperlink
 eza -l --icons --grid --header --git
 eza -l --icons --grid --header --git --git-repos
 eza -l --icons --grid --blocksize -l --hyperlink --grid --git-repos -x --time-style "+%Y, %Y, %d%d%d - %a %u" --git --header --icons -Z -@ -o --group --smart-group --no-quotes'
-

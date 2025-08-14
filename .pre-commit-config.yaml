@@ -1,0 +1,72 @@
+# Global pre-commit configuration for dotfiles repository
+# This file configures pre-commit hooks that will run before each commit
+
+repos:
+  # GitGuardian secret scanning
+  - repo: https://github.com/GitGuardian/ggshield
+    rev: v1.25.0
+    hooks:
+      - id: ggshield
+        name: GitGuardian Secret Scan
+        description: Scan for secrets and sensitive data
+        entry: ggshield secret scan pre-commit
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # Commitizen for standardized commit messages
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.20.0
+    hooks:
+      - id: commitizen
+        name: Commitizen
+        description: Enforce conventional commit format
+        stages: [commit-msg]
+        additional_dependencies: [commitizen]
+
+  # Trailing whitespace and end-of-file fixes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trailing Whitespace
+        description: Remove trailing whitespace
+      - id: end-of-file-fixer
+        name: End of File Fixer
+        description: Ensure files end with a newline
+      - id: check-yaml
+        name: Check YAML
+        description: Check YAML syntax
+      - id: check-json
+        name: Check JSON
+        description: Check JSON syntax
+      - id: check-merge-conflict
+        name: Check Merge Conflicts
+        description: Check for merge conflict markers
+
+  # Shell script linting
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.10.0
+    hooks:
+      - id: shellcheck
+        name: ShellCheck
+        description: Lint shell scripts
+        args: [--severity=warning]
+        stages: [manual]  # Only run manually, not on every commit
+
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.38.0
+    hooks:
+      - id: markdownlint
+        name: Markdown Lint
+        description: Lint markdown files
+        args: [--fix]
+        stages: [manual]  # Only run manually, not on every commit
+
+# Global settings
+default_language_version:
+  python: python3
+
+# Hook execution order
+fail_fast: false

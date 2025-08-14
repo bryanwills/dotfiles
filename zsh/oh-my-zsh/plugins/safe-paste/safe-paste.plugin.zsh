@@ -98,4 +98,3 @@ _bracketed_paste_zle_finish() {
     printf '\e[?2004l'
   fi
 }
-
