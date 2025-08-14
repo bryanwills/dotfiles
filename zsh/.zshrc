@@ -203,9 +203,6 @@ esac
 #zsh fzf
 source <(fzf --zsh)
 
-# .NET Core
-export PATH="$PATH:/Users/$USER/.dotnet/tools"
-
 # Python3 using Homebrew
 #export PATH="/opt/homebrew/bin/python3:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -217,26 +214,7 @@ export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
 export HUMANLOG_INSTALL="/Users/bryanwills/.humanlog"
 export PATH="$HUMANLOG_INSTALL/bin:$PATH"
 
-# store more information (timestamp)
-#setopt extended_history
-
-# shares history across multiple zsh sessions
-#setopt share_history
-# append to history
-#setopt append_history
-
-# expire duplicates first
-#setopt hist_expire_dups_first
-
-# do not store duplications, keep newest
-#setopt hist_ignore_all_dups
-
-#ignore duplicates when searching
-#setopt hist_find_no_dups
-
-# removes blank lines from history
-#setopt hist_reduce_blanks
-
+#
 source ~/.keys/.env.openai
 export API_KEY="~/.keys/.env.openai:$API_KEY"
 export OPENAI_API_KEY={{OPEN_API_KEY}}
@@ -246,8 +224,6 @@ source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copi
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-#export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 eval "$(mise activate zsh)"
