@@ -5,13 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$ZDOTDIR/oh-my-zsh"
+export ZSH="$HOME/.config/zsh/oh-my-zsh"
 export TERM=xterm-256color
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
-
-
 
 # AI ENV Variables
 OPENAI_API_KEY="~/.keys/.openai_api_key"
@@ -40,13 +38,11 @@ setopt hist_reduce_blanks
 setopt hist_no_store
 
 plugins=(
-zsh-syntax-highlighting
-zsh-autosuggestions
 git
+zsh-autosuggestions
+zsh-syntax-highlighting
 fzf-tab
 )
-# Set FZF defaults
-export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark --height 40%"
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Keybindings
@@ -61,22 +57,32 @@ bindkey "^[OB" history-search-forward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-# Options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
-
-# Options for path completion (e.g. vim **<TAB>)
-export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
-
-# Options for directory completion (e.g. cd **<TAB>)
-export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
-
-
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath+="$ZSH/custom/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
+
+# Ensure completion system is properly initialized
+autoload -U compinit
+compinit
+
+# Add FZF_DEFAULT_OPTS for fzf-tab before the fzf shell integration
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
+
+# Load fzf shell integration
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
+# Override fzf key bindings to avoid Ghostty conflicts
+# Use Option+F for file search and Option+D for directory search
+bindkey -M emacs '\ef' fzf-file-widget      # Option+F for files
+bindkey -M vicmd '\ef' fzf-file-widget
+bindkey -M viins '\ef' fzf-file-widget
+bindkey -M emacs '\ed' fzf-cd-widget        # Option+D for directories
+bindkey -M vicmd '\ed' fzf-cd-widget
+bindkey -M viins '\ed' fzf-cd-widget
 
 # Alias configurations
 
-alias ls="eza -1A --group-directories-first --color=always --git-ignore --icons --header --time-style long-iso"
+alias ls="eza --group-directories-first --color=always --icons --header --time-style long-iso"
 alias ll="eza --all --long --group --group-directories-first --icons --header --time-style long-iso --color=always"
 alias la="l -l --time-style="+%Y-%m-%d %H:%M""
 alias tree="l --tree"
@@ -97,6 +103,7 @@ alias npm="pnpm"
 alias dl="docker logs --tail=100"
 alias dc="docker compose"
 alias sz="source ~/.config/zsh/.zshrc"
+alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
 
 # Override standard git commands with automatic setup
@@ -171,12 +178,11 @@ alias tl='tmux list-sessions'
 alias tn='tmux new-session -s'
 alias td='tmux kill-session -t'
 
-# Aliases: safety
-alias cp='cp --interactive'
-alias mv='mv --interactive'
-
-
-
+# Aliases: safety (temporarily disabled to fix fzf-tab)
+# alias cp='cp --interactive'
+# alias mv='mv --interactive'
+# Remove any existing mv aliases to prevent conflicts
+unalias mv 2>/dev/null
 
 export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
@@ -184,26 +190,11 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/Users/bryanwills/.local/bin:$PATH"
 export PATH="/Users/bryanwills/.cargo/bin:$PATH"
 
-# To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # Original config
 #[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 export PATH="/opt/homebrew/opt/bin/go:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/bryanwills/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/bryanwills/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/bryanwills/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/bryanwills/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 eval "$(rbenv init -)"
 
@@ -214,12 +205,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-#zsh fzf
-source <(fzf --zsh)
-
-# .NET Core
-export PATH="$PATH:/Users/$USER/.dotnet/tools"
 
 # Python3 using Homebrew
 #export PATH="/opt/homebrew/bin/python3:$PATH"
@@ -232,26 +217,7 @@ export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
 export HUMANLOG_INSTALL="/Users/bryanwills/.humanlog"
 export PATH="$HUMANLOG_INSTALL/bin:$PATH"
 
-# store more information (timestamp)
-#setopt extended_history
-
-# shares history across multiple zsh sessions
-#setopt share_history
-# append to history
-#setopt append_history
-
-# expire duplicates first
-#setopt hist_expire_dups_first
-
-# do not store duplications, keep newest
-#setopt hist_ignore_all_dups
-
-#ignore duplicates when searching
-#setopt hist_find_no_dups
-
-# removes blank lines from history
-#setopt hist_reduce_blanks
-
+#
 source ~/.keys/.env.openai
 export API_KEY="~/.keys/.env.openai:$API_KEY"
 export OPENAI_API_KEY={{OPEN_API_KEY}}
@@ -261,8 +227,6 @@ source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copi
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-#export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 eval "$(mise activate zsh)"
@@ -279,33 +243,36 @@ source ~/.config/zoxide/init.zsh
 unalias cp 2>/dev/null
 unalias mv 2>/dev/null
 
-# Safe copy function using rsync
-cp() {
-  if [[ "$#" -lt 2 ]]; then
-    echo "Usage: cp source... destination"
-    return 1
-  fi
-  local dest="${@: -1}"       # last argument
-  local sources=("${@:1:$#-1}") # all but last
+# Remove any mv function definitions that might be causing issues
+unset -f mv 2>/dev/null
 
-  rsync -a --no-xattrs --info=progress2 "${sources[@]}" "$dest"
-}
+# Safe copy function using rsync (temporarily disabled for debugging)
+# cp() {
+#   if [[ "$#" -lt 2 ]]; then
+#     echo "Usage: cp source... destination"
+#     return 1
+#   fi
+#   local dest="${@: -1}"       # last argument
+#   local sources=("${@:1:$#-1}") # all but last
+#
+#   rsync -a --no-xattrs --info=progress2 "${sources[@]}" "$dest"
+# }
 
-# Safe move function using rsync
-mv() {
-  if [[ "$#" -ne 2 ]]; then
-    echo "Usage: mv source destination"
-    return 1
-  fi
-
-  local src="$1"
-  local dst="$2"
-
-  if [[ -d "$src" ]]; then
-    rsync -a --no-xattrs --remove-source-files --info=progress2 "$src/" "$dst/"
-    rm -rf "$src"
-  else
-    rsync -a --no-xattrs --remove-source-files --info=progress2 "$src" "$dst"
-    rm -f "$src"
-  fi
-}
+# Safe move function using rsync (temporarily disabled for debugging)
+# mv() {
+#   if [[ "$#" -ne 2 ]]; then
+#     echo "Usage: mv source destination"
+#     return 1
+#   fi
+#
+#   local src="$1"
+#   local dst="$2"
+#
+#   if [[ -d "$src" ]]; then
+#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src/" "$dst/"
+#     rm -rf "$src"
+#   else
+#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src" "$dst"
+#     rm -f "$src"
+#   fi
+# }
