@@ -11,8 +11,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-
-
 # AI ENV Variables
 OPENAI_API_KEY="~/.keys/.openai_api_key"
 ANTHROPIC_API_KEY="~/.keys/.opencode_claude_api_key"
@@ -43,6 +41,7 @@ plugins=(
 git
 zsh-autosuggestions
 zsh-syntax-highlighting
+fzf-tab
 )
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
@@ -58,15 +57,15 @@ bindkey "^[OB" history-search-forward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-
-
-
 fpath+="$ZSH/custom/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
 
 # Ensure completion system is properly initialized
 autoload -U compinit
 compinit
+
+# Add FZF_DEFAULT_OPTS for fzf-tab before the fzf shell integration
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
 
 # Load fzf shell integration
 source /opt/homebrew/opt/fzf/shell/completion.zsh
@@ -184,9 +183,6 @@ alias td='tmux kill-session -t'
 # alias mv='mv --interactive'
 # Remove any existing mv aliases to prevent conflicts
 unalias mv 2>/dev/null
-
-
-
 
 export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
