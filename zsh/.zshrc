@@ -68,6 +68,19 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit
 compinit
 
+# Load fzf shell integration
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
+# Override fzf key bindings to avoid Ghostty conflicts
+# Use Option+F for file search and Option+D for directory search
+bindkey -M emacs '\ef' fzf-file-widget      # Option+F for files
+bindkey -M vicmd '\ef' fzf-file-widget
+bindkey -M viins '\ef' fzf-file-widget
+bindkey -M emacs '\ed' fzf-cd-widget        # Option+D for directories
+bindkey -M vicmd '\ed' fzf-cd-widget
+bindkey -M viins '\ed' fzf-cd-widget
+
 # Alias configurations
 
 alias ls="eza --group-directories-first --color=always --icons --header --time-style long-iso"
@@ -233,6 +246,9 @@ source ~/.config/zoxide/init.zsh
 # Unalias first to avoid conflict
 unalias cp 2>/dev/null
 unalias mv 2>/dev/null
+
+# Remove any mv function definitions that might be causing issues
+unset -f mv 2>/dev/null
 
 # Safe copy function using rsync (temporarily disabled for debugging)
 # cp() {
