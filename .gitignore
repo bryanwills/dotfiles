@@ -83,3 +83,7 @@ gcloud/metricsUUID
 
 # GitHub Copilot config
 gh-copilot/
+
+# Zsh completion cache files
+zsh/.zcompdump*
+zsh/.zcompdump
