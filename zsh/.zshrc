@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$ZDOTDIR/oh-my-zsh"
+export ZSH="$HOME/.config/zsh/oh-my-zsh"
 export TERM=xterm-256color
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto      # update automatically without asking
@@ -40,13 +40,10 @@ setopt hist_reduce_blanks
 setopt hist_no_store
 
 plugins=(
-zsh-syntax-highlighting
-zsh-autosuggestions
 git
-fzf-tab
+zsh-autosuggestions
+zsh-syntax-highlighting
 )
-# Set FZF defaults
-export FZF_DEFAULT_OPTS="--layout=reverse --border=bold --border=rounded --margin=3% --color=dark --height 40%"
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Keybindings
@@ -61,22 +58,19 @@ bindkey "^[OB" history-search-forward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-# Options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
-
-# Options for path completion (e.g. vim **<TAB>)
-export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
-
-# Options for directory completion (e.g. cd **<TAB>)
-export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
 
 
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+fpath+="$ZSH/custom/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
+
+# Ensure completion system is properly initialized
+autoload -U compinit
+compinit
 
 # Alias configurations
 
-alias ls="eza -1A --group-directories-first --color=always --git-ignore --icons --header --time-style long-iso"
+alias ls="eza --group-directories-first --color=always --icons --header --time-style long-iso"
 alias ll="eza --all --long --group --group-directories-first --icons --header --time-style long-iso --color=always"
 alias la="l -l --time-style="+%Y-%m-%d %H:%M""
 alias tree="l --tree"
@@ -97,6 +91,7 @@ alias npm="pnpm"
 alias dl="docker logs --tail=100"
 alias dc="docker compose"
 alias sz="source ~/.config/zsh/.zshrc"
+alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
 
 # Override standard git commands with automatic setup
@@ -171,9 +166,11 @@ alias tl='tmux list-sessions'
 alias tn='tmux new-session -s'
 alias td='tmux kill-session -t'
 
-# Aliases: safety
-alias cp='cp --interactive'
-alias mv='mv --interactive'
+# Aliases: safety (temporarily disabled to fix fzf-tab)
+# alias cp='cp --interactive'
+# alias mv='mv --interactive'
+# Remove any existing mv aliases to prevent conflicts
+unalias mv 2>/dev/null
 
 
 
@@ -184,7 +181,7 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/Users/bryanwills/.local/bin:$PATH"
 export PATH="/Users/bryanwills/.cargo/bin:$PATH"
 
-# To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # Original config
 #[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -199,9 +196,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-#zsh fzf
-source <(fzf --zsh)
 
 # Python3 using Homebrew
 #export PATH="/opt/homebrew/bin/python3:$PATH"
@@ -240,33 +234,33 @@ source ~/.config/zoxide/init.zsh
 unalias cp 2>/dev/null
 unalias mv 2>/dev/null
 
-# Safe copy function using rsync
-cp() {
-  if [[ "$#" -lt 2 ]]; then
-    echo "Usage: cp source... destination"
-    return 1
-  fi
-  local dest="${@: -1}"       # last argument
-  local sources=("${@:1:$#-1}") # all but last
+# Safe copy function using rsync (temporarily disabled for debugging)
+# cp() {
+#   if [[ "$#" -lt 2 ]]; then
+#     echo "Usage: cp source... destination"
+#     return 1
+#   fi
+#   local dest="${@: -1}"       # last argument
+#   local sources=("${@:1:$#-1}") # all but last
+#
+#   rsync -a --no-xattrs --info=progress2 "${sources[@]}" "$dest"
+# }
 
-  rsync -a --no-xattrs --info=progress2 "${sources[@]}" "$dest"
-}
-
-# Safe move function using rsync
-mv() {
-  if [[ "$#" -ne 2 ]]; then
-    echo "Usage: mv source destination"
-    return 1
-  fi
-
-  local src="$1"
-  local dst="$2"
-
-  if [[ -d "$src" ]]; then
-    rsync -a --no-xattrs --remove-source-files --info=progress2 "$src/" "$dst/"
-    rm -rf "$src"
-  else
-    rsync -a --no-xattrs --remove-source-files --info=progress2 "$src" "$dst"
-    rm -f "$src"
-  fi
-}
+# Safe move function using rsync (temporarily disabled for debugging)
+# mv() {
+#   if [[ "$#" -ne 2 ]]; then
+#     echo "Usage: mv source destination"
+#     return 1
+#   fi
+#
+#   local src="$1"
+#   local dst="$2"
+#
+#   if [[ -d "$src" ]]; then
+#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src/" "$dst/"
+#     rm -rf "$src"
+#   else
+#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src" "$dst"
+#     rm -f "$src"
+#   fi
+# }
