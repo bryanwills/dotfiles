@@ -18,6 +18,7 @@ gcloud/logs/
 gcloud/logs/**
 *.db
 **/*.db
+gcloude/gce
 
 filezilla/**
 
