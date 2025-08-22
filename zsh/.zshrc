@@ -99,7 +99,7 @@ alias img="imgcat"
 alias sf="spf"
 alias sshl="ssh -i ~/.ssh/littlecreek bryanwi09@bryanwills.dev"
 alias zsh_backup_dir="~/zsh-backup/"
-alias npm="pnpm"
+#alias npm="pnpm"
 alias dl="docker logs --tail=100"
 alias dc="docker compose"
 alias sz="source ~/.config/zsh/.zshrc"
@@ -189,6 +189,11 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/Users/bryanwills/.local/bin:$PATH"
 export PATH="/Users/bryanwills/.cargo/bin:$PATH"
+export PATH="/Users/bryanwills/code/flutter/bin:$PATH"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # Original config
