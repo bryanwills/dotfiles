@@ -92,3 +92,10 @@ gh-copilot/
 zsh/.zcompdump*
 zsh/.zcompdump
 cursor/mcp.json
+
+filezilla/
+filezilla/layout.xml
+filezilla/recentservers.xml
+
+# Fish shell
+fish/oh-my-fish/
