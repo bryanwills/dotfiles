@@ -7,21 +7,20 @@
     "--disable-features=VizDisplayCompositor",
     "--enable-features=UseChromeOSDirectVideoDecoder",
     "--disable-gpu-sandbox",
-    "--disable-software-rasterizer",
-    "--disable-gpu",
+    // "--disable-software-rasterizer",
+    // "--disable-gpu",
     "--disable-background-timer-throttling",
     "--disable-backgrounding-occluded-windows",
     "--disable-renderer-backgrounding",
     "--disable-features=TranslateUI",
     "--disable-ipc-flooding-protection"
-  ]
-,
+  ],
 
-	// Allows to disable crash reporting.
-	// Should restart the app if the value is changed.
-	"enable-crash-reporter": true,
+  // Allows to disable crash reporting.
+  // Should restart the app if the value is changed.
+  "enable-crash-reporter": true,
 
-	// Unique id used for correlating crash reports sent from this instance.
-	// Do not edit this value.
-	"crash-reporter-id": "4645f78b-a499-4bee-b01b-3cacbfba0717"
+  // Unique id used for correlating crash reports sent from this instance.
+  // Do not edit this value.
+  "crash-reporter-id": "4645f78b-a499-4bee-b01b-3cacbfba0717"
 }

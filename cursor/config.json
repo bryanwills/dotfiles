@@ -19,5 +19,16 @@
       "*.yml": "yaml",
       "*.yaml": "yaml",
       "*.json": "json"
+    },
+    "audioCues.enabled": "off",
+    "audioCues.volume": 0,
+    "notifications.enabled": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.sound.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.quickSuggestions": {
+      "other": false,
+      "comments": false,
+      "strings": false
     }
   }
