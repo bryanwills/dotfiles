@@ -1,17 +1,19 @@
 # dotfiles
 
-My Personal dotfiles for macOS, featuring a highly customized development environment with Neovim, Tmux, and Zsh.
+My Personal dotfiles for macOS, featuring a highly customized development environment with Neovim, Tmux, Zsh, Fish shell, and Cursor IDE.
 
 ## 🚀 Features
 
 ### **Terminal & Shell**
 - **Zsh** with **Oh My Zsh** and **powerlevel10k** theme
+- **Fish** with **Oh My Fish** and **Tide v6** theme (Powerlevel10k equivalent)
 - **Tmux** with clean Dracula theme and enhanced keybindings
 - **Kitty** terminal emulator configuration
 - **Btop** system monitoring with custom themes
 
-### **Neovim (NVIM)**
-- **Lazy.nvim** plugin manager for fast startup
+### **IDE & Editor**
+- **Cursor IDE** configuration with sound disabled and optimized settings
+- **Neovim (NVIM)** with Lazy.nvim plugin manager
 - **LSP** support with auto-completion and diagnostics
 - **Tree-sitter** for syntax highlighting
 - **Telescope** for fuzzy finding
@@ -49,6 +51,15 @@ My Personal dotfiles for macOS, featuring a highly customized development enviro
 │   │   └── templates/      # File templates
 │   ├── after/              # Filetype-specific settings
 │   └── init.lua            # Neovim entry point
+├── cursor/                  # Cursor IDE configuration
+│   ├── config.json         # Main Cursor settings
+│   ├── argv.jsonc          # Cursor launch arguments
+│   └── mcp.json.template   # MCP configuration template
+├── fish/                    # Fish shell configuration
+│   ├── config.fish         # Main Fish configuration
+│   ├── conf.d/             # Fish configuration snippets
+│   ├── functions/          # Custom Fish functions
+│   └── themes/             # Fish theme configurations
 ├── tmux/                   # Tmux configuration
 │   ├── tmux.conf          # Main tmux config
 │   └── plugins/           # TPM plugins (managed by TPM)
@@ -154,6 +165,34 @@ ln -s ~/path/to/dotfiles/btop ~/.config/btop
    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
    ```
 
+### **Fish Shell Setup**
+1. **Install Fish shell**:
+   ```bash
+   brew install fish
+   ```
+
+2. **Install Oh My Fish**:
+   ```bash
+   curl -L https://get.oh-my.fish | fish
+   ```
+
+3. **Install Tide theme**:
+   ```bash
+   omf install tide@v6
+   ```
+
+4. **Set Fish as default shell** (optional):
+   ```bash
+   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+   chsh -s /opt/homebrew/bin/fish
+   ```
+
+### **Cursor IDE Setup**
+1. **Configuration location**: `~/.config/cursor/`
+2. **Sound settings**: All audio cues and notifications are disabled by default
+3. **Launch arguments**: Optimized for performance and stability
+4. **MCP integration**: Template provided for Model Context Protocol setup
+
 ## 📚 macOS Customization Scripts
 
 ### **Available Scripts**
@@ -175,11 +214,14 @@ ln -s ~/path/to/dotfiles/btop ~/.config/btop
 - **Tmux**: `prefix + I` to install/update plugins
 - **Neovim**: Plugins update automatically via Lazy.nvim
 - **Zsh**: `omz update` to update Oh My Zsh
+- **Fish**: `omf update` to update Oh My Fish
 
 ### **Reloading Configurations**
 - **Tmux**: `prefix + r`
 - **Neovim**: Restart or `:Lazy sync`
 - **Zsh**: `source ~/.zshrc`
+- **Fish**: `source ~/.config/fish/config.fish`
+- **Cursor**: Restart application for config changes
 
 ### **Backup and Restore**
 - **Install script** creates backups automatically
@@ -192,6 +234,7 @@ ln -s ~/path/to/dotfiles/btop ~/.config/btop
 - **Dracula** theme for tmux
 - **Custom** Neovim color scheme
 - **powerlevel10k** for Zsh prompt
+- **Tide v6** for Fish shell (Powerlevel10k equivalent)
 - **Dark mode** optimized for development
 
 ### **Fonts**
