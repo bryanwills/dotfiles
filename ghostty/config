@@ -2,10 +2,11 @@
 
 # Font settings
 font-size = 24
-font-family = JetBrains Mono
+# font-family = JetBrains Mono
+font-family = MesloLGL Nerd Font Propo
 font-style = Regular
 font-style-italic = Regular Italic
-font-thicken = true
+font-thicken = false
 
 # Window and display settings
 background-opacity = 0.85

@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "PLACEHOLDER_SUPABASE_ACCESS_TOKEN"
+      ]
+    },
+    "AI Development Assistant": {
+      "type": "stdio",
+      "command": "node /Users/bryanwills/code/cursor/awesome-cursor-mcp-server-ai-dev/build/index.js"
+    },
+    "xcode": {
+      "command": "node",
+      "args": ["/Users/bryanwills/code/mcp/xcode-mcp-server/dist/index.js"]
+    },
+    "ios-simulator": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-ios-simulator@latest"]
+    },
+    "n8n-workflow-builder": {
+      "command": "node",
+      "args": [
+        "/Users/bryanwills/code/mcp/n8n-workflow-builder/dist/index.js"
+      ],
+      "env": {
+        "N8N_HOST": "https://n8n.bryanwills.dev/api/v1",
+        "N8N_API_KEY": "PLACEHOLDER_API_KEY"
+      }
+    },
+    "task-master-ai": {
+      "command": "node",
+      "args": [
+        "/Users/bryanwills/code/mcp/task-master-ai/dist/index.js"
+      ]
+    },
+    "ElevenLabs": {
+      "command": "node",
+      "args": [
+        "/Users/bryanwills/code/mcp/elevenlabs-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "ELEVENLABS_API_KEY": "PLACEHOLDER_ELEVENLABS_API_KEY"
+      }
+    }
+  }
+}

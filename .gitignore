@@ -2,6 +2,7 @@
 *.env*
 *.bak*
 node_modules/
+.cache_ggshield
 
 # Tmux plugins (managed by TPM)
 tmux/plugins/
@@ -17,6 +18,7 @@ gcloud/logs/
 gcloud/logs/**
 *.db
 **/*.db
+gcloude/gce
 
 filezilla/**
 
@@ -38,6 +40,7 @@ Thumb.db
 
 gcloud/.last_survey_prompt.yaml
 gcloud/.last_update_check.json
+gcloud/.*.json
 gcloud/configurations/config_default
 gcloud/default_configs.db
 gcloud/hidden_gcloud_config_universe_descriptor_data_cache_configs.db
@@ -80,6 +83,7 @@ gcloud/active_config
 gcloud/config_sentinel
 gcloud/gce
 gcloud/metricsUUID
+gcloud/.last_update_check.json
 
 # GitHub Copilot config
 gh-copilot/
@@ -87,3 +91,12 @@ gh-copilot/
 # Zsh completion cache files
 zsh/.zcompdump*
 zsh/.zcompdump
+cursor/mcp.json
+
+filezilla/
+filezilla/layout.xml
+filezilla/recentservers.xml
+
+# Fish shell
+fish/oh-my-fish/
+fish/fish_variables

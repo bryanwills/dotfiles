@@ -1,0 +1,102 @@
+# Custom Fish prompt function
+# Provides a clean, minimal prompt with Apple logo on left and time on right
+
+function fish_prompt --description 'Write out the prompt'
+    set -l last_status $status
+
+    # Set Catppuccin Frappé colors
+    set -l normal (set_color normal)
+    set -l path_color (set_color cba6f7)      # Mauve
+    set -l git_color (set_color 89b4fa)      # Blue
+    set -l node_color (set_color a6e3a1)     # Green
+    set -l time_color (set_color 6c7086)     # Overlay0 (lighter text)
+    set -l error_color (set_color f38ba8)    # Red
+
+    # Get current time
+    set -l current_time (date '+%H:%M:%S')
+
+    # Get Node.js version if available
+    set -l node_version ""
+    if command -q node
+        set node_version (node --version 2>/dev/null | string replace 'v' '')
+    end
+
+    # Get git status
+    set -l git_status ""
+    if git_is_repo
+        set -l git_branch (git_branch_name)
+        set git_status "git:($git_branch)"
+
+        # Check git status
+        set -l git_status_output (git status --porcelain 2>/dev/null)
+        if test -n "$git_status_output"
+            set git_status "$git_status ●"
+        end
+
+        # Check for stashed changes
+        set -l git_stash_output (git stash list 2>/dev/null)
+        if test -n "$git_stash_output"
+            set git_status "$git_status ●"
+        end
+
+        # Check for untracked files
+        set -l git_untracked_output (git ls-files --others --exclude-standard 2>/dev/null)
+        if test -n "$git_untracked_output"
+            set git_status "$git_status ●"
+        end
+
+        # Check for ahead/behind
+        set -l git_ahead_behind (git status --porcelain -b 2>/dev/null | head -n1 | string match -r '## .*\[.*\]')
+        if test -n "$git_ahead_behind"
+            if string match -q "*ahead*" "$git_ahead_behind"
+                set git_status "$git_status ↑"
+            end
+            if string match -q "*behind*" "$git_ahead_behind"
+                set git_status "$git_status ↓"
+            end
+        end
+    end
+
+    # Build the prompt - Apple logo on left, content in middle
+    # Start with Apple logo (large, on the left)
+    echo -n ""
+
+    # Add current directory (shortened)
+    set -l current_path (pwd)
+    set -l short_path $current_path
+
+    # Replace /Users/bryanwills with ~
+    if string match -q "/Users/bryanwills*" $current_path
+        set short_path (string replace "/Users/bryanwills" "~" $current_path)
+    end
+
+    # If path is 3+ levels deep, show ../last_directory
+    set -l path_parts (string split "/" $short_path)
+    if test (count $path_parts) -gt 4
+        set short_path "../"(string replace "~/" "" $path_parts[-1])
+    end
+
+    echo -n $path_color$short_path$normal
+
+    # Add git status if available
+    if test -n "$git_status"
+        echo -n $normal" "$normal
+        echo -n $git_color$git_status$normal
+    end
+
+    # Add Node.js version if available
+    if test -n "$node_version"
+        echo -n $normal" "$normal
+        echo -n $node_color"⬢ $node_version"$normal
+    end
+
+    # Add error indicator if last command failed
+    if test $last_status -ne 0
+        echo -n $normal" "$normal
+        echo -n $error_color"❌ $last_status"$normal
+    end
+
+    # New line and prompt symbol
+    echo ""
+    echo -n $normal"➜ "$normal
+end

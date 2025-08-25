@@ -1,0 +1,13 @@
+# Custom Fish right prompt function
+# Displays time on the far right
+
+function fish_right_prompt --description 'Write out the right prompt'
+    set -l normal (set_color normal)
+    set -l time_color (set_color 6c7086)  # Overlay0 (lighter text for readability)
+
+    # Get current time
+    set -l current_time (date '+%H:%M:%S')
+
+    # Display just the time on the far right
+    echo -n $time_color$current_time$normal
+end

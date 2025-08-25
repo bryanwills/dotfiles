@@ -1,0 +1,10 @@
+package battery
+package foreign-env
+package fzf
+package nvm
+package rbenv
+package z
+theme agnoster
+theme bobthefish
+theme default
+theme gitstatus
