@@ -12,8 +12,12 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
 # AI ENV Variables
-OPENAI_API_KEY="~/.keys/.openai_api_key"
-ANTHROPIC_API_KEY="~/.keys/.opencode_claude_api_key"
+export OPENAI_API_KEY="$(<~/.keys/.openai_api_key)"
+export ANTHROPIC_API_KEY="$(<~/.keys/.opencode_claude_api_key)"
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(<~/.keys/.github_bryanwills_token)"
+export SUPABASE_ACCESS_TOKEN="$(<~/.keys/.supabase-mcp-server)"
+export NOTION_TOKEN="$(<~/.keys/.notion_integration_key)"
+
 export EDITOR="nvim"
 
 export ZSH_COMPDUMP="~/.zcompdump"
@@ -105,6 +109,8 @@ alias dc="docker compose"
 alias sz="source ~/.config/zsh/.zshrc"
 alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
+alias n="nvim"
+alias ec="nvim ~/claude_desktop_config.json"
 
 # Override standard git commands with automatic setup
 git() {
@@ -194,6 +200,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+#export GOPATH=""
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 # Original config
@@ -281,3 +288,4 @@ unset -f mv 2>/dev/null
 #     rm -f "$src"
 #   fi
 # }
+export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
