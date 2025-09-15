@@ -44,4 +44,5 @@ source ~/.config/fish/conf.d/tools.fish
 # Custom prompt functions are loaded automatically from ~/.config/fish/functions/
 
 echo "🎨 Using custom Powerlevel10k-equivalent prompt"
-echo "⚠️  Note: Some bash-based tools (NVM, rbenv) need Fish-native alternatives"
+#echo "⚠️  Note: Some bash-based tools (NVM, rbenv) need Fish-native alternatives"
+set -gx PATH $PATH /Users/bryanwills/go/bin

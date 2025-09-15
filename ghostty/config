@@ -27,7 +27,7 @@ clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
 # Shell and command
-command = zsh --login --interactive
+command = ZDOTDIR=~/.config/zsh zsh --login --interactive
 shell-integration = zsh
 
 # macOS specific settings
