@@ -19,6 +19,8 @@ gcloud/logs/**
 *.db
 **/*.db
 gcloude/gce
+com.add0n.node/
+zed/
 
 filezilla/**
 
