@@ -279,3 +279,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 **Note**: These dotfiles are configured for macOS and may need adjustments for other operating systems.
+**Todo**: Need to create Windows dotfiles from MacOS dotfiles and remove apps that aren't on Windows
