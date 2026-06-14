@@ -8,19 +8,19 @@ fi
 export ZSH="$HOME/.config/zsh/oh-my-zsh"
 export TERM=xterm-256color
 ZSH_THEME="powerlevel10k/powerlevel10k"
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 zstyle ':omz:update' frequency 13
 
 # AI ENV Variables
 export OPENAI_API_KEY="$(<~/.keys/.openai_api_key)"
-export ANTHROPIC_API_KEY="$(<~/.keys/.opencode_claude_api_key)"
+# export ANTHROPIC_API_KEY="$(<~/.keys/.openclaw_api_key)"
 export GITHUB_PERSONAL_ACCESS_TOKEN="$(<~/.keys/.github_bryanwills_token)"
 export SUPABASE_ACCESS_TOKEN="$(<~/.keys/.supabase-mcp-server)"
 export NOTION_TOKEN="$(<~/.keys/.notion_integration_key)"
-
+export OPENCLAW_API_KEY="$(<~/.keys/.openclaw_api_key)"
+# source /Users/bryanwills/.keys/.openclaw_api_key
+source /opt/homebrew/share/zsh-system-clipboard/zsh-system-clipboard.zsh
 export EDITOR="nvim"
-
-export ZSH_COMPDUMP="~/.zcompdump"
 
 # History
 HISTSIZE=500000
@@ -42,10 +42,10 @@ setopt hist_reduce_blanks
 setopt hist_no_store
 
 plugins=(
-git
-zsh-autosuggestions
-zsh-syntax-highlighting
-fzf-tab
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fzf-tab
 )
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
@@ -77,10 +77,10 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 # Override fzf key bindings to avoid Ghostty conflicts
 # Use Option+F for file search and Option+D for directory search
-bindkey -M emacs '\ef' fzf-file-widget      # Option+F for files
+bindkey -M emacs '\ef' fzf-file-widget # Option+F for files
 bindkey -M vicmd '\ef' fzf-file-widget
 bindkey -M viins '\ef' fzf-file-widget
-bindkey -M emacs '\ed' fzf-cd-widget        # Option+D for directories
+bindkey -M emacs '\ed' fzf-cd-widget # Option+D for directories
 bindkey -M vicmd '\ed' fzf-cd-widget
 bindkey -M viins '\ed' fzf-cd-widget
 
@@ -111,63 +111,64 @@ alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
 alias n="nvim"
 alias ec="nvim ~/claude_desktop_config.json"
+alias journal='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/bryan-journal'
 
 # Override standard git commands with automatic setup
 git() {
-    if [[ "$1" == "init" ]]; then
-        echo "🚀 Initializing repository with automatic setup..."
-        command git "$@"
-        command git config --local commit.template ~/.config/commitizen/.czrc
+  if [[ "$1" == "init" ]]; then
+    echo "🚀 Initializing repository with automatic setup..."
+    command git "$@"
+    command git config --local commit.template ~/.config/commitizen/.czrc
 
-        # Copy commitizen configs if they don't exist
-        if [ ! -f ".czrc" ]; then
-            /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
-            echo "📝 Created .czrc"
-        fi
-
-        if [ ! -f "pyproject.toml" ]; then
-            /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
-        fi
-
-        echo "✅ Repository initialized with commitizen template"
-        echo "💡 Use 'cz commit' for conventional commits"
-        echo "💡 Use 'git commit' for regular commits"
-
-    elif [[ "$1" == "clone" ]]; then
-        echo "🚀 Cloning repository with automatic setup..."
-        command git "$@"
-
-        # Get the repository name from the URL (second argument)
-        repo_name=$(basename "$2" .git)
-        cd "$repo_name"
-
-        # Set up commitizen template
-        command git config --local commit.template ~/.config/commitizen/.czrc
-
-        # Copy commitizen configs if they don't exist
-        if [ ! -f ".czrc" ]; then
-            /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
-            echo "📝 Created .czrc"
-        fi
-
-        if [ ! -f "pyproject.toml" ]; then
-            /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
-        fi
-
-        echo "✅ Repository cloned with commitizen template"
-        echo "💡 Use 'cz commit' for conventional commits"
-        echo "💡 Use 'git commit' for regular commits"
-
-    else
-        # For all other git commands, just run them normally
-        command git "$@"
+    # Copy commitizen configs if they don't exist
+    if [ ! -f ".czrc" ]; then
+      /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
+      echo "📝 Created .czrc"
     fi
+
+    if [ ! -f "pyproject.toml" ]; then
+      /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
+    fi
+
+    echo "✅ Repository initialized with commitizen template"
+    echo "💡 Use 'cz commit' for conventional commits"
+    echo "💡 Use 'git commit' for regular commits"
+
+  elif [[ "$1" == "clone" ]]; then
+    echo "🚀 Cloning repository with automatic setup..."
+    command git "$@"
+
+    # Get the repository name from the URL (second argument)
+    repo_name=$(basename "$2" .git)
+    cd "$repo_name"
+
+    # Set up commitizen template
+    command git config --local commit.template ~/.config/commitizen/.czrc
+
+    # Copy commitizen configs if they don't exist
+    if [ ! -f ".czrc" ]; then
+      /bin/cp ~/.config/commitizen/.czrc ./.czrc 2>/dev/null
+      echo "📝 Created .czrc"
+    fi
+
+    if [ ! -f "pyproject.toml" ]; then
+      /bin/cp ~/.config/commitizen/pyproject.toml ./pyproject.toml 2>/dev/null && echo "📋 Created pyproject.toml" || echo "📋 pyproject.toml not found in global config"
+    fi
+
+    echo "✅ Repository cloned with commitizen template"
+    echo "💡 Use 'cz commit' for conventional commits"
+    echo "💡 Use 'git commit' for regular commits"
+
+  else
+    # For all other git commands, just run them normally
+    command git "$@"
+  fi
 }
 
 # Auto-setup function for existing repositories
 git-setup-auto() {
-    echo "🔧 Setting up existing repository with development tools..."
-    bash ~/.config/scripts/setup-new-repo.sh
+  echo "🔧 Setting up existing repository with development tools..."
+  bash ~/.config/scripts/setup-new-repo.sh
 }
 alias nv="nvim"
 
@@ -176,7 +177,6 @@ alias nv="nvim"
 
 # Safe move alias using rsync + delete source (like mv)
 #alias mv='rsync -a --info=progress2 --remove-source-files --no-xattrs'
-
 
 # Aliases: tmux
 alias ta='tmux attach'
@@ -213,8 +213,8 @@ eval "$(rbenv init -)"
 # pnpm
 export PNPM_HOME="/Users/bryanwills/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
@@ -235,10 +235,9 @@ export API_KEY="~/.keys/.env.openai:$API_KEY"
 export OPENAI_API_KEY={{OPEN_API_KEY}}
 source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh
 
-
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 . "$HOME/.local/bin/env"
 eval "$(mise activate zsh)"
@@ -289,3 +288,4 @@ unset -f mv 2>/dev/null
 #   fi
 # }
 export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
