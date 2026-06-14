@@ -1,6 +1,7 @@
 .DS_Store
 *.env*
 *.bak*
+*.backup
 node_modules/
 .cache_ggshield
 
