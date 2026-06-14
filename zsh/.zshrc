@@ -5,21 +5,41 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# ---------------------------------------------------------------------------
+# Platform detection (this file is shared across macOS and Linux/VPS)
+# ---------------------------------------------------------------------------
+case "$OSTYPE" in
+  darwin*) ZSH_OS="mac" ;;
+  linux*)  ZSH_OS="linux" ;;
+  *)       ZSH_OS="unknown" ;;
+esac
+
+# Locate Homebrew (Apple Silicon, Intel, or Linuxbrew)
+BREW_PREFIX=""
+for _b in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew "$HOME/.linuxbrew"; do
+  if [[ -x "$_b/bin/brew" ]]; then BREW_PREFIX="$_b"; break; fi
+done
+unset _b
+
 export ZSH="$HOME/.config/zsh/oh-my-zsh"
 export TERM=xterm-256color
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-# AI / service tokens (read from ~/.keys, never hardcoded)
-export OPENAI_API_KEY="$(<~/.keys/.openai_api_key)"
-# export ANTHROPIC_API_KEY="$(<~/.keys/.openclaw_api_key)"
-export GITHUB_PERSONAL_ACCESS_TOKEN="$(<~/.keys/.github_bryanwills_token)"
-export SUPABASE_ACCESS_TOKEN="$(<~/.keys/.supabase-mcp-server)"
-export NOTION_TOKEN="$(<~/.keys/.notion_integration_key)"
-export OPENCLAW_API_KEY="$(<~/.keys/.openclaw_api_key)"
+# AI / service tokens (read from ~/.keys if present; never hardcoded)
+_load_key() { [[ -f "$2" ]] && export "$1"="$(<"$2")"; }
+_load_key OPENAI_API_KEY               ~/.keys/.openai_api_key
+_load_key GITHUB_PERSONAL_ACCESS_TOKEN ~/.keys/.github_bryanwills_token
+_load_key SUPABASE_ACCESS_TOKEN        ~/.keys/.supabase-mcp-server
+_load_key NOTION_TOKEN                 ~/.keys/.notion_integration_key
+_load_key OPENCLAW_API_KEY             ~/.keys/.openclaw_api_key
+unset -f _load_key
 
-source /opt/homebrew/share/zsh-system-clipboard/zsh-system-clipboard.zsh
+# System clipboard integration (installed via brew; macOS uses pbcopy backend)
+if [[ -n "$BREW_PREFIX" && -f "$BREW_PREFIX/share/zsh-system-clipboard/zsh-system-clipboard.zsh" ]]; then
+  source "$BREW_PREFIX/share/zsh-system-clipboard/zsh-system-clipboard.zsh"
+fi
 export EDITOR="nvim"
 
 # History
@@ -46,6 +66,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   fzf-tab
+  you-should-use
 )
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
@@ -63,15 +84,19 @@ bindkey "^[[B" history-search-forward
 
 fpath+="$ZSH/custom/plugins/zsh-completions/src"
 ZSH_DISABLE_COMPFIX="true" # skip slow compaudit security check on startup
+# Keep the completion dump out of the (git-tracked) config dir -> XDG cache
+export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
+[[ -d "${ZSH_COMPDUMP:h}" ]] || mkdir -p "${ZSH_COMPDUMP:h}"
 source $ZSH/oh-my-zsh.sh
 # Note: oh-my-zsh.sh already runs compinit; no need to call it again.
 
 # Add FZF_DEFAULT_OPTS for fzf-tab before the fzf shell integration
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
 
-# Load fzf shell integration
-source /opt/homebrew/opt/fzf/shell/completion.zsh
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+# fzf shell integration (cross-platform; fzf >= 0.48 ships `fzf --zsh`)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh 2>/dev/null)
+fi
 
 # Override fzf key bindings to avoid Ghostty conflicts
 # Use Option+F for file search and Option+D for directory search
@@ -95,15 +120,14 @@ alias cat="bat"
 alias bs="brew search"
 alias bi="brew install"
 alias gcz="cz commit"
-#alias updatedb="launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
-alias updatedb="/usr/libexec/locate.updatedb"
-alias img="imgcat"
+alias img="imgcat"            # macOS/iTerm only; harmless if absent
 alias sf="spf"
 alias sshl="ssh -i ~/.ssh/littlecreek bryanwi09@bryanwills.dev"
 alias zsh_backup_dir="~/zsh-backup/"
 #alias npm="pnpm"
 alias dl="docker logs --tail=100"
 alias dc="docker compose"
+alias ds="docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'"
 alias sz="source ~/.config/zsh/.zshrc"
 alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
@@ -111,6 +135,11 @@ alias n="nvim"
 alias nv="nvim"
 alias ec="nvim ~/claude_desktop_config.json"
 alias journal='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/bryan-journal'
+
+# macOS-only aliases
+if [[ "$ZSH_OS" == "mac" ]]; then
+  alias updatedb="/usr/libexec/locate.updatedb"
+fi
 
 # Aliases: tmux
 alias ta='tmux attach'
@@ -181,40 +210,67 @@ unalias cp mv 2>/dev/null
 unset -f cp mv 2>/dev/null
 
 # ---------------------------------------------------------------------------
-# PATH (consolidated & de-duplicated)
+# PATH (platform-aware, existence-guarded so the same file works everywhere)
 # ---------------------------------------------------------------------------
-# Homebrew (also set in .zprofile via `brew shellenv`; kept here for safety)
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@8.1/bin:/opt/homebrew/opt/php@8.1/sbin:$PATH"
-export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+# Prepend $1 to PATH only if it exists and isn't already present.
+_prepend_path() {
+  [[ -d "$1" ]] || return
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$1:$PATH" ;;
+  esac
+}
 
-# User-local tooling
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/code/flutter/bin:$PATH"
-export PATH="$HOME/.codeium/windsurf/bin:$PATH" # Windsurf
-export PATH="$HOME/go/bin:$PATH"
+# Homebrew
+if [[ -n "$BREW_PREFIX" ]]; then
+  _prepend_path "$BREW_PREFIX/bin"
+  _prepend_path "$BREW_PREFIX/sbin"
+  _prepend_path "$BREW_PREFIX/opt/postgresql@16/bin"
+  _prepend_path "$BREW_PREFIX/opt/postgresql@17/bin"
+  for _p in "$BREW_PREFIX"/opt/php@*/bin(N) "$BREW_PREFIX"/opt/php@*/sbin(N); do _prepend_path "$_p"; done
+  _prepend_path "$BREW_PREFIX/opt/imagemagick@6/bin"
+  _prepend_path "$BREW_PREFIX/opt/rustup/bin"
+  unset _p
+fi
 
-# Java / Android
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
+# User-local tooling (only added if the dir exists)
+_prepend_path "$HOME/.local/bin"
+_prepend_path "$HOME/.cargo/bin"
+_prepend_path "$HOME/code/flutter/bin"
+_prepend_path "$HOME/.codeium/windsurf/bin"  # Windsurf (macOS)
+_prepend_path "$HOME/go/bin"
+_prepend_path "$HOME/.bun/bin"
+
+# Java / Android (macOS dev box)
+if [[ "$ZSH_OS" == "mac" ]]; then
+  [[ -d "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home" ]] && \
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+  if [[ -d "$HOME/Library/Android/sdk" ]]; then
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    _prepend_path "$ANDROID_HOME/emulator"
+    _prepend_path "$ANDROID_HOME/platform-tools"
+  fi
+fi
 
 # humanlog
-export HUMANLOG_INSTALL="$HOME/.humanlog"
-export PATH="$HUMANLOG_INSTALL/bin:$PATH"
+if [[ -d "$HOME/.humanlog/bin" ]]; then
+  export HUMANLOG_INSTALL="$HOME/.humanlog"
+  _prepend_path "$HUMANLOG_INSTALL/bin"
+fi
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# pnpm (store path differs per OS)
+if [[ "$ZSH_OS" == "mac" ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+else
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+fi
+_prepend_path "$PNPM_HOME"
+
+# bun completions
+[[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
+
+export PATH
+unset -f _prepend_path
 
 # ---------------------------------------------------------------------------
 # Tooling initialization
@@ -222,14 +278,20 @@ esac
 # Powerlevel10k prompt config (run `p10k configure` or edit ~/.config/zsh/.p10k.zsh)
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-# GitHub Copilot CLI plugin
-source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh
+# GitHub Copilot CLI plugin (if installed)
+if [[ -f ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh ]]; then
+  source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh
+fi
 
-# Local env shims (uv / cargo)
-. "$HOME/.local/bin/env"
+# Local env shims (uv / cargo) if present
+[[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
 # mise manages node, ruby, and other runtimes (replaces nvm + rbenv)
-eval "$(mise activate zsh)"
+command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"
 
 # zoxide (smarter cd)
-source ~/.config/zoxide/init.zsh
+if [[ -f ~/.config/zoxide/init.zsh ]]; then
+  source ~/.config/zoxide/init.zsh
+elif command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
