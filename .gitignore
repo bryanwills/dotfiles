@@ -103,3 +103,10 @@ filezilla/recentservers.xml
 # Fish shell
 fish/oh-my-fish/
 fish/fish_variables
+
+# Stray commitizen templates auto-copied into zsh/ by the git() wrapper
+zsh/.czrc
+zsh/pyproject.toml
+
+# iTerm2 status-bar helper (symlink into iTerm.app)
+iterm2/cc-status
