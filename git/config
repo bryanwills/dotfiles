@@ -156,3 +156,7 @@
   # delta detects terminal colors automatically; set one of these to disable auto-detection
   dark = true
   # light = true
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true

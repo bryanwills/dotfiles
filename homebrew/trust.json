@@ -1,0 +1,27 @@
+{
+  "trustedformulae": [
+    "antoniorodr/memo/memo",
+    "felixkratz/formulae/borders",
+    "felixkratz/formulae/sketchybar",
+    "hashicorp/tap/vault",
+    "jstkdng/programs/ueberzugpp",
+    "neilotoole/sq/sq",
+    "openclaw/tap/gogcli",
+    "openclaw/tap/goplaces",
+    "openclaw/tap/wacli",
+    "oven-sh/bun/bun",
+    "sst/tap/opencode",
+    "steipete/tap/gifgrep",
+    "steipete/tap/imsg",
+    "steipete/tap/peekaboo",
+    "steipete/tap/remindctl",
+    "steipete/tap/sag",
+    "steipete/tap/songsee",
+    "yakitrak/yakitrak/notesmd-cli",
+    "yakitrak/yakitrak/obsidian-cli"
+  ],
+  "trustedtaps": [
+    "loopwork/tap",
+    "xdevplatform/tap"
+  ]
+}

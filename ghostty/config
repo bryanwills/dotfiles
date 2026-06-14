@@ -1,39 +1,26 @@
-# Ghostty Configuration (simple key-value format)
-
-# Font settings
-font-size = 24
-# font-family = JetBrains Mono
-font-family = MesloLGL Nerd Font Propo
+font-family = MesloLGS NF
+font-size = 22
 font-style = Regular
-font-style-italic = Regular Italic
+font-style-italic = Italic
 font-thicken = false
 
-# Window and display settings
 background-opacity = 0.85
-
-# Theme and appearance
 theme = Mathias
+
 cursor-style = block
 cursor-style-blink = true
 selection-invert-fg-bg = true
 cursor-invert-fg-bg = true
 
-# Terminal behavior
-term = kitty
-scrollback-limit = 100_000_000
+scrollback-limit = 100000
 copy-on-select = clipboard
 clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
-# Shell and command
-command = ZDOTDIR=~/.config/zsh zsh --login --interactive
 shell-integration = zsh
-
-# macOS specific settings
 macos-option-as-alt = true
 
-# Keybindings
 keybind = super+shift+r=reload_config
 keybind = cmd+r=reload_config
 keybind = cmd+page_down=next_tab
