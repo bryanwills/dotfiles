@@ -24,6 +24,7 @@
   whitespace = error # threat incorrect whitespace as errors
   preloadindex = true # preload index for faster status
   editor = nvim
+  pager = delta # use delta for diffs/log/show
 [fetch]
   prune = true
   fsckObjects = true
@@ -77,7 +78,6 @@
 [pager]
   branch = false # no need to use pager for git branch
   tag = false
-  diff = diff-so-fancy | $PAGER # diff-so-fancy as diff pager
 [pack]
   threads = 0 # use all available threads
   windowMemory = 1g # use 1g of memory for pack window
@@ -112,11 +112,8 @@
   whitespace  = yellow reverse
   old         = red
 [interactive]
-  diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
   singleKey = true
-# Third-party: diff-so-fancy
-[diff-so-fancy]
-  markEmptyLines = false
 
 # URL shortcuts
 [url "git@github.com:"]
