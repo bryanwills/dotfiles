@@ -11,14 +11,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode auto # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-# AI ENV Variables
+# AI / service tokens (read from ~/.keys, never hardcoded)
 export OPENAI_API_KEY="$(<~/.keys/.openai_api_key)"
 # export ANTHROPIC_API_KEY="$(<~/.keys/.openclaw_api_key)"
 export GITHUB_PERSONAL_ACCESS_TOKEN="$(<~/.keys/.github_bryanwills_token)"
 export SUPABASE_ACCESS_TOKEN="$(<~/.keys/.supabase-mcp-server)"
 export NOTION_TOKEN="$(<~/.keys/.notion_integration_key)"
 export OPENCLAW_API_KEY="$(<~/.keys/.openclaw_api_key)"
-# source /Users/bryanwills/.keys/.openclaw_api_key
+
 source /opt/homebrew/share/zsh-system-clipboard/zsh-system-clipboard.zsh
 export EDITOR="nvim"
 
@@ -62,11 +62,9 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 fpath+="$ZSH/custom/plugins/zsh-completions/src"
+ZSH_DISABLE_COMPFIX="true" # skip slow compaudit security check on startup
 source $ZSH/oh-my-zsh.sh
-
-# Ensure completion system is properly initialized
-autoload -U compinit
-compinit
+# Note: oh-my-zsh.sh already runs compinit; no need to call it again.
 
 # Add FZF_DEFAULT_OPTS for fzf-tab before the fzf shell integration
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
@@ -88,11 +86,11 @@ bindkey -M viins '\ed' fzf-cd-widget
 
 alias ls="eza --group-directories-first --color=always --icons --header --time-style long-iso"
 alias ll="eza --all --long --group --group-directories-first --icons --header --time-style long-iso --color=always"
-alias la="l -l --time-style="+%Y-%m-%d %H:%M""
-alias tree="l --tree"
+alias la="eza --all --long --group-directories-first --icons --header --time-style long-iso --color=always"
+alias tree="eza --tree --icons --color=always"
 alias gc="git clone"
 alias gcm="git commit -m"
-alias py="/usr/local/bin/python3"
+alias py="python3"
 alias cat="bat"
 alias bs="brew search"
 alias bi="brew install"
@@ -110,8 +108,15 @@ alias sz="source ~/.config/zsh/.zshrc"
 alias reload="source ~/.config/zsh/.zshrc"
 alias ez="nvim ~/.config/zsh/.zshrc"
 alias n="nvim"
+alias nv="nvim"
 alias ec="nvim ~/claude_desktop_config.json"
 alias journal='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/bryan-journal'
+
+# Aliases: tmux
+alias ta='tmux attach'
+alias tl='tmux list-sessions'
+alias tn='tmux new-session -s'
+alias td='tmux kill-session -t'
 
 # Override standard git commands with automatic setup
 git() {
@@ -170,122 +175,61 @@ git-setup-auto() {
   echo "🔧 Setting up existing repository with development tools..."
   bash ~/.config/scripts/setup-new-repo.sh
 }
-alias nv="nvim"
 
-# Safe copy alias using rsync (like cp -R)
-#alias cp='rsync -a --info=progress2 --no-xattrs'
+# Ensure cp/mv are the plain commands (clear any inherited aliases/functions)
+unalias cp mv 2>/dev/null
+unset -f cp mv 2>/dev/null
 
-# Safe move alias using rsync + delete source (like mv)
-#alias mv='rsync -a --info=progress2 --remove-source-files --no-xattrs'
-
-# Aliases: tmux
-alias ta='tmux attach'
-alias tl='tmux list-sessions'
-alias tn='tmux new-session -s'
-alias td='tmux kill-session -t'
-
-# Aliases: safety (temporarily disabled to fix fzf-tab)
-# alias cp='cp --interactive'
-# alias mv='mv --interactive'
-# Remove any existing mv aliases to prevent conflicts
-unalias mv 2>/dev/null
-
+# ---------------------------------------------------------------------------
+# PATH (consolidated & de-duplicated)
+# ---------------------------------------------------------------------------
+# Homebrew (also set in .zprofile via `brew shellenv`; kept here for safety)
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/Cellar/w3m/0.5.3_8/bin/w3m:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-export PATH="/Users/bryanwills/.local/bin:$PATH"
-export PATH="/Users/bryanwills/.cargo/bin:$PATH"
-export PATH="/Users/bryanwills/code/flutter/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.1/bin:/opt/homebrew/opt/php@8.1/sbin:$PATH"
+export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
+# User-local tooling
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/code/flutter/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH" # Windsurf
+export PATH="$HOME/go/bin:$PATH"
+
+# Java / Android
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-#export GOPATH=""
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-# Original config
-#[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-export PATH="/opt/homebrew/opt/bin/go:$PATH"
-
-eval "$(rbenv init -)"
+# humanlog
+export HUMANLOG_INSTALL="$HOME/.humanlog"
+export PATH="$HUMANLOG_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/bryanwills/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-# Python3 using Homebrew
-#export PATH="/opt/homebrew/bin/python3:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
+# ---------------------------------------------------------------------------
+# Tooling initialization
+# ---------------------------------------------------------------------------
+# Powerlevel10k prompt config (run `p10k configure` or edit ~/.config/zsh/.p10k.zsh)
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
-
-# Add human log environment
-export HUMANLOG_INSTALL="/Users/bryanwills/.humanlog"
-export PATH="$HUMANLOG_INSTALL/bin:$PATH"
-
-#
-source ~/.keys/.env.openai
-export API_KEY="~/.keys/.env.openai:$API_KEY"
-export OPENAI_API_KEY={{OPEN_API_KEY}}
+# GitHub Copilot CLI plugin
 source ~/.config/zsh/oh-my-zsh/custom/plugins/zsh-github-copilot/zsh-github-copilot.plugin.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
+# Local env shims (uv / cargo)
 . "$HOME/.local/bin/env"
+
+# mise manages node, ruby, and other runtimes (replaces nvm + rbenv)
 eval "$(mise activate zsh)"
 
-# Added by Windsurf
-export PATH="/Users/bryanwills/.codeium/windsurf/bin:$PATH"
-export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
-
-# Init zoxide
-#eval "$(zoxide init zsh)"
+# zoxide (smarter cd)
 source ~/.config/zoxide/init.zsh
-
-# Unalias first to avoid conflict
-unalias cp 2>/dev/null
-unalias mv 2>/dev/null
-
-# Remove any mv function definitions that might be causing issues
-unset -f mv 2>/dev/null
-
-# Safe copy function using rsync (temporarily disabled for debugging)
-# cp() {
-#   if [[ "$#" -lt 2 ]]; then
-#     echo "Usage: cp source... destination"
-#     return 1
-#   fi
-#   local dest="${@: -1}"       # last argument
-#   local sources=("${@:1:$#-1}") # all but last
-#
-#   rsync -a --no-xattrs --info=progress2 "${sources[@]}" "$dest"
-# }
-
-# Safe move function using rsync (temporarily disabled for debugging)
-# mv() {
-#   if [[ "$#" -ne 2 ]]; then
-#     echo "Usage: mv source destination"
-#     return 1
-#   fi
-#
-#   local src="$1"
-#   local dst="$2"
-#
-#   if [[ -d "$src" ]]; then
-#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src/" "$dst/"
-#     rm -rf "$src"
-#   else
-#     rsync -a --no-xattrs --remove-source-files --info=progress2 "$src" "$dst"
-#     rm -f "$src"
-#   fi
-# }
-export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
