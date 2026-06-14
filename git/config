@@ -26,6 +26,7 @@
   editor = nvim
 [fetch]
   prune = true
+  fsckObjects = true
 [commit]
   gpgsign = false
   # Template directory for backup Git hooks (used when pre-commit framework is disabled)
@@ -39,7 +40,7 @@
   locksverify = false
 [alias]
   co = commit
-  pu = puush
+  pu = push
   pl = pull
   rt = remote
   tg = tag
@@ -86,8 +87,6 @@
 [transfer]
   fsckObjects = true
 [receive]
-  fsckObjects = true
-[fetch]
   fsckObjects = true
 [branch]
 #  sort = -commiterdate
