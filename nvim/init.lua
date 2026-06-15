@@ -1,12 +1,12 @@
 ---@diagnostic disable: undefined-global
+-- Enable Neovim's bytecode module cache for faster startup (Neovim 0.9+)
+vim.loader.enable()
+
 require("bryan.core")
 require("bryan.lazy")
 
-
-
--- Configure providers to handle pnpm alias
-vim.g.node_host_prog = vim.fn.exepath("pnpm")
-vim.g.loaded_node_provider = 0 -- Disable Node.js provider since we're using pnpm
+-- Disable the Node.js provider (not needed; avoids healthcheck warnings)
+vim.g.loaded_node_provider = 0
 
 -- Disable optional providers to avoid warnings
 vim.g.loaded_perl_provider = 0 -- Disable Perl provider

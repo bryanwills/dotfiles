@@ -20,6 +20,8 @@ clipboard-trim-trailing-spaces = true
 
 shell-integration = zsh
 macos-option-as-alt = true
+mouse-hide-while-typing = true
+window-save-state = always
 
 keybind = super+shift+r=reload_config
 keybind = cmd+r=reload_config
