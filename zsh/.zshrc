@@ -9,15 +9,18 @@ fi
 # Platform detection (this file is shared across macOS and Linux/VPS)
 # ---------------------------------------------------------------------------
 case "$OSTYPE" in
-  darwin*) ZSH_OS="mac" ;;
-  linux*)  ZSH_OS="linux" ;;
-  *)       ZSH_OS="unknown" ;;
+darwin*) ZSH_OS="mac" ;;
+linux*) ZSH_OS="linux" ;;
+*) ZSH_OS="unknown" ;;
 esac
 
 # Locate Homebrew (Apple Silicon, Intel, or Linuxbrew)
 BREW_PREFIX=""
 for _b in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew "$HOME/.linuxbrew"; do
-  if [[ -x "$_b/bin/brew" ]]; then BREW_PREFIX="$_b"; break; fi
+  if [[ -x "$_b/bin/brew" ]]; then
+    BREW_PREFIX="$_b"
+    break
+  fi
 done
 unset _b
 
@@ -29,11 +32,12 @@ zstyle ':omz:update' frequency 13
 
 # AI / service tokens (read from ~/.keys if present; never hardcoded)
 _load_key() { [[ -f "$2" ]] && export "$1"="$(<"$2")"; }
-_load_key OPENAI_API_KEY               ~/.keys/.openai_api_key
+_load_key OPENAI_API_KEY ~/.keys/.openai_api_key
 _load_key GITHUB_PERSONAL_ACCESS_TOKEN ~/.keys/.github_bryanwills_token
-_load_key SUPABASE_ACCESS_TOKEN        ~/.keys/.supabase-mcp-server
-_load_key NOTION_TOKEN                 ~/.keys/.notion_integration_key
-_load_key OPENCLAW_API_KEY             ~/.keys/.openclaw_api_key
+_load_key SUPABASE_ACCESS_TOKEN ~/.keys/.supabase-mcp-server
+_load_key NOTION_TOKEN ~/.keys/.notion_integration_key
+_load_key OPENCLAW_API_KEY ~/.keys/.openclaw_api_key
+_load_key KAGGLE_API_TOKEN ~/.keys/.kaggle_api_token
 unset -f _load_key
 
 # System clipboard integration (installed via brew; macOS uses pbcopy backend)
@@ -41,6 +45,8 @@ if [[ -n "$BREW_PREFIX" && -f "$BREW_PREFIX/share/zsh-system-clipboard/zsh-syste
   source "$BREW_PREFIX/share/zsh-system-clipboard/zsh-system-clipboard.zsh"
 fi
 export EDITOR="nvim"
+
+#source /Users/bryanwills/.config/zsh/oh-my-zsh/plugins/zsh-opencode-plugin
 
 # History
 HISTSIZE=500000
@@ -120,7 +126,7 @@ alias cat="bat"
 alias bs="brew search"
 alias bi="brew install"
 alias gcz="cz commit"
-alias img="imgcat"            # macOS/iTerm only; harmless if absent
+alias img="imgcat" # macOS/iTerm only; harmless if absent
 alias sf="spf"
 alias sshl="ssh -i ~/.ssh/littlecreek bryanwi09@bryanwills.dev"
 alias zsh_backup_dir="~/zsh-backup/"
@@ -216,10 +222,13 @@ unset -f cp mv 2>/dev/null
 _prepend_path() {
   [[ -d "$1" ]] || return
   case ":$PATH:" in
-    *":$1:"*) ;;
-    *) PATH="$1:$PATH" ;;
+  *":$1:"*) ;;
+  *) PATH="$1:$PATH" ;;
   esac
 }
+
+export PATH="/Users/bryanwills/.devcontainers/bin:$PATH"
+export PATH="/Users/bryanwills/.venv-vllm-metal/bin:$PATH"
 
 # Homebrew
 if [[ -n "$BREW_PREFIX" ]]; then
@@ -228,7 +237,7 @@ if [[ -n "$BREW_PREFIX" ]]; then
   _prepend_path "$BREW_PREFIX/opt/postgresql@16/bin"
   _prepend_path "$BREW_PREFIX/opt/postgresql@17/bin"
   for _p in "$BREW_PREFIX"/opt/php@*/bin(N) "$BREW_PREFIX"/opt/php@*/sbin(N); do _prepend_path "$_p"; done
-  _prepend_path "$BREW_PREFIX/opt/imagemagick@6/bin"
+  _prepend_path "$BREW_PREFIX/opt/imagemagick-full/bin"
   _prepend_path "$BREW_PREFIX/opt/rustup/bin"
   unset _p
 fi
@@ -237,13 +246,13 @@ fi
 _prepend_path "$HOME/.local/bin"
 _prepend_path "$HOME/.cargo/bin"
 _prepend_path "$HOME/code/flutter/bin"
-_prepend_path "$HOME/.codeium/windsurf/bin"  # Windsurf (macOS)
+_prepend_path "$HOME/.codeium/windsurf/bin" # Windsurf (macOS)
 _prepend_path "$HOME/go/bin"
 _prepend_path "$HOME/.bun/bin"
 
 # Java / Android (macOS dev box)
 if [[ "$ZSH_OS" == "mac" ]]; then
-  [[ -d "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home" ]] && \
+  [[ -d "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home" ]] &&
     export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
   if [[ -d "$HOME/Library/Android/sdk" ]]; then
     export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -295,3 +304,52 @@ if [[ -f ~/.config/zoxide/init.zsh ]]; then
 elif command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
+
+# Obsidian Vault custom configs to work with jrnl tool for notes
+# Obsidian vault
+export OBSIDIAN_VAULT="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/bryan-journal"
+
+# Quick personal capture
+jot() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: jot your thought here"
+    return 1
+  fi
+
+  jrnl personal "$* @inbox"
+}
+
+# Sanitized work capture only — no confidential details
+wjot() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: wjot sanitized work task here"
+    return 1
+  fi
+
+  jrnl work "$* @work @inbox"
+}
+
+# Append directly to an Obsidian daily inbox note
+oi() {
+  local inbox="$OBSIDIAN_VAULT/00-Inbox"
+  local file="$inbox/$(date +%Y-%m-%d)-inbox.md"
+
+  mkdir -p "$inbox"
+
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: oi your thought here"
+    return 1
+  fi
+
+  {
+    echo ""
+    echo "- $(date '+%H:%M') — $*"
+  } >>"$file"
+
+  echo "Captured to: $file"
+}
+
+RDME_AC_ZSH_SETUP_PATH=/Users/bryanwills/Library/Caches/rdme/autocomplete/zsh_setup && test -f $RDME_AC_ZSH_SETUP_PATH && source $RDME_AC_ZSH_SETUP_PATH # rdme autocomplete setup
+
+# Obsidian quick capture functions
+source "$HOME/.config/zsh/functions/obsidian-capture.zsh"

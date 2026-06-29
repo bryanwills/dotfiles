@@ -4,7 +4,7 @@
 *.backup
 node_modules/
 .cache_ggshield
-
+**__pycache__**
 # Tmux plugins (managed by TPM)
 tmux/plugins/
 xnviewmp/
@@ -22,8 +22,12 @@ gcloud/logs/**
 gcloude/gce
 com.add0n.node/
 zed/
-
 filezilla/**
+raycast/extensions/**
+kaku/zsh/plugins/zsh-autosuggestions/**
+kaku/zsh/plugins/zsh-completions/**
+kaku/zsh/plugins/**
+kaku/session_content/**
 
 # Large files that shouldn't be in version control
 *.sqlite
