@@ -4,7 +4,7 @@
 *.backup
 node_modules/
 .cache_ggshield
-
+**__pycache__**
 # Tmux plugins (managed by TPM)
 tmux/plugins/
 xnviewmp/
@@ -22,8 +22,12 @@ gcloud/logs/**
 gcloude/gce
 com.add0n.node/
 zed/
-
 filezilla/**
+raycast/extensions/**
+kaku/zsh/plugins/zsh-autosuggestions/**
+kaku/zsh/plugins/zsh-completions/**
+kaku/zsh/plugins/**
+kaku/session_content/**
 
 # Large files that shouldn't be in version control
 *.sqlite
@@ -110,3 +114,19 @@ zsh/pyproject.toml
 
 # iTerm2 status-bar helper (symlink into iTerm.app)
 iterm2/cc-status
+
+# Openwork — all files contain credentials or runtime state
+openwork/
+
+# Kaku — runtime state and config with API keys
+kaku/last_cwd
+kaku/last_session.json
+kaku/lazygit_state.json
+kaku/state.json
+kaku/assistant.toml
+
+# SwiftPM cache
+swiftpm/cache
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json

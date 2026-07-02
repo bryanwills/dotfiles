@@ -3,14 +3,19 @@
     "antoniorodr/memo/memo",
     "felixkratz/formulae/borders",
     "felixkratz/formulae/sketchybar",
+    "gowtham0992/link/link",
     "hashicorp/tap/vault",
+    "jesseduffield/lazydocker/lazydocker",
+    "jesseduffield/lazynpm/lazynpm",
     "jstkdng/programs/ueberzugpp",
     "neilotoole/sq/sq",
+    "nvie/tap/git-toolbelt",
+    "openclaw/tap/crabbox",
     "openclaw/tap/gogcli",
     "openclaw/tap/goplaces",
     "openclaw/tap/wacli",
     "oven-sh/bun/bun",
-    "sst/tap/opencode",
+    "slp/krunkit/krunkit",
     "steipete/tap/gifgrep",
     "steipete/tap/imsg",
     "steipete/tap/peekaboo",
@@ -21,7 +26,18 @@
     "yakitrak/yakitrak/obsidian-cli"
   ],
   "trustedtaps": [
-    "loopwork/tap",
+    "anomalyco/tap",
+    "mattt/tap",
+    "nvie/tap",
+    "opencoworkai/tap",
+    "slp/krunkit",
+    "slp/krunkt",
+    "steipete/tap",
+    "tinyhumansai/core",
     "xdevplatform/tap"
+  ],
+  "trustedcasks": [
+    "esengine/reasonix/reasonix",
+    "tw93/tap/kakuku"
   ]
 }

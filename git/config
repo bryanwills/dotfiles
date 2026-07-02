@@ -1,6 +1,6 @@
 [user]
-  name = Bryan Wills
-  email = bryanwi09@gmail.com
+	name = Bryan Wills
+	email = bryanwi09@gmail.com
 [pull]
   rebase = true
   default = current
@@ -25,6 +25,7 @@
   preloadindex = true # preload index for faster status
   editor = nvim
   pager = delta # use delta for diffs/log/show
+	excludesfile = /Users/bryanwills/.gitignore_global
 [fetch]
   prune = true
   fsckObjects = true
@@ -32,6 +33,7 @@
   gpgsign = false
   # Template directory for backup Git hooks (used when pre-commit framework is disabled)
   verbose = true
+	template = /Users/bryanwills/.stCommitMsg
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -156,3 +158,9 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
