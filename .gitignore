@@ -114,3 +114,18 @@ zsh/pyproject.toml
 
 # iTerm2 status-bar helper (symlink into iTerm.app)
 iterm2/cc-status
+
+# Openwork — all files contain credentials or runtime state
+openwork/
+
+# Kaku runtime state files
+kaku/last_cwd
+kaku/last_session.json
+kaku/lazygit_state.json
+kaku/state.json
+
+# SwiftPM cache
+swiftpm/cache
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json
