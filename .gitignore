@@ -118,11 +118,12 @@ iterm2/cc-status
 # Openwork — all files contain credentials or runtime state
 openwork/
 
-# Kaku runtime state files
+# Kaku — runtime state and config with API keys
 kaku/last_cwd
 kaku/last_session.json
 kaku/lazygit_state.json
 kaku/state.json
+kaku/assistant.toml
 
 # SwiftPM cache
 swiftpm/cache
