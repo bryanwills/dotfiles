@@ -1,0 +1,23 @@
+colors:
+  body: none
+  date: none
+  tags: none
+  title: none
+default_hour: 9
+default_minute: 0
+editor: nvim
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    journal: /Users/bryanwills/Library/Mobile Documents/iCloud~md~obsidian/Documents/bryan-journal/00-Inbox/jrnl/personal/
+  personal:
+    journal: /Users/bryanwills/Library/Mobile Documents/iCloud~md~obsidian/Documents/bryan-journal/00-Inbox/jrnl/personal/
+  work:
+    journal: /Users/bryanwills/Library/Mobile Documents/iCloud~md~obsidian/Documents/bryan-journal/00-Inbox/jrnl/work-sanitized/
+linewrap: 79
+tagsymbols: '#@'
+template: false
+timeformat: '%F %r'
+version: v4.3
