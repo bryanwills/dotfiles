@@ -46,3 +46,6 @@ source ~/.config/fish/conf.d/tools.fish
 echo "🎨 Using custom Powerlevel10k-equivalent prompt"
 #echo "⚠️  Note: Some bash-based tools (NVM, rbenv) need Fish-native alternatives"
 set -gx PATH $PATH /Users/bryanwills/go/bin
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/bryanwills/.lmstudio/bin

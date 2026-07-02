@@ -281,6 +281,11 @@ _prepend_path "$PNPM_HOME"
 export PATH
 unset -f _prepend_path
 
+# ngork completions
+if command -v ngork &>/dev/null; then
+  eval "$(ngork completion)"
+fi
+
 # ---------------------------------------------------------------------------
 # Tooling initialization
 # ---------------------------------------------------------------------------
