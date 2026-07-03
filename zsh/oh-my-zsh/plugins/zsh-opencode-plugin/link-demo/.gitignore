@@ -1,0 +1,15 @@
+# Link private local source material
+raw/*
+!raw/.gitkeep
+
+# Link local runtime state
+.link-backups/
+.link-cache/
+.link-mcp-python
+
+# Local/editor noise
+.DS_Store
+*.swp
+*~
+__pycache__/
+*.pyc
