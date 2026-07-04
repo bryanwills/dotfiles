@@ -142,6 +142,9 @@ alias nv="nvim"
 alias ec="nvim ~/claude_desktop_config.json"
 alias journal='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/bryan-journal'
 
+# PowerShell for MacOS.
+alias pwsh="/usr/local/microsoft/powershell/7-preview/pwsh; exit"
+
 # macOS-only aliases
 if [[ "$ZSH_OS" == "mac" ]]; then
   alias updatedb="/usr/libexec/locate.updatedb"

@@ -3,12 +3,17 @@ font-size = 22
 font-style = Regular
 font-style-italic = Italic
 font-thicken = false
+font-feature = "+liga"
+font-style-bold-italic = "auto"
 
 background-opacity = 0.85
 theme = Mathias
 
+# Cursor configuration
 cursor-style = block
 cursor-style-blink = true
+cursor-color = "#c6d0f5"
+cursor-text = "#303446"
 selection-invert-fg-bg = true
 cursor-invert-fg-bg = true
 
@@ -31,3 +36,48 @@ keybind = ctrl+t=new_tab
 keybind = global:f1=toggle_quick_terminal
 keybind = cmd+shift+m=toggle_maximize
 keybind = cmd+shift+f=toggle_fullscreen
+
+
+# Theme config from forked dotfiles on GH.
+# font-feature = "-liga"
+# font-style-italic = "auto"
+# font-style-bold-italic = "auto"
+
+# Cursor configuration
+# cursor-color = "#c6d0f5"
+# cursor-text = "#303446"
+
+# Terminal options
+# term = "xterm-256color"
+
+# Colors
+# foreground = "#c6d0f5"
+# background = "#303446"
+
+# Selection colors
+# selection-foreground = "#d8caac"
+# selection-background = "#505a60"
+
+# Normal colors
+# palette = 0=#51576d
+# palette = 1=#e78284
+# palette = 2=#a6d189
+# palette = 3=#e5c890
+# palette = 4=#8caaee
+# palette = 5=#f4b8e4
+# palette = 6=#81c8be
+# palette = 7=#b5bfe2
+
+# Bright colors
+# palette = 8=#626880
+# palette = 9=#e78284
+# palette = 10=#a6d189
+# palette = 11=#e5c890
+# palette = 12=#8caaee
+# palette = 13=#f4b8e4
+# palette = 14=#81c8be
+# palette = 15=#a5adce
+
+# Window borders
+# window-theme = "dark"
+#
