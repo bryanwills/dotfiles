@@ -1,0 +1,11 @@
+default_token_lifetime: null
+instances:
+- accounts:
+  - expire_at: null
+    token: __KEYRING__
+    token_name: ggshield token 2026-06-14
+    type: personal_access_token
+    workspace_id: 302626
+  default_token_lifetime: null
+  name: null
+  url: https://dashboard.gitguardian.com

@@ -1,4 +1,4 @@
-/* avoids right side cut of diagrams with readable line length */ 
+/* avoids right side cut of diagrams with readable line length */
 svg[id^="m"][width][height][viewBox] {
     width: 100%;
     height: auto;

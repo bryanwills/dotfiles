@@ -1,0 +1,34 @@
+{
+    "aiSettings": {
+      "enableAutocomplete": true,
+      "maxContextFiles": 100
+    },
+    "fileIgnore": [
+      "node_modules",
+      ".next",
+      ".git",
+      ".DS_Store"
+    ],
+    "files.associations": {
+      "*.md": "markdown",
+      "*.lua": "lua",
+      "*.sh": "shellscript",
+      "*.zsh": "shellscript",
+      "*.bash": "shellscript",
+      "*.toml": "toml",
+      "*.yml": "yaml",
+      "*.yaml": "yaml",
+      "*.json": "json"
+    },
+    "audioCues.enabled": "off",
+    "audioCues.volume": 0,
+    "notifications.enabled": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.sound.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.quickSuggestions": {
+      "other": false,
+      "comments": false,
+      "strings": false
+    }
+  }

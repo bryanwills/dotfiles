@@ -1,21 +1,25 @@
 # Neovim Lua Diagnostics Setup
 
 ## Overview
+
 This directory contains configuration to suppress false positive "Undefined global `vim`" warnings in Neovim Lua configuration files.
 
 ## Files
 
 ### Configuration Files
+
 - `.luarc.json` - Standard Lua language server configuration
 - `.luarc` - Alternative configuration file (some IDEs prefer this)
 
 ### Templates
+
 - `lua/bryan/templates/plugin-template.lua` - Template for new plugin configurations
 - `lua/bryan/templates/core-template.lua` - Template for core configuration files
 
 ## Key Settings
 
 ### Diagnostic Suppression
+
 ```json
 "Lua.diagnostics.disable": [
   "undefined-global"
@@ -23,6 +27,7 @@ This directory contains configuration to suppress false positive "Undefined glob
 ```
 
 ### Global Variables
+
 ```json
 "Lua.diagnostics.globals": [
   "vim",
@@ -33,11 +38,13 @@ This directory contains configuration to suppress false positive "Undefined glob
 ## Usage
 
 ### For New Plugin Files
+
 1. Copy `lua/bryan/templates/plugin-template.lua`
 2. Replace `"plugin-name/plugin-repo"` with your plugin
 3. Add your configuration in the `config` function
 
 ### For New Core Files
+
 1. Copy `lua/bryan/templates/core-template.lua`
 2. Add your configuration after the diagnostic comment
 
@@ -50,6 +57,7 @@ This directory contains configuration to suppress false positive "Undefined glob
 ## Troubleshooting
 
 If you see "Undefined global `vim`" warnings:
+
 1. Ensure the file starts with `---@diagnostic disable: undefined-global`
 2. Check that `.luarc.json` or `.luarc` exists in the nvim directory
 3. Restart your IDE to reload the language server

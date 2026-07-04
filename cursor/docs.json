@@ -1,0 +1,20 @@
+{
+    "docs": [
+      {
+        "name": "React Docs",
+        "url": "https://react.dev/learn"
+      },
+      {
+        "name": "Next.js Docs",
+        "url": "https://nextjs.org/docs"
+      },
+      {
+        "name": "TypeScript Docs",
+        "url": "https://www.typescriptlang.org/docs/"
+      },
+      {
+        "name": "Nvim Docs",
+        "url": "https://neovim.io/doc/user/"
+      }
+    ]
+  }

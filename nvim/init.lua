@@ -1,5 +1,24 @@
+---@diagnostic disable: undefined-global
+-- Enable Neovim's bytecode module cache for faster startup (Neovim 0.9+)
+vim.loader.enable()
+
 require("bryan.core")
 require("bryan.lazy")
+
+-- Disable the Node.js provider (not needed; avoids healthcheck warnings)
+vim.g.loaded_node_provider = 0
+
+-- Disable optional providers to avoid warnings
+vim.g.loaded_perl_provider = 0 -- Disable Perl provider
+vim.g.loaded_ruby_provider = 0 -- Disable Ruby provider
+
+-- Suppress Lua version warnings (we're using Lua 5.4.8 which is newer than required 5.1)
+-- Note: The Lua version warning in healthcheck is informational only and doesn't affect functionality
+-- Suppress Lua version warnings in healthcheck
+vim.g.lua_version_warning = false
+-- Additional Lua version warning suppression
+vim.g.lua_version_check = false
+vim.g.lua_version_required = "5.4.8"
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()

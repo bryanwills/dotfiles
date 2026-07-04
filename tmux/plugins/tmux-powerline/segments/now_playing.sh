@@ -72,7 +72,7 @@ export TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_UPDATE_PERIOD="${TMUX_POWERLINE_SEG
 # Fancy char to display before now playing track
 export TMUX_POWERLINE_SEG_NOW_PLAYING_NOTE_CHAR="${TMUX_POWERLINE_SEG_NOW_PLAYING_NOTE_CHAR_DEFAULT}"
 
-# Plexamp 
+# Plexamp
 # Set up steps for Plexamp
 # 1. Make sure jq(1) is installed on the system.
 # 2. Make sure you have an instance of Tautulli that is accessible by the computer running tmux-powerline.

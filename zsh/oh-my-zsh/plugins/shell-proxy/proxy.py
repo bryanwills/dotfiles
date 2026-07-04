@@ -27,7 +27,7 @@ def get_http_proxy():
                 default_proxy = proxy_configdata[0]
             if len(proxy_configdata) == 2 and not no_proxy:
                 no_proxy = proxy_configdata[1]
-    
+
     if default_proxy:
         return default_proxy, no_proxy
     print(usage, file=sys.stderr)

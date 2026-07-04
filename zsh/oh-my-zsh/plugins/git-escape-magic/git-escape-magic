@@ -132,4 +132,3 @@ git-escape-magic() {
 }
 
 [[ -o kshautoload ]] || git-escape-magic "$@"
-

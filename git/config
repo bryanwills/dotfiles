@@ -1,9 +1,9 @@
 [user]
-  name = Bryan Wills
-  email = bryanwi09@gmail.com
+	name = Bryan Wills
+	email = bryanwi09@gmail.com
 [pull]
   rebase = true
-  default = current 
+  default = current
 [push]
   default = current # push only current branch by default
   autoSetupRemote = true # Easier to push new branches
@@ -11,6 +11,7 @@
   gpgSign = false
 [init]
   defaultBranch = main
+	templateDir = /Users/bryanwills/.config/git-templates
 [rerere]
   enabled = true
 [submodule]
@@ -23,12 +24,16 @@
   whitespace = error # threat incorrect whitespace as errors
   preloadindex = true # preload index for faster status
   editor = nvim
+  pager = delta # use delta for diffs/log/show
+	excludesfile = /Users/bryanwills/.gitignore_global
 [fetch]
   prune = true
+  fsckObjects = true
 [commit]
   gpgsign = false
-  template = ~/.config/git/template 
+  # Template directory for backup Git hooks (used when pre-commit framework is disabled)
   verbose = true
+	template = /Users/bryanwills/.stCommitMsg
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -38,7 +43,7 @@
   locksverify = false
 [alias]
   co = commit
-  pu = puush
+  pu = push
   pl = pull
   rt = remote
   tg = tag
@@ -51,6 +56,9 @@
   rbi = rebase --interactive
   sc = clone --depth=1
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+  # Repository setup helper
+  setup = !bash ~/.config/scripts/setup-new-repo.sh
 [blame]
   coloring = highlightRecent
   date = relative
@@ -72,7 +80,6 @@
 [pager]
   branch = false # no need to use pager for git branch
   tag = false
-  diff = diff-so-fancy | $PAGER # diff-so-fancy as diff pager
 [pack]
   threads = 0 # use all available threads
   windowMemory = 1g # use 1g of memory for pack window
@@ -82,8 +89,6 @@
 [transfer]
   fsckObjects = true
 [receive]
-  fsckObjects = true
-[fetch]
   fsckObjects = true
 [branch]
 #  sort = -commiterdate
@@ -109,11 +114,8 @@
   whitespace  = yellow reverse
   old         = red
 [interactive]
-  diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
   singleKey = true
-# Third-party: diff-so-fancy
-[diff-so-fancy]
-  markEmptyLines = false
 
 # URL shortcuts
 [url "git@github.com:"]
@@ -152,5 +154,13 @@
   # delta detects terminal colors automatically; set one of these to disable auto-detection
   dark = true
   # light = true
-
-
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

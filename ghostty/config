@@ -1,56 +1,83 @@
-<<<<<<< HEAD
-font-size = 24
-theme = Mathias
-scrollback-limit = 100_000_000
-copy-on-select = clipboard
-clipboard-read = allow
-clipboard-write = allow
-term = kitty
-||||||| (empty tree)
-=======
-font-size = 20
-theme = Mathias
-scrollback-limit = 100_000_000
-copy-on-select = clipboard
-clipboard-read = allow
-clipboard-write = allow
->>>>>>> bad00e9 (first commit)
+font-family = MesloLGS NF
+font-size = 22
+font-style = Regular
+font-style-italic = Italic
+font-thicken = false
+font-feature = "+liga"
+font-style-bold-italic = "auto"
 
-command = zsh --login --interactive
-keybind = super+shift+r=reload_config
+background-opacity = 0.85
+theme = Mathias
+
+# Cursor configuration
 cursor-style = block
 cursor-style-blink = true
-macos-option-as-alt = true
+cursor-color = "#c6d0f5"
+cursor-text = "#303446"
+selection-invert-fg-bg = true
+cursor-invert-fg-bg = true
+
+scrollback-limit = 100000
+copy-on-select = clipboard
 clipboard-read = allow
 clipboard-write = allow
-font-thicken = true
-macos-titlebar-style = tabs
+clipboard-trim-trailing-spaces = true
+
 shell-integration = zsh
-background-opacity = 0.85
-macos-titlebar-style = transparent
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+window-save-state = always
+
+keybind = super+shift+r=reload_config
 keybind = cmd+r=reload_config
 keybind = cmd+page_down=next_tab
 keybind = cmd+page_up=previous_tab
 keybind = ctrl+t=new_tab
 keybind = global:f1=toggle_quick_terminal
-selection-invert-fg-bg = true
-cursor-invert-fg-bg = true
+keybind = cmd+shift+m=toggle_maximize
+keybind = cmd+shift+f=toggle_fullscreen
 
 
+# Theme config from forked dotfiles on GH.
+# font-feature = "-liga"
+# font-style-italic = "auto"
+# font-style-bold-italic = "auto"
 
-# config-file = themes/rosepine
-# background = #000000
-# background-opacity = 0.65
-# background-blur-radius = 20
-# Ghostty theme
-# theme = catppuccin-macchiato
-# Font family
-# font-family = JetBrains Mono
-# font-style = Regular
-# font-style-italic = Regular Italic
-# command = /opt/homebrew/bin/tmux
-# clipboard-read = allow
-# clipboard-write = allow
-# copy-on-select = false
-# window-height = 55
+# Cursor configuration
+# cursor-color = "#c6d0f5"
+# cursor-text = "#303446"
 
+# Terminal options
+# term = "xterm-256color"
+
+# Colors
+# foreground = "#c6d0f5"
+# background = "#303446"
+
+# Selection colors
+# selection-foreground = "#d8caac"
+# selection-background = "#505a60"
+
+# Normal colors
+# palette = 0=#51576d
+# palette = 1=#e78284
+# palette = 2=#a6d189
+# palette = 3=#e5c890
+# palette = 4=#8caaee
+# palette = 5=#f4b8e4
+# palette = 6=#81c8be
+# palette = 7=#b5bfe2
+
+# Bright colors
+# palette = 8=#626880
+# palette = 9=#e78284
+# palette = 10=#a6d189
+# palette = 11=#e5c890
+# palette = 12=#8caaee
+# palette = 13=#f4b8e4
+# palette = 14=#81c8be
+# palette = 15=#a5adce
+
+# Window borders
+# window-theme = "dark"
+#

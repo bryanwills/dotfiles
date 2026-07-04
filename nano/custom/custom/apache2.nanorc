@@ -31,5 +31,5 @@ color brightcyan start="<" end=">"
 color white ""(\\.|[^\"])*""
 # FIXME: Unix paths can't use \] in the regex for some reason?!? Maybe a bug? this is preventing a 100% "to the end of the line" match for a few lines (the trailing characters from ] to the EOL are not highlighted.
 color white "[[:space:]]+(/[/\[\^#A-Za-z0-9\.\*\_\-]+)+"
-color green "^[[:space:]]*#.*" 
+color green "^[[:space:]]*#.*"
 color cyan "\<(ServerName|Serveralias|DocumentRoot|DirectoryIndex|ErrorLog|CustomLog)\>"

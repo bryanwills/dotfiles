@@ -1,0 +1,168 @@
+{
+  "backlinks": {
+    "agent-memory-session": [
+      "agent-memory",
+      "local-first-software",
+      "link",
+      "why-link-helps-agents",
+      "index"
+    ],
+    "transformer-reading-notes": [
+      "agent-memory",
+      "retrieval-augmented-generation",
+      "transformers",
+      "why-link-helps-agents",
+      "index"
+    ],
+    "link": [
+      "agent-memory",
+      "knowledge-graph",
+      "local-first-software",
+      "retrieval-augmented-generation",
+      "why-link-helps-agents",
+      "index",
+      "prefer-local-personal-memory",
+      "agent-memory-session",
+      "local-release-notes"
+    ],
+    "retrieval-augmented-generation": [
+      "agent-memory",
+      "transformers",
+      "link",
+      "why-link-helps-agents",
+      "index",
+      "transformer-reading-notes"
+    ],
+    "local-first-software": [
+      "agent-memory",
+      "knowledge-graph",
+      "link",
+      "why-link-helps-agents",
+      "index",
+      "prefer-local-personal-memory",
+      "agent-memory-session",
+      "local-release-notes"
+    ],
+    "local-release-notes": [
+      "knowledge-graph",
+      "local-first-software",
+      "link",
+      "why-link-helps-agents",
+      "index"
+    ],
+    "agent-memory": [
+      "knowledge-graph",
+      "local-first-software",
+      "retrieval-augmented-generation",
+      "transformers",
+      "link",
+      "why-link-helps-agents",
+      "index",
+      "prefer-local-personal-memory",
+      "agent-memory-session",
+      "transformer-reading-notes"
+    ],
+    "knowledge-graph": [
+      "local-first-software",
+      "link",
+      "why-link-helps-agents",
+      "index",
+      "local-release-notes"
+    ],
+    "transformers": [
+      "retrieval-augmented-generation",
+      "index",
+      "transformer-reading-notes"
+    ],
+    "prefer-local-personal-memory": [
+      "index"
+    ],
+    "why-link-helps-agents": [
+      "index"
+    ]
+  },
+  "forward": {
+    "agent-memory": [
+      "agent-memory-session",
+      "transformer-reading-notes",
+      "link",
+      "retrieval-augmented-generation",
+      "local-first-software"
+    ],
+    "knowledge-graph": [
+      "local-release-notes",
+      "link",
+      "agent-memory",
+      "local-first-software"
+    ],
+    "local-first-software": [
+      "agent-memory",
+      "agent-memory-session",
+      "local-release-notes",
+      "link",
+      "knowledge-graph"
+    ],
+    "retrieval-augmented-generation": [
+      "transformer-reading-notes",
+      "agent-memory",
+      "transformers",
+      "link"
+    ],
+    "transformers": [
+      "transformer-reading-notes",
+      "retrieval-augmented-generation",
+      "agent-memory"
+    ],
+    "link": [
+      "local-release-notes",
+      "agent-memory",
+      "knowledge-graph",
+      "agent-memory-session",
+      "local-first-software",
+      "retrieval-augmented-generation"
+    ],
+    "why-link-helps-agents": [
+      "agent-memory",
+      "local-first-software",
+      "agent-memory-session",
+      "transformer-reading-notes",
+      "local-release-notes",
+      "knowledge-graph",
+      "link",
+      "retrieval-augmented-generation"
+    ],
+    "index": [
+      "agent-memory",
+      "retrieval-augmented-generation",
+      "transformers",
+      "local-first-software",
+      "knowledge-graph",
+      "link",
+      "prefer-local-personal-memory",
+      "agent-memory-session",
+      "transformer-reading-notes",
+      "local-release-notes",
+      "why-link-helps-agents"
+    ],
+    "prefer-local-personal-memory": [
+      "link",
+      "agent-memory",
+      "local-first-software"
+    ],
+    "agent-memory-session": [
+      "agent-memory",
+      "local-first-software",
+      "link"
+    ],
+    "local-release-notes": [
+      "link",
+      "knowledge-graph",
+      "local-first-software"
+    ],
+    "transformer-reading-notes": [
+      "transformers",
+      "retrieval-augmented-generation",
+      "agent-memory"
+    ]
+  }
+}

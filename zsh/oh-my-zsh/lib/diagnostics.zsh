@@ -350,4 +350,3 @@ function _omz_diag_dump_os_specific_version() {
     builtin echo
   done
 }
-

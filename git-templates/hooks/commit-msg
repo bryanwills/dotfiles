@@ -1,0 +1,40 @@
+#!/bin/bash
+# Global commit-msg hook for standardized commit messages
+# This hook enforces conventional commit format
+
+set -e
+
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+# Check for conventional commit format
+if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .+'; then
+    echo "❌ Commit message does not follow conventional commit format!"
+    echo ""
+    echo "Expected format: <type>(<scope>): <description>"
+    echo ""
+    echo "Types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert"
+    echo "Examples:"
+    echo "  feat: add new feature"
+    echo "  fix(auth): resolve login issue"
+    echo "  docs: update README"
+    echo "  style: format code with prettier"
+    echo ""
+    echo "To bypass this check: git commit --no-verify"
+    echo ""
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
+# Check for commit message length
+if [ ${#commit_msg} -gt 72 ]; then
+    echo "⚠️  Commit message is longer than 72 characters"
+    echo "Consider breaking it into multiple lines"
+    echo ""
+fi
+
+echo "✅ Commit message format check passed!"
+exit 0

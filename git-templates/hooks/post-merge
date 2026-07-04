@@ -1,0 +1,32 @@
+#!/bin/bash
+# Global post-merge hook to automatically update branches
+# This hook runs after git pull/merge operations
+
+set -e
+
+echo "🔄 Post-merge hook running..."
+
+# Get current branch name
+current_branch=$(git branch --show-current)
+
+# Check if we're on a development branch
+if [[ "$current_branch" == dev/* ]] || [[ "$current_branch" == feature/* ]] || [[ "$current_branch" == bugfix/* ]]; then
+    echo "📋 You're on development branch: $current_branch"
+    echo ""
+    echo "💡 Tips for keeping your branch up to date:"
+    echo "   - Run 'git rebase origin/main' to update your branch"
+    echo "   - Use 'git merge origin/main' for a merge commit"
+    echo "   - Consider squashing commits before merging to main"
+    echo ""
+fi
+
+# Check if there are any conflicts
+if git diff --name-only --diff-filter=U | grep -q .; then
+    echo "⚠️  Merge conflicts detected! Please resolve them before continuing."
+    echo "   Files with conflicts:"
+    git diff --name-only --diff-filter=U | sed 's/^/     /'
+    echo ""
+fi
+
+echo "✅ Post-merge hook completed!"
+exit 0

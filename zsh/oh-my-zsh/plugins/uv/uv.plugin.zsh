@@ -34,7 +34,7 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_uvx" ]]; then
   _comps[uvx]=_uvx
 fi
 
-# uv and uvx are installed together (uvx is an alias to `uv tool run`)  
+# uv and uvx are installed together (uvx is an alias to `uv tool run`)
 # Overwrites the file each time as completions might change with uv versions.
 uv generate-shell-completion zsh >| "$ZSH_CACHE_DIR/completions/_uv" &|
 uvx --generate-shell-completion zsh >| "$ZSH_CACHE_DIR/completions/_uvx" &|
