@@ -12,7 +12,6 @@
     "nvie/tap/git-toolbelt",
     "openclaw/tap/crabbox",
     "openclaw/tap/gogcli",
-    "openclaw/tap/goplaces",
     "openclaw/tap/wacli",
     "oven-sh/bun/bun",
     "slp/krunkit/krunkit",
@@ -38,6 +37,7 @@
   ],
   "trustedcasks": [
     "esengine/reasonix/reasonix",
+    "openclaw/tap/goplaces",
     "tw93/tap/kakuku"
   ]
 }

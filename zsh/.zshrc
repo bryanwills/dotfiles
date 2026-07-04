@@ -214,6 +214,23 @@ git-setup-auto() {
   bash ~/.config/scripts/setup-new-repo.sh
 }
 
+# Sync all local branches that haven't diverged from their remote
+git-sync-all() {
+  git fetch --all --prune
+  local current=$(git branch --show-current)
+  git branch -r | grep -v '\->' | sed 's|origin/||' | while read branch; do
+    if git show-ref --quiet "refs/heads/$branch"; then
+      if git merge-base --is-ancestor "origin/$branch" "$branch" 2>/dev/null ||
+        git merge-base --is-ancestor "$branch" "origin/$branch" 2>/dev/null; then
+        git fetch origin "$branch:$branch" 2>/dev/null && echo "✅ $branch" || echo "⚠️  $branch (skipped — diverged)"
+      else
+        echo "⚠️  $branch (diverged — needs manual merge)"
+      fi
+    fi
+  done
+  git checkout "$current" 2>/dev/null
+}
+
 # Ensure cp/mv are the plain commands (clear any inherited aliases/functions)
 unalias cp mv 2>/dev/null
 unset -f cp mv 2>/dev/null
