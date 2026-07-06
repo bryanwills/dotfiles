@@ -4,6 +4,16 @@ local opt = vim.opt -- for conciseness
 opt.relativenumber = true
 opt.number = true
 
+-- Skip autodetect dark mode from guest OS
+vim.opt.background = "dark" -- tell nvim explicitly, skip the autodetect probe
+vim.g.termguicolors_query_bg = false -- not always present, version-dependent
+vim.api.nvim_set_option_value("t_RB", "", {})
+vim.api.nvim_set_option_value("t_u7", "", {})
+vim.cmd([[
+  set t_RB=
+  set t_u7=
+]])
+
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
