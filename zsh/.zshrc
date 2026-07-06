@@ -76,6 +76,10 @@ plugins=(
 )
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
+# Additional zsh config from a GitHub repo credit: github.com/snacky101/dotfiles/zsh/
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
