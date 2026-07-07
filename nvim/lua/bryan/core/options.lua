@@ -59,7 +59,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
--- session options for auto-session compatibility
+-- session options for persistence.nvim / :mksession compatibility
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- ensure textwidth is set for all file types
