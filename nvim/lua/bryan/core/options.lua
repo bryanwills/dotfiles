@@ -4,15 +4,17 @@ local opt = vim.opt -- for conciseness
 opt.relativenumber = true
 opt.number = true
 
--- Skip autodetect dark mode from guest OS
+-- Skip autodetect dark mode from guest OS (WSL probes Windows host and breaks colors)
 vim.opt.background = "dark" -- tell nvim explicitly, skip the autodetect probe
-vim.g.termguicolors_query_bg = false -- not always present, version-dependent
-vim.api.nvim_set_option_value("t_RB", "", {})
-vim.api.nvim_set_option_value("t_u7", "", {})
-vim.cmd([[
-  set t_RB=
-  set t_u7=
-]])
+if vim.fn.has("wsl") == 1 then
+  vim.g.termguicolors_query_bg = false -- not always present, version-dependent
+  vim.api.nvim_set_option_value("t_RB", "", {})
+  vim.api.nvim_set_option_value("t_u7", "", {})
+  vim.cmd([[
+    set t_RB=
+    set t_u7=
+  ]])
+end
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
