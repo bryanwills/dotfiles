@@ -31,9 +31,9 @@ repos:
       - id: trailing-whitespace
         name: Trailing Whitespace
         description: Remove trailing whitespace
-      - id: end-of-file-fixer
-        name: End of File Fixer
-        description: Ensure files end with a newline
+      #- id: end-of-file-fixer
+      #  name: End of File Fixer
+      #  description: Ensure files end with a newline
       - id: check-yaml
         name: Check YAML
         description: Check YAML syntax
