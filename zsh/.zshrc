@@ -154,6 +154,14 @@ if [[ "$ZSH_OS" == "mac" ]]; then
   alias updatedb="/usr/libexec/locate.updatedb"
 fi
 
+alias esp="source '/Users/bryanwills/.espressif/tools/activate_idf_v6.0.2.sh'"
+# kimi-code
+export PATH="/Users/bryanwills/.kimi-code/bin:$PATH"
+export OLLAMA_MODELS="/Volumes/OllamaModels/ollama-data/models"
+export PATH="/Users/bryanwills/.cache/.bun/bin:$PATH"
+eval "$(omp completions zsh)"
+export PATH="/Users/bryanwills/.venv-vllm-metal/bin:$PATH"
+
 # Aliases: tmux
 alias ta='tmux attach'
 alias tl='tmux list-sessions'
@@ -253,6 +261,7 @@ _prepend_path() {
 
 export PATH="/Users/bryanwills/.devcontainers/bin:$PATH"
 export PATH="/Users/bryanwills/.venv-vllm-metal/bin:$PATH"
+export PATH="/Users/bryanwills/.platformio/penv/bin:$PATH"
 
 # Homebrew
 if [[ -n "$BREW_PREFIX" ]]; then
@@ -382,3 +391,6 @@ RDME_AC_ZSH_SETUP_PATH=/Users/bryanwills/Library/Caches/rdme/autocomplete/zsh_se
 
 # Obsidian quick capture functions
 source "$HOME/.config/zsh/functions/obsidian-capture.zsh"
+
+# Pi
+export PATH="/Users/bryanwills/.local/share/mise/installs/node/24.16.0/bin:$PATH"
