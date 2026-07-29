@@ -26,6 +26,7 @@
   ],
   "trustedtaps": [
     "anomalyco/tap",
+    "espressif/eim",
     "mattt/tap",
     "nvie/tap",
     "opencoworkai/tap",
@@ -37,6 +38,7 @@
   ],
   "trustedcasks": [
     "esengine/reasonix/reasonix",
+    "msitarzewski/agency-agents/agency-agents",
     "openclaw/tap/goplaces",
     "tw93/tap/kakuku"
   ]
