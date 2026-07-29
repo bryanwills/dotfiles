@@ -2,5 +2,6 @@
 idiomatic_version_file_enable_tools = []
 
 [tools]
-node = "24"
+node = "26.0.0"
+python = "3.12"
 ruby = "3.2.2"
